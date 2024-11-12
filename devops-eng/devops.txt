@@ -1,0 +1,417 @@
+
+NEW QUESTION 1
+You need to perform ad-hoc business analytics queries on well-structured data. Data comes in constantly at a high velocity. Your business intelligence team can
+understand SQL. What AWS service(s) should you look to first?
+A. Kinesis Firehose + RDS
+B. Kinesis Firehose + RedShift
+C. EMR using Hive
+D. EMR running Apache Spark
+Answer: B
+Explanation:
+Kinesis Firehose provides a managed service for aggregating streaming data and inserting it into RedShift. RedShift also supports ad-hoc queries over wellstructured data using a SQL-compliant wire protocol, so the business team should be able to adopt this system easily.
+Reference: https://aws.amazon.com/kinesis/firehose/detai|s/
+
+NEW QUESTION 2
+What is server immutability?
+A. Not updating a server after creation.
+B. The ability to change server counts.
+C. Updating a server after creation.
+D. The inability to change server count
+Answer: A
+Explanation:
+disposable upgrades offer a simpler way to know if your application has unknown dependencies. The underlying EC2 instance usage is considered temporary or
+ephemeral in nature for the period of deployment until the current release is active. During the new release, a new set of EC2 instances are rolled out by
+terminating older instances. This type of upgrade technique is more common in an immutable infrastructure.
+Reference: https://d0.awsstatic.com/whitepapers/overview-of-deployment-options-on-aws.pdf
+
+NEW QUESTION 3
+You are creating an application which stores extremely sensitive financial information. All information in
+the system must be encrypted at rest and in transit. Which of these is a violation of this policy?
+A. ELB SSL termination.
+B. ELB Using Proxy Protocol v1.
+C. CIoudFront Viewer Protocol Policy set to HTTPS redirection.
+D. Telling S3 to use AES256 on the server-sid
+Answer: A
+Explanation:
+Terminating SSL terminates the security of a connection over HTTP, removing the S for "Secure" in HTTPS. This violates the "encryption in transit" requirement in
+the scenario.
+Reference:
+http://docs.aws.amazon.com/E|asticLoadBaIancing/latest/DeveIoperGuide/elb-listener-config.htmI
+
+NEW QUESTION 4
+When thinking of DynamoDB, what are true of Global Secondary Key properties?
+A. The partition key and sort key can be different from the table.
+B. Only the partition key can be different from the table.
+C. Either the partition key or the sort key can be different from the table, but not both.
+D. Only the sort key can be different from the tabl
+Answer: A
+Explanation:
+Global secondary index — an index with a partition key and a sort key that can be different from those on the table. A global secondary index is considered "gIobaI"
+because queries on the index can span all of the data in a table, across all partitions.
+Reference: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Secondarylndexes.html
+
+NEW QUESTION 5
+How does Amazon RDS multi Availability Zone model work?
+A. A second, standby database is deployed and maintained in a different availability zone from master, using synchronous replication.
+B. A second, standby database is deployed and maintained in a different availability zone from master using asynchronous replication.
+C. A second, standby database is deployed and maintained in a different region from master using asynchronous replication.
+D. A second, standby database is deployed and maintained in a different region from master using synchronous replication.
+Answer: A
+Explanation:
+In a MuIti-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone.
+
+Passing Certification Exams Made Easy
+
+visit - https://www.2PassEasy.com
+
+Welcome to download the Newest 2passeasy AWS-Certified-DevOps-Engineer-Professional dumps
+https://www.2passeasy.com/dumps/AWS-Certified-DevOps-Engineer-Professional/ (270 New Questions)
+
+Reference: http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.Mu|tiAZ.htmI
+
+NEW QUESTION 6
+What is the scope of an EC2 security group?
+A. Availability Zone
+B. Placement Group
+C. Region
+D. VPC
+Answer: C
+Explanation:
+A security group is tied to a region and can be assigned only to instances in the same region. You can't enable an instance to communicate with an instance
+outside its region using security group rules. Traffic
+from an instance in another region is seen as WAN bandwidth.
+Reference: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resources.htmI
+
+NEW QUESTION 7
+You need to perform ad-hoc analysis on log data, including searching quickly for specific error codes and reference numbers. Which should you evaluate first?
+A. AWS Elasticsearch Service
+B. AWS RedShift
+C. AWS EMR
+D. AWS DynamoDB
+Answer: A
+Explanation:
+Amazon Elasticsearch Service (Amazon ES) is a managed service that makes it easy to deploy, operate, and scale Elasticsearch clusters in the AWS cloud.
+Elasticsearch is a popular open-source search and analytics engine for use cases such as log analytics, real-time application monitoring, and click stream
+analytics.
+Reference:
+http://docs.aws.amazon.com/elasticsearch-service/Iatest/developerguide/what-is-amazon-elasticsearch-s ervice.htmI
+
+NEW QUESTION 8
+There are a number of ways to purchase compute capacity on AWS. Which orders the price per compute or memory unit from LOW to HIGH (cheapest to most
+expensive), on average?
+(A) On-Demand (B) Spot (C) Reserved
+A. A, B, C
+B. C, B, A
+C. B, C, A
+D. A, C, B
+Answer: C
+Explanation:
+Spot instances are usually many, many times cheaper than on-demand prices. Reserved instances, depending on their term and utilization, can yield
+approximately 33% to 66% cost savings. On-Demand prices are the baseline price and are the most expensive way to purchase EC2 compute time. Reference:
+https://d0.awsstatic.com/whitepapers/Cost_Optimization_with_AWS.pdf
+
+NEW QUESTION 9
+Which of these techniques enables the fastest possible rollback times in the event of a failed deployment?
+A. Rolling; Immutable
+B. Rolling; Mutable
+C. Canary or A/B
+D. Blue-Green
+Answer: D
+Explanation:
+AWS specifically recommends Blue-Green for super-fast, zero-downtime deploys - and thus rollbacks, which are redeploying old code.
+You use various strategies to migrate the traffic from your current application stack (blue) to a new version of the application (green). This is a popular technique
+for deploying applications with zero downtime. Reference: https://d0.awsstatic.com/whitepapers/overview-of-deployment-options-on-aws.pdf
+
+NEW QUESTION 10
+Which major database needs a BYO license?
+A. PostgreSQL
+B. NIariaDB
+C. MySQL
+D. Oracle
+Answer: D
+
+Passing Certification Exams Made Easy
+
+visit - https://www.2PassEasy.com
+
+Welcome to download the Newest 2passeasy AWS-Certified-DevOps-Engineer-Professional dumps
+https://www.2passeasy.com/dumps/AWS-Certified-DevOps-Engineer-Professional/ (270 New Questions)
+
+Explanation:
+Oracle is not open source, and requires a bring your own license model.
+Reference: http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_OracIe.htm|
+
+NEW QUESTION 10
+You need to know when you spend $1000 or more on AWS. What's the easy way for you to see that notification?
+A. AWS CIoudWatch Events tied to API calls, when certain thresholds are exceeded, publish to SNS.
+B. Scrape the billing page periodically and pump into Kinesis.
+C. AWS CIoudWatch Metrics + Billing Alarm + Lambda event subscriptio
+D. When a threshold is exceeded, email the manager.
+E. Scrape the billing page periodically and publish to SN
+Answer: C
+Explanation:
+Even if you're careful to stay within the free tier, it's a good idea to create a billing alarm to notify you if you exceed the limits of the free tier. Billing alarms can help
+to protect you against unknowingly accruing charges if you inadvertently use a service outside of the free tier or if traffic exceeds your expectations. Reference:
+http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-aIarms.htmI
+
+NEW QUESTION 12
+You need to migrate 10 million records in one hour into DynamoDB. All records are 1.5KB in size. The data is evenly distributed across the partition key. How
+many write capacity units should you provision during this batch load?
+A. 6667
+B. 4166
+C. 5556
+D. 2778
+Answer: C
+Explanation:
+You need 2 units to make a 1.5KB write, since you round up. You need 20 million total units to perform this load. You have 3600 seconds to do so. DMde and
+round up for 5556.
+Reference: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughp ut.htmI
+
+NEW QUESTION 13
+You are experiencing performance issues writing to a DynamoDB table. Your system tracks high scores for video games on a marketplace. Your most popular
+game experiences all of the performance issues. What is the most likely problem?
+A. DynamoDB's vector clock is out of sync, because of the rapid growth in request for the most popular game.
+B. You selected the Game ID or equivalent identifier as the primary partition key for the table.
+C. Users of the most popular video game each perform more read and write requests than average.
+D. You did not provision enough read or write throughput to the tabl
+Answer: B
+Explanation:
+The primary key selection dramatically affects performance consistency when reading or writing to DynamoDB. By selecting a key that is tied to the identity of the
+game, you forced DynamoDB to create a hotspot in the table partitions, and over-request against the primary key partition for the popular game. When it stores
+data, DynamoDB dMdes a tabIe's items into multiple partitions, and distributes the data primarily based upon the partition key value. The provisioned throughput
+associated with a table is also dMded evenly among the partitions, with no sharing of provisioned throughput across partitions. Reference:
+http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GuideIinesForTabIes.htmI#GuideIi nesForTabIes.UniformWorkIoad
+
+NEW QUESTION 17
+You meet once per month with your operations team to review the past month's data. During the meeting, you realize that 3 weeks ago, your monitoring system
+which pings over HTTP from outside AWS recorded a large spike in latency on your 3-tier web service API.
+You use DynamoDB for the database layer, ELB, EBS, and EC2 for the business logic tier, and SQS, ELB, and EC2 for the presentation layer.
+Which of the following techniques will NOT help you figure out what happened?
+A. Check your CIoudTraiI log history around the spike's time for any API calls that caused slowness.
+B. Review CIoudWatch Metrics graphs to determine which component(s) slowed the system down.
+C. Review your ELB access logs in S3 to see if any ELBs in your system saw the latency.
+D. Analyze your logs to detect bursts in traffic at that tim
+Answer: B
+Explanation:
+Metrics data are available for 2 weeks. If you want to store metrics data beyond that duration, you can retrieve it using our GetMetricStatistics API as well as a
+number of applications and tools offered by AWS partners.
+Reference: https://aws.amazon.com/cIoudwatch/faqs/
+
+NEW QUESTION 19
+For AWS CloudFormation, which is true?
+A. Custom resources using SNS have a default timeout of 3 minutes.
+B. Custom resources using SNS do not need a <code>ServiceToken</code> property.
+
+Passing Certification Exams Made Easy
+
+visit - https://www.2PassEasy.com
+
+Welcome to download the Newest 2passeasy AWS-Certified-DevOps-Engineer-Professional dumps
+https://www.2passeasy.com/dumps/AWS-Certified-DevOps-Engineer-Professional/ (270 New Questions)
+
+C. Custom resources using Lambda and <code>Code.ZipFiIe</code> allow inline nodejs resource composition.
+D. Custom resources using Lambda do not need a <code>ServiceToken</code>property
+Answer: C
+Explanation:
+Code is a property of the AWS::Lambda::Function resource that enables to you specify the source code of an AWS Lambda (Lambda) function. You can point to a
+file in an Amazon Simple Storage Service (Amazon S3) bucket or specify your source code as inline text (for nodejs runtime environments only). Reference:
+http://docs.aws.amazon.com/AWSCIoudFormation/latest/UserGuide/template-custom-resources.html
+
+NEW QUESTION 22
+You need to deploy an AWS stack in a repeatable manner across multiple environments. You have selected CIoudFormation as the right tool to accomplish this,
+but have found that there is a resource type you need to create and model, but is unsupported by CIoudFormation. How should you overcome this chaHenge?
+A. Use a CIoudFormation Custom Resource Template by selecting an API call to proxy for create, update, and delete action
+B. CIoudFormation will use the AWS SDK, CLI, or API method of your choosing as the state transition function for the resource type you are modeling.
+C. Submit a ticket to the AWS Forum
+D. AWS extends CIoudFormation Resource Types by releasing tooling to the AWS Labs organization on GitHu
+E. Their response time is usually 1 day, and they complete requests within a week or two.
+F. Instead of depending on CIoudFormation, use Chef, Puppet, or Ansible to author Heat templates, which are declarative stack resource definitions that operate
+over the OpenStack hypervisor and cloud environment.
+G. Create a CIoudFormation Custom Resource Type by implementing create, update, and delete functionality, either by subscribing a Custom Resource Provider
+to an SNS topic, or by implementing the logic in AWS Lambda.
+Answer: D
+Explanation:
+Custom resources provide a way for you to write custom provisioning logic in AWS CIoudFormation template and have AWS CIoudFormation run it during a stack
+operation, such as when you create, update or delete a stack. For more information, see Custom Resources.
+Reference:
+http://docs.aws.amazon.com/AWSCIoudFormation/latest/UserGuide/template-custom-resources.html
+
+NEW QUESTION 25
+Your CTO has asked you to make sure that you know what all users of your AWS account are doing to change resources at all times. She wants a report of who is
+doing what over time, reported to her once per week, for as broad a resource type group as possible. How should you do this?
+A. Create a global AWS CIoudTraiI Trai
+B. Configure a script to aggregate the log data delivered to S3 once per week and deliver this to the CTO.
+C. Use CIoudWatch Events Rules with an SNS topic subscribed to all AWS API call
+D. Subscribe the CTO to an email type delivery on this SNS Topic.
+E. Use AWS IAM credential reports to deliver a CSV of all uses of IAM User Tokens over time to the CTO.
+F. Use AWS Config with an SNS subscription on a Lambda, and insert these changes over time into a DynamoDB tabl
+G. Generate reports based on the contents of this table.
+Answer: A
+Explanation:
+This is the ideal use case for AWS CIoudTraiI.
+CloudTrai| provides visibility into user actMty by recording API calls made on your account. CIoudTraiI records important information about each API call, including
+the name of the API, the identity of the caller, the time of the API call, the request parameters, and the response elements returned by the AWS service. This
+information helps you to track changes made to your AWS resources and to troubleshoot operational issues. CIoudTraiI makes it easier to ensure compliance with
+internal policies and regulatory standards. Reference: https://aws.amazon.com/CloudtraiI/faqs/
+
+NEW QUESTION 27
+You need to deploy a new application version to production. Because the deployment is high-risk, you need to roll the new version out to users over a number of
+hours, to make sure everything is working correctly. You need to be able to control the proportion of users seeing the new version of the application down to the
+percentage point.
+You use ELB and EC2 with Auto Scaling Groups and custom AMIs with your code pre-installed assigned to Launch Configurations. There are no database-level
+changes during your deployment. You have been told you cannot spend too much money, so you must not increase the number of EC2 instances much at all
+during the deployment, but you also need to be able to switch back to the original version of code quickly if something goes wrong. What is the best way to meet
+these requirements?
+A. Create a second ELB, Auto Scaling Launch Configuration, and Auto Scaling Group using the Launch Configuratio
+B. Create AM|s with all code pre-installe
+C. Assign the new AMI to the second Auto Scaling Launch Configuratio
+D. Use Route53 Weighted Round Robin Records to adjust the proportion of traffic hitting the two ELBs.
+E. Use the Blue-Green deployment method to enable the fastest possible rollback if neede
+F. Create a full second stack of instances and cut the DNS over to the new stack of instances, and change the DNS back if a rollback is needed.
+G. Create AMIs with all code pre-installe
+H. Assign the new AMI to the Auto Scaling Launch Configuration, to replace the old on
+I. Gradually terminate instances running the old code (launched with the old Launch Configuration) and allow the new AMIs to boot to adjust the traffic balance to
+the new cod
+J. On rollback, reverse the process by doing the same thing, but changing the AMI on the Launch Config back to the original code.
+K. Migrate to use AWS Elastic Beanstal
+L. Use the established and well-tested Rolling Deployment setting AWS provides on the new Application Environment, publishing a zip bundle of the new code and
+adjusting the wait period to spread the deployment over tim
+M. Re-deploy the old code bundle to rollback if needed.
+Answer: A
+
+Passing Certification Exams Made Easy
+
+visit - https://www.2PassEasy.com
+
+Welcome to download the Newest 2passeasy AWS-Certified-DevOps-Engineer-Professional dumps
+https://www.2passeasy.com/dumps/AWS-Certified-DevOps-Engineer-Professional/ (270 New Questions)
+
+Explanation:
+Only Weighted Round Robin DNS Records and reverse proxies allow such fine-grained tuning of traffic splits. The Blue-Green option does not meet the
+requirement that we mitigate costs and keep overall EC2 fileet size consistent, so we must select the 2 ELB and ASG option with WRR DNS tuning. This method is
+called A/B deployment and/or Canary deployment.
+Reference: https://d0.awsstatic.com/whitepapers/overview-of-deployment-options-on-aws.pdf
+
+NEW QUESTION 29
+Your company wants to understand where cost is coming from in the company's production AWS account. There are a number of applications and services
+running at any given time. Without expending too much initial development time, how best can you give the business a good understanding of which applications
+cost the most per month to operate?
+A. Create an automation script which periodically creates AWS Support tickets requesting detailed intra-month information about your bill.
+B. Use custom CIoudWatch Metrics in your system, and put a metric data point whenever cost is incurred.
+C. Use AWS Cost Allocation Tagging for all resources which support i
+D. Use the Cost Explorer to analyze costs throughout the month.
+E. Use the AWS Price API and constantly running resource inventory scripts to calculate total price based on multiplication of consumed resources over time.
+Answer: C
+Explanation:
+Cost Allocation Tagging is a built-in feature of AWS, and when coupled with the Cost Explorer, provides a simple and robust way to track expenses.
+You can also use tags to filter views in Cost Explorer. Note that before you can filter views by tags in Cost Explorer, you must have applied tags to your resources
+and activate them, as described in the following sections. For more information about Cost Explorer, see Analyzing Your Costs with Cost Explorer. Reference:
+http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html
+
+NEW QUESTION 33
+Which of the following tools does not directly support AWS OpsWorks, for monitoring your stacks?
+A. AWS Config
+B. Amazon CIoudWatch Nletrics
+C. AWS CloudTraiI
+D. Amazon CIoudWatch Logs
+Answer: A
+Explanation:
+You can monitor your stacks in the following ways: AWS OpsWorks uses Amazon CIoudWatch to provide thirteen custom metrics with detailed monitoring for each
+instance in the stack; AWS OpsWorks integrates with AWS CIoudTraiI to log every AWS OpsWorks API call and store the data in an Amazon S3 bucket; You can
+use Amazon CIoudWatch Logs to monitor your stack's system, application, and custom logs. Reference:
+http://docs.aws.amazon.com/opsworks/latest/userguide/monitoring.htmI
+
+NEW QUESTION 37
+What is a circular dependency in AWS CIoudFormation?
+A. When a Template references an earlier version of itself.
+B. When Nested Stacks depend on each other.
+C. When Resources form a DependOn loop.
+D. When a Template references a region, which references the original Templat
+Answer: C
+Explanation:
+To resolve a dependency error, add a DependsOn attribute to resources that depend on other resources in your template. In some cases, you must explicitly
+declare dependencies so that AWS CIoudFormation can create or delete resources in the correct order. For example, if you create an Elastic IP and a VPC
+with an Internet gateway in the same stack, the Elastic IP must depend on the Internet gateway attachment. For additional information, see DependsOn Attribute.
+Reference: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.htm|#troub|eshootin g-errors-dependence-error
+
+NEW QUESTION 38
+What is true of the way that encryption works with EBS?
+A. Snapshotting an encrypted volume makes an encrypted snapshot; restoring an encrypted snapshot creates an encrypted volume when specified / requested.
+B. Snapshotting an encrypted volume makes an encrypted snapshot when specified / requested; restoring an encrypted snapshot creates an encrypted volume
+when specified / requested.
+C. Snapshotting an encrypted volume makes an encrypted snapshot; restoring an encrypted snapshot always creates an encrypted volume.
+D. Snapshotting an encrypted volume makes an encrypted snapshot when specified / requested; restoring an encrypted snapshot always creates an encrypted
+volume.
+Answer: C
+Explanation:
+Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that are created from encrypted snapshots are also automatically
+encrypted. Your encrypted volumes and any associated snapshots always remain protected. For more information, see Amazon EBS Encryption.
+Reference: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.htmI
+
+NEW QUESTION 41
+You need to create a Route53 record automatically in CIoudFormation when not running in production during all launches of a Template. How should you
+implement this?
+
+Passing Certification Exams Made Easy
+
+visit - https://www.2PassEasy.com
+
+Welcome to download the Newest 2passeasy AWS-Certified-DevOps-Engineer-Professional dumps
+https://www.2passeasy.com/dumps/AWS-Certified-DevOps-Engineer-Professional/ (270 New Questions)
+
+A. Use a <code>Parameter</code> for <code>environment</code>, and add a <code>Condition</code> on the Route53 <code>Resource</code> in the template
+to create the record only when<code>environment</code> is not <code>production</code>.
+B. Create two templates, one with the Route53 record value and one with a null value for the recor
+C. Use the one without it when deploying to production.
+D. Use a <code>Parameter</code> for <code>environment</code>, and add a <code>Condition</code> on the Route53 <code>Resource</code> in the template
+to create the record with a null string when<code>environment</code> is <code>production</code>.
+E. Create two templates, one with the Route53 record and one without i
+F. Use the one without it when deploying to production.
+Answer: A
+Explanation:
+The best way to do this is with one template, and a Condition on the resource. Route53 does not allow null strings for records.
+Reference:
+http://docs.aws.amazon.com/AWSCIoudFormation/latest/UserGuide/conditions-section-structure.html
+
+NEW QUESTION 43
+When thinking of AWS Elastic Beanstalk, which statement is true?
+A. Worker tiers pull jobs from SNS.
+B. Worker tiers pull jobs from HTTP.
+C. Worker tiers pull jobs from JSON.
+D. Worker tiers pull jobs from SQ
+Answer: D
+Explanation:
+Elastic Beanstalk installs a daemon on each Amazon EC2 instance in the Auto Scaling group to process Amazon SQS messages in the worker environment. The
+daemon pulls data off the Amazon SQS queue, inserts it into the message body of an HTTP POST request, and sends it to a user-configurable URL path on the
+local host. The content type for the message body within an HTTP POST request is application/json by default.
+Reference:
+http://docs.aws.amazon.com/elasticbeanstaIk/latest/dg/using-features-managing-env-tiers.htmI
+
+NEW QUESTION 48
+Your company needs to automate 3 layers of a large cloud deployment. You want to be able to track this depIoyment's evolution as it changes over time, and
+carefully control any alterations. What is a good way to automate a stack to meet these requirements?
+A. Use OpsWorks Stacks with three layers to model the layering in your stack.
+B. Use CloudFormation Nested Stack Templates, with three child stacks to represent the three logicallayers of your cloud.
+C. Use AWS Config to declare a configuration set that AWS should roll out to your cloud.
+D. Use Elastic Beanstalk Linked Applications, passing the important DNS entires between layers using the metadata interface.
+Answer: B
+Explanation:
+Only CIoudFormation allows source controlled, declarative templates as the basis for stack automation. Nested Stacks help achieve clean separation of layers
+while simultaneously providing a method to control all layers at once when needed.
+Reference:
+https://bIogs.aws.amazon.com/application-management/post/TxlT9JYOOS8AB9I/Use-Nested-Stacks-to- Create-Reusable-Templates-and-Support-RoleSpeciaIization
+
+NEW QUESTION 52
+Your appIication's Auto Scaling Group scales up too quickly, too much, and stays scaled when traffic decreases. What should you do to fix this?
+A. Set a longer cooldown period on the Group, so the system stops overshooting the target capacit
+B. The issue is that the scaling system doesn't allow enough time for new instances to begin servicing requests before measuring aggregate load again.
+C. Calculate the bottleneck or constraint on the compute layer, then select that as the new metric, and set the metric thresholds to the bounding values that begin
+to affect response latency.
+D. Raise the CIoudWatch Alarms threshold associated with your autoscaling group, so the scaling takes more of an increase in demand before beginning.
+E. Use larger instances instead of lots of smaller ones, so the Group stops scaling out so much and wasting resources as the OS level, since the OS uses a higher
+proportion of resources on smaller instances.
+Answer: B
+Explanation:
+Systems will always over-scale unless you choose the metric that runs out first and becomes constrained first. You also need to set the thresholds of the metric
+based on whether or not latency is affected by the change, tojustify adding capacity instead of wasting money.
+Reference: http://docs.aws.amazon.com/AutoSca|ing/latest/DeveIoperGuide/poIicy_creating.htmI

@@ -1,0 +1,752 @@
+NEW QUESTION 1
+An e commerce company wants to launch a new cloud-based product recommendation feature for its web application. Due to data localization regulations, any
+sensitive data must not leave its on-premises data center, and the product recommendation model must be trained and tested using nonsensitive data only. Data
+transfer to the cloud must use IPsec. The web application is hosted on premises with a PostgreSQL database that contains all the data. The company wants the
+data to be uploaded securely to Amazon S3 each day for model retraining.
+How should a machine learning specialist meet these requirements?
+A. Create an AWS Glue job to connect to the PostgreSQL DB instanc
+B. Ingest tables without sensitive data through an AWS Site-to-Site VPN connection directly into Amazon S3.
+C. Create an AWS Glue job to connect to the PostgreSQL DB instanc
+D. Ingest all data through an AWS Site- to-Site VPN connection into Amazon S3 while removing sensitive data using a PySpark job.
+E. Use AWS Database Migration Service (AWS DMS) with table mapping to select PostgreSQL tables with no sensitive data through an SSL connectio
+F. Replicate data directly into Amazon S3.
+G. Use PostgreSQL logical replication to replicate all data to PostgreSQL in Amazon EC2 through AWS Direct Connect with a VPN connectio
+H. Use AWS Glue to move data from Amazon EC2 to Amazon S3.
+Answer: C
+
+NEW QUESTION 2
+A Marketing Manager at a pet insurance company plans to launch a targeted marketing campaign on social media to acquire new customers Currently, the
+company has the following data in Amazon Aurora
+• Profiles for all past and existing customers
+• Profiles for all past and existing insured pets
+• Policy-level information
+• Premiums received
+• Claims paid
+What steps should be taken to implement a machine learning model to identify potential new customers on social media?
+A. Use regression on customer profile data to understand key characteristics of consumer segments Find similar profiles on social media.
+B. Use clustering on customer profile data to understand key characteristics of consumer segments Find similar profiles on social media.
+C. Use a recommendation engine on customer profile data to understand key characteristics of consumer segment
+D. Find similar profiles on social media
+E. Use a decision tree classifier engine on customer profile data to understand key characteristics of consumer segment
+F. Find similar profiles on social media
+Answer: C
+
+NEW QUESTION 3
+An agency collects census information within a country to determine healthcare and social program needs by province and city. The census form collects
+responses for approximately 500 questions from each citizen
+Which combination of algorithms would provide the appropriate insights? (Select TWO )
+A. The factorization machines (FM) algorithm
+B. The Latent Dirichlet Allocation (LDA) algorithm
+C. The principal component analysis (PCA) algorithm
+D. The k-means algorithm
+E. The Random Cut Forest (RCF) algorithm
+Answer: CD
+Explanation:
+The PCA and K-means algorithms are useful in collection of data using census form.
+
+NEW QUESTION 4
+A web-based company wants to improve its conversion rate on its landing page Using a large historical dataset of customer visits, the company has repeatedly
+trained a multi-class deep learning network algorithm on Amazon SageMaker However there is an overfitting problem training data shows 90% accuracy in
+predictions, while test data shows 70% accuracy only
+The company needs to boost the generalization of its model before deploying it into production to maximize conversions of visits to purchases
+Which action is recommended to provide the HIGHEST accuracy model for the company's test and validation data?
+A. Increase the randomization of training data in the mini-batches used in training.
+B. Allocate a higher proportion of the overall data to the training dataset
+C. Apply L1 or L2 regularization and dropouts to the training.
+D. Reduce the number of layers and units (or neurons) from the deep learning network.
+Answer: C
+Explanation:
+If this is a ComputerVision problem augmentation can help and we may consider A an option. However in analyzing customer historic data, there is no easy way to
+increase randomization in training. If you go deep into modelling and coding. When you build model with tensorflow/pytorch, most of the time the trainloader is
+already sampling in data in random manner (with shuffle enable). What we usually do to reduce overfitting is by adding dropout.
+https://docs.aws.amazon.com/machine-learning/latest/dg/model-fit-underfitting-vs-overfitting.html
+
+NEW QUESTION 5
+A machine learning (ML) specialist is using Amazon SageMaker hyperparameter optimization (HPO) to improve a model’s accuracy. The learning rate parameter
+is specified in the following HPO configuration:
+
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+During the results analysis, the ML specialist determines that most of the training jobs had a learning rate between 0.01 and 0.1. The best result had a learning
+rate of less than 0.01. Training jobs need to run regularly over a changing dataset. The ML specialist needs to find a tuning mechanism that uses different learning
+rates more evenly from the provided range between MinValue and MaxValue.
+Which solution provides the MOST accurate result?
+A. Modify the HPO configuration as follows: C:\Users\Admin\Desktop\Data\Odt data\Untitled.jpgSelect the most accurate hyperparameter configuration form this
+HPO job.
+
+B. Run three different HPO jobs that use different learning rates form the following intervals for MinValue and MaxValue while using the same number of training
+jobs for each HPO job:[0.01, 0.1][0.001, 0.01][0.0001, 0.001]Select the most accurate hyperparameter configuration form these three HPO jobs.
+C. Modify the HPO configuration as follows: C:\Users\Admin\Desktop\Data\Odt data\Untitled.jpg
+
+Select the most accurate hyperparameter configuration form this training job.
+D. Run three different HPO jobs that use different learning rates form the following intervals for MinValue and MaxValu
+E. Divide the number of training jobs for each HPO job by three:[0.01, 0.1][0.001, 0.01][0.0001, 0.001]Select the most accurate hyperparameter configuration form
+these three HPO jobs.
+Answer: C
+
+NEW QUESTION 6
+A retail company intends to use machine learning to categorize new products A labeled dataset of current products was provided to the Data Science team The
+dataset includes 1 200 products The labeled dataset has 15 features for each product such as title dimensions, weight, and price Each product is labeled as
+belonging to one of six categories such as books, games, electronics, and movies.
+Which model should be used for categorizing new products using the provided dataset for training?
+A. An XGBoost model where the objective parameter is set to multi: softmax
+B. A deep convolutional neural network (CNN) with a softmax activation function for the last layer
+C. A regression forest where the number of trees is set equal to the number of product categories
+D. A DeepAR forecasting model based on a recurrent neural network (RNN)
+Answer: A
+
+NEW QUESTION 7
+A Machine Learning Specialist is creating a new natural language processing application that processes a dataset comprised of 1 million sentences The aim is to
+then run Word2Vec to generate embeddings of the sentences and enable different types of predictions
+Here is an example from the dataset
+"The quck BROWN FOX jumps over the lazy dog "
+Which of the following are the operations the Specialist needs to perform to correctly sanitize and prepare the data in a repeatable manner? (Select THREE)
+A. Perform part-of-speech tagging and keep the action verb and the nouns only
+B. Normalize all words by making the sentence lowercase
+C. Remove stop words using an English stopword dictionary.
+D. Correct the typography on "quck" to "quick."
+E. One-hot encode all words in the sentence
+F. Tokenize the sentence into words.
+Answer: BCF
+
+NEW QUESTION 8
+A company will use Amazon SageMaker to train and host a machine learning (ML) model for a marketing campaign. The majority of data is sensitive customer
+data. The data must be encrypted at rest. The company wants AWS to maintain the root of trust for the master keys and wants encryption key usage to be logged.
+Which implementation will meet these requirements?
+A. Use encryption keys that are stored in AWS Cloud HSM to encrypt the ML data volumes, and to encryptthe model artifacts and data in Amazon S3.
+B. Use SageMaker built-in transient keys to encrypt the ML data volume
+C. Enable default encryption for new Amazon Elastic Block Store (Amazon EBS) volumes.
+
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+D. Use customer managed keys in AWS Key Management Service (AWS KMS) to encrypt the ML data volumes, and to encrypt the model artifacts and data in
+Amazon S3.
+E. Use AWS Security Token Service (AWS STS) to create temporary tokens to encrypt the ML storage volumes, and to encrypt the model artifacts and data in
+Amazon S3.
+Answer: C
+
+NEW QUESTION 9
+A large mobile network operating company is building a machine learning model to predict customers who are likely to unsubscribe from the service. The company
+plans to offer an incentive for these customers as the cost of churn is far greater than the cost of the incentive.
+The model produces the following confusion matrix after evaluating on a test dataset of 100 customers: Based on the model evaluation results, why is this a viable
+model for production?
+
+A. The model is 86% accurate and the cost incurred by the company as a result of false negatives is less than the false positives.
+B. The precision of the model is 86%, which is less than the accuracy of the model.
+C. The model is 86% accurate and the cost incurred by the company as a result of false positives is less than the false negatives.
+D. The precision of the model is 86%, which is greater than the accuracy of the model.
+Answer: A
+
+NEW QUESTION 10
+A company is setting up an Amazon SageMaker environment. The corporate data security policy does not allow communication over the internet.
+How can the company enable the Amazon SageMaker service without enabling direct internet access to Amazon SageMaker notebook instances?
+A. Create a NAT gateway within the corporate VPC.
+B. Route Amazon SageMaker traffic through an on-premises network.
+C. Create Amazon SageMaker VPC interface endpoints within the corporate VPC.
+D. Create VPC peering with Amazon VPC hosting Amazon SageMaker.
+Answer: A
+
+NEW QUESTION 10
+A company wants to classify user behavior as either fraudulent or normal. Based on internal research, a Machine Learning Specialist would like to build a binary
+classifier based on two features: age of account and transaction month. The class distribution for these features is illustrated in the figure provided.
+
+Based on this information which model would have the HIGHEST accuracy?
+A. Long short-term memory (LSTM) model with scaled exponential linear unit (SELL))
+B. Logistic regression
+C. Support vector machine (SVM) with non-linear kernel
+D. Single perceptron with tanh activation function
+Answer: C
+
+NEW QUESTION 13
+A Machine Learning Specialist is packaging a custom ResNet model into a Docker container so the company can leverage Amazon SageMaker for training The
+
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+Specialist is using Amazon EC2 P3 instances to train the model and needs to properly configure the Docker container to leverage the NVIDIA GPUs
+What does the Specialist need to do1?
+A. Bundle the NVIDIA drivers with the Docker image
+B. Build the Docker container to be NVIDIA-Docker compatible
+C. Organize the Docker container's file structure to execute on GPU instances.
+D. Set the GPU flag in the Amazon SageMaker Create TrainingJob request body
+Answer: A
+
+NEW QUESTION 17
+A Data Scientist received a set of insurance records, each consisting of a record ID, the final outcome among 200 categories, and the date of the final outcome.
+Some partial information on claim contents is also provided, but only for a few of the 200 categories. For each outcome category, there are hundreds of records
+distributed over the past 3 years. The Data Scientist wants to predict how many claims to expect in each category from month to month, a few months in advance.
+What type of machine learning model should be used?
+A. Classification month-to-month using supervised learning of the 200 categories based on claim contents.
+B. Reinforcement learning using claim IDs and timestamps where the agent will identify how many claims ineach category to expect from month to month.
+C. Forecasting using claim IDs and timestamps to identify how many claims in each category to expect frommonth to month.
+D. Classification with supervised learning of the categories for which partial information on claim contents isprovided, and forecasting using claim IDs and
+timestamps for all other categories.
+Answer: C
+
+NEW QUESTION 21
+A company is using Amazon Polly to translate plaintext documents to speech for automated company announcements However company acronyms are being
+mispronounced in the current documents How should a Machine Learning Specialist address this issue for future documents'?
+A. Convert current documents to SSML with pronunciation tags
+B. Create an appropriate pronunciation lexicon.
+C. Output speech marks to guide in pronunciation
+D. Use Amazon Lex to preprocess the text files for pronunciation
+Answer: A
+
+NEW QUESTION 24
+A Machine Learning Specialist is configuring Amazon SageMaker so multiple Data Scientists can access notebooks, train models, and deploy endpoints. To
+ensure the best operational performance, the Specialist needs to be able to track how often the Scientists are deploying models, GPU and CPU utilization on the
+deployed SageMaker endpoints, and all errors that are generated when an endpoint is invoked.
+Which services are integrated with Amazon SageMaker to track this information? (Select TWO.)
+A. AWS CloudTrail
+B. AWS Health
+C. AWS Trusted Advisor
+D. Amazon CloudWatch
+E. AWS Config
+Answer: AD
+
+NEW QUESTION 26
+A trucking company is collecting live image data from its fleet of trucks across the globe. The data is growing rapidly and approximately 100 GB of new data is
+generated every day. The company wants to explore machine learning uses cases while ensuring the data is only accessible to specific IAM users.
+Which storage option provides the most processing flexibility and will allow access control with IAM?
+A. Use a database, such as Amazon DynamoDB, to store the images, and set the IAM policies to restrict access to only the desired IAM users.
+B. Use an Amazon S3-backed data lake to store the raw images, and set up the permissions using bucket policies.
+C. Setup up Amazon EMR with Hadoop Distributed File System (HDFS) to store the files, and restrictaccess to the EMR instances using IAM policies.
+D. Configure Amazon EFS with IAM policies to make the data available to Amazon EC2 instances owned by the IAM users.
+Answer: C
+
+NEW QUESTION 30
+A global financial company is using machine learning to automate its loan approval process. The company has a dataset of customer information. The dataset
+contains some categorical fields, such as customer location by city and housing status. The dataset also includes financial fields in different units, such as account
+balances in US dollars and monthly interest in US cents.
+The company’s data scientists are using a gradient boosting regression model to infer the credit score for each customer. The model has a training accuracy of
+99% and a testing accuracy of 75%. The data scientists want to improve the model’s testing accuracy.
+Which process will improve the testing accuracy the MOST?
+A. Use a one-hot encoder for the categorical fields in the datase
+B. Perform standardization on the financial fields in the datase
+C. Apply L1 regularization to the data.
+D. Use tokenization of the categorical fields in the datase
+E. Perform binning on the financial fields in the datase
+F. Remove the outliers in the data by using the z-score.
+G. Use a label encoder for the categorical fields in the datase
+H. Perform L1 regularization on the financial fields in the datase
+I. Apply L2 regularization to the data.
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+J. Use a logarithm transformation on the categorical fields in the datase
+K. Perform binning on the financial fields in the datase
+L. Use imputation to populate missing values in the dataset.
+Answer: B
+
+NEW QUESTION 33
+A Machine Learning Specialist is building a convolutional neural network (CNN) that will classify 10 types of animals. The Specialist has built a series of layers in a
+neural network that will take an input image of an animal, pass it through a series of convolutional and pooling layers, and then finally pass it through a dense and
+fully connected layer with 10 nodes The Specialist would like to get an output from the neural network that is a probability distribution of how likely it is that the
+input image belongs to each of the 10 classes
+Which function will produce the desired output?
+A. Dropout
+B. Smooth L1 loss
+C. Softmax
+D. Rectified linear units (ReLU)
+Answer: C
+
+NEW QUESTION 36
+A Machine Learning Specialist needs to create a data repository to hold a large amount of time-based training data for a new model. In the source system, new
+files are added every hour Throughout a single 24-hour period, the volume of hourly updates will change significantly. The Specialist always wants to train on the
+last 24 hours of the data
+Which type of data repository is the MOST cost-effective solution?
+A. An Amazon EBS-backed Amazon EC2 instance with hourly directories
+B. An Amazon RDS database with hourly table partitions
+C. An Amazon S3 data lake with hourly object prefixes
+D. An Amazon EMR cluster with hourly hive partitions on Amazon EBS volumes
+Answer: C
+
+NEW QUESTION 38
+A company supplies wholesale clothing to thousands of retail stores. A data scientist must create a model that predicts the daily sales volume for each item for
+each store. The data scientist discovers that more than half of the stores have been in business for less than 6 months. Sales data is highly consistent from week
+to week. Daily data from the database has been aggregated weekly, and weeks with no sales are omitted from the current dataset. Five years (100 MB) of sales
+data is available in Amazon S3.
+Which factors will adversely impact the performance of the forecast model to be developed, and which actions should the data scientist take to mitigate them?
+(Choose two.)
+A. Detecting seasonality for the majority of stores will be an issu
+B. Request categorical data to relate new stores with similar stores that have more historical data.
+C. The sales data does not have enough varianc
+D. Request external sales data from other industries to improve the model's ability to generalize.
+E. Sales data is aggregated by wee
+F. Request daily sales data from the source database to enable building a daily model.
+G. The sales data is missing zero entries for item sale
+H. Request that item sales data from the source database include zero entries to enable building the model.
+I. Only 100 MB of sales data is available in Amazon S3. Request 10 years of sales data, which would provide 200 MB of training data for the model.
+Answer: AB
+
+NEW QUESTION 41
+A data engineer at a bank is evaluating a new tabular dataset that includes customer data. The data engineer will use the customer data to create a new model to
+predict customer behavior. After creating a correlation matrix for the variables, the data engineer notices that many of the 100 features are highly correlated with
+each other.
+Which steps should the data engineer take to address this issue? (Choose two.)
+A. Use a linear-based algorithm to train the model.
+B. Apply principal component analysis (PCA).
+C. Remove a portion of highly correlated features from the dataset.
+D. Apply min-max feature scaling to the dataset.
+E. Apply one-hot encoding category-based variables.
+Answer: BD
+
+NEW QUESTION 43
+A machine learning specialist is developing a regression model to predict rental rates from rental listings. A variable named Wall_Color represents the most
+prominent exterior wall color of the property. The following is the sample data, excluding all other variables:
+
+The specialist chose a model that needs numerical input data.
+
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+Which feature engineering approaches should the specialist use to allow the regression model to learn from the Wall_Color data? (Choose two.)
+A. Apply integer transformation and set Red = 1, White = 5, and Green = 10.
+B. Add new columns that store one-hot representation of colors.
+C. Replace the color name string by its length.
+D. Create three columns to encode the color in RGB format.
+E. Replace each color name by its training set frequency.
+Answer: AD
+
+NEW QUESTION 48
+A data scientist is training a text classification model by using the Amazon SageMaker built-in BlazingText algorithm. There are 5 classes in the dataset, with 300
+samples for category A, 292 samples for category B, 240 samples for category C, 258 samples for category D, and 310 samples for category E.
+The data scientist shuffles the data and splits off 10% for testing. After training the model, the data scientist generates confusion matrices for the training and test
+sets.
+
+What could the data scientist conclude form these results?
+A. Classes C and D are too similar.
+B. The dataset is too small for holdout cross-validation.
+C. The data distribution is skewed.
+D. The model is overfitting for classes B and E.
+Answer: B
+
+NEW QUESTION 49
+A Machine Learning Specialist is attempting to build a linear regression model.
+Given the displayed residual plot only, what is the MOST likely problem with the model?
+A. Linear regression is inappropriat
+B. The residuals do not have constant variance.
+C. Linear regression is inappropriat
+D. The underlying data has outliers.
+E. Linear regression is appropriat
+F. The residuals have a zero mean.
+G. Linear regression is appropriat
+H. The residuals have constant variance.
+Answer: D
+
+NEW QUESTION 52
+A company is building a line-counting application for use in a quick-service restaurant. The company wants to use video cameras pointed at the line of customers
+at a given register to measure how many people are in line and deliver notifications to managers if the line grows too long. The restaurant locations have limited
+
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+bandwidth for connections to external services and cannot accommodate multiple video streams without impacting other operations.
+Which solution should a machine learning specialist implement to meet these requirements?
+A. Install cameras compatible with Amazon Kinesis Video Streams to stream the data to AWS over the restaurant's existing internet connectio
+B. Write an AWS Lambda function to take an image and send it to Amazon Rekognition to count the number of faces in the imag
+C. Send an Amazon Simple Notification Service (Amazon SNS) notification if the line is too long.
+D. Deploy AWS DeepLens cameras in the restaurant to capture vide
+E. Enable Amazon Rekognition on the AWS DeepLens device, and use it to trigger a local AWS Lambda function when a person is recognize
+F. Use the Lambda function to send an Amazon Simple Notification Service (Amazon SNS) notification if the line is too long.
+G. Build a custom model in Amazon SageMaker to recognize the number of people in an imag
+H. Install cameras compatible with Amazon Kinesis Video Streams in the restauran
+I. Write an AWS Lambda function to take an imag
+J. Use the SageMaker endpoint to call the model to count peopl
+K. Send an Amazon Simple Notification Service (Amazon SNS) notification if the line is too long.
+L. Build a custom model in Amazon SageMaker to recognize the number of people in an imag
+M. Deploy AWS DeepLens cameras in the restauran
+N. Deploy the model to the camera
+O. Deploy an AWS Lambda function to the cameras to use the model to count people and send an Amazon Simple Notification Service (Amazon SNS) notification
+if the line is too long.
+Answer: A
+
+NEW QUESTION 57
+A company wants to create a data repository in the AWS Cloud for machine learning (ML) projects. The company wants to use AWS to perform complete ML
+lifecycles and wants to use Amazon S3 for the data storage. All of the company’s data currently resides on premises and is 40 in size.
+The company wants a solution that can transfer and automatically update data between the on-premises object storage and Amazon S3. The solution must
+support encryption, scheduling, monitoring, and data integrity validation.
+Which solution meets these requirements?
+A. Use the S3 sync command to compare the source S3 bucket and the destination S3 bucke
+B. Determine which source files do not exist in the destination S3 bucket and which source files were modified.
+C. Use AWS Transfer for FTPS to transfer the files from the on-premises storage to Amazon S3.
+D. Use AWS DataSync to make an initial copy of the entire datase
+E. Schedule subsequent incremental transfers of changing data until the final cutover from on premises to AWS.
+F. Use S3 Batch Operations to pull data periodically from the on-premises storag
+G. Enable S3 Versioning on the S3 bucket to protect against accidental overwrites.
+Answer: C
+Explanation:
+Configure DataSync to make an initial copy of your entire dataset, and schedule subsequent incremental transfers of changing data until the final cut-over from onpremises to AWS.
+
+NEW QUESTION 62
+A company has an ecommerce website with a product recommendation engine built in TensorFlow. The recommendation engine endpoint is hosted by Amazon
+SageMaker. Three compute-optimized instances support the expected peak load of the website.
+Response times on the product recommendation page are increasing at the beginning of each month. Some users are encountering errors. The website receives
+the majority of its traffic between 8 AM and 6 PM on weekdays in a single time zone.
+Which of the following options are the MOST effective in solving the issue while keeping costs to a minimum? (Choose two.)
+A. Configure the endpoint to use Amazon Elastic Inference (EI) accelerators.
+B. Create a new endpoint configuration with two production variants.
+C. Configure the endpoint to automatically scale with the InvocationsPerInstance metric.
+D. Deploy a second instance pool to support a blue/green deployment of models.
+E. Reconfigure the endpoint to use burstable instances.
+Answer: BD
+
+NEW QUESTION 65
+While working on a neural network project, a Machine Learning Specialist discovers thai some features in the data have very high magnitude resulting in this data
+being weighted more in the cost function What should the Specialist do to ensure better convergence during backpropagation?
+A. Dimensionality reduction
+B. Data normalization
+C. Model regulanzation
+D. Data augmentation for the minority class
+Answer: D
+
+NEW QUESTION 70
+A Machine Learning Specialist previously trained a logistic regression model using scikit-learn on a local machine, and the Specialist now wants to deploy it to
+production for inference only.
+What steps should be taken to ensure Amazon SageMaker can host a model that was trained locally?
+A. Build the Docker image with the inference cod
+B. Tag the Docker image with the registry hostname and upload it to Amazon ECR.
+C. Serialize the trained model so the format is compressed for deploymen
+D. Tag the Docker image with the registry hostname and upload it to Amazon S3.
+E. Serialize the trained model so the format is compressed for deploymen
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+F. Build the image and upload it to Docker Hub.
+G. Build the Docker image with the inference cod
+H. Configure Docker Hub and upload the image to AmazonECR.
+Answer: D
+
+NEW QUESTION 71
+A data scientist has developed a machine learning translation model for English to Japanese by using Amazon SageMaker's built-in seq2seq algorithm with
+500,000 aligned sentence pairs. While testing with sample sentences, the data scientist finds that the translation quality is reasonable for an example as short as
+five words. However, the quality becomes unacceptable if the sentence is 100 words long.
+Which action will resolve the problem?
+A. Change preprocessing to use n-grams.
+B. Add more nodes to the recurrent neural network (RNN) than the largest sentence's word count.
+C. Adjust hyperparameters related to the attention mechanism.
+D. Choose a different weight initialization type.
+Answer: C
+Explanation:
+https://docs.aws.amazon.com/sagemaker/latest/dg/seq-2-seq-howitworks.html
+
+NEW QUESTION 73
+A company provisions Amazon SageMaker notebook instances for its data science team and creates Amazon VPC interface endpoints to ensure communication
+between the VPC and the notebook instances. All connections to the Amazon SageMaker API are contained entirely and securely using the AWS network.
+However, the data science team realizes that individuals outside the VPC can still connect to the notebook instances across the internet.
+Which set of actions should the data science team take to fix the issue?
+A. Modify the notebook instances' security group to allow traffic only from the CIDR ranges of the VP
+B. Apply this security group to all of the notebook instances' VPC interfaces.
+C. Create an IAM policy that allows the sagemaker:CreatePresignedNotebooklnstanceUrl and sagemaker:DescribeNotebooklnstance actions from only the VPC
+endpoint
+D. Apply this policy to all IAM users, groups, and roles used to access the notebook instances.
+E. Add a NAT gateway to the VP
+F. Convert all of the subnets where the Amazon SageMaker notebook instances are hosted to private subnet
+G. Stop and start all of the notebook instances to reassign only private IP addresses.
+H. Change the network ACL of the subnet the notebook is hosted in to restrict access to anyone outside the VPC.
+Answer: B
+
+NEW QUESTION 78
+A company is running an Amazon SageMaker training job that will access data stored in its Amazon S3 bucket A compliance policy requires that the data never be
+transmitted across the internet How should the company set up the job?
+A. Launch the notebook instances in a public subnet and access the data through the public S3 endpoint
+B. Launch the notebook instances in a private subnet and access the data through a NAT gateway
+C. Launch the notebook instances in a public subnet and access the data through a NAT gateway
+D. Launch the notebook instances in a private subnet and access the data through an S3 VPC endpoint.
+Answer: D
+
+NEW QUESTION 79
+A Data Engineer needs to build a model using a dataset containing customer credit card information. How can the Data Engineer ensure the data remains
+encrypted and the credit card information is secure?
+A. Use a custom encryption algorithm to encrypt the data and store the data on an Amazon SageMaker instance in a VP
+B. Use the SageMaker DeepAR algorithm to randomize the credit card numbers.
+C. Use an IAM policy to encrypt the data on the Amazon S3 bucket and Amazon Kinesis to automatically discard credit card numbers and insert fake credit card
+numbers.
+D. Use an Amazon SageMaker launch configuration to encrypt the data once it is copied to the SageMaker instance in a VP
+E. Use the SageMaker principal component analysis (PCA) algorithm to reduce the length of the credit card numbers.
+F. Use AWS KMS to encrypt the data on Amazon S3 and Amazon SageMaker, and redact the credit card numbers from the customer data with AWS Glue.
+Answer: D
+
+NEW QUESTION 82
+A Mobile Network Operator is building an analytics platform to analyze and optimize a company's operations using Amazon Athena and Amazon S3
+The source systems send data in CSV format in real lime The Data Engineering team wants to transform the data to the Apache Parquet format before storing it on
+Amazon S3
+Which solution takes the LEAST effort to implement?
+A. Ingest .CSV data using Apache Kafka Streams on Amazon EC2 instances and use Kafka Connect S3 toserialize data as Parquet
+B. Ingest .CSV data from Amazon Kinesis Data Streams and use Amazon Glue to convert data into Parquet.
+C. Ingest .CSV data using Apache Spark Structured Streaming in an Amazon EMR cluster and use Apache Spark to convert data into Parquet.
+D. Ingest .CSV data from Amazon Kinesis Data Streams and use Amazon Kinesis Data Firehose to convert data into Parquet.
+Answer: B
+
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+Explanation:
+https://medium.com/searce/convert-csv-json-files-to-apache-parquet-using-aws-glue-a760d177b45f https://github.com/ecloudvalley/Building-a-Data-Lake-withAWS-Glue-and-Amazon-S3
+
+NEW QUESTION 86
+A manufacturing company has a large set of labeled historical sales data The manufacturer would like to predict how many units of a particular part should be
+produced each quarter Which machine learning approach should be used to solve this problem?
+A. Logistic regression
+B. Random Cut Forest (RCF)
+C. Principal component analysis (PCA)
+D. Linear regression
+Answer: D
+
+NEW QUESTION 89
+A Machine Learning Specialist is developing a custom video recommendation model for an application The dataset used to train this model is very large with
+millions of data points and is hosted in an Amazon S3 bucket The Specialist wants to avoid loading all of this data onto an Amazon SageMaker notebook instance
+because it would take hours to move and will exceed the attached 5 GB Amazon EBS volume on the notebook instance.
+Which approach allows the Specialist to use all the data to train the model?
+A. Load a smaller subset of the data into the SageMaker notebook and train locall
+B. Confirm that thetraining code is executing and the model parameters seem reasonabl
+C. Initiate a SageMaker training job using the full dataset from the S3 bucket using Pipe input mode.
+D. Launch an Amazon EC2 instance with an AWS Deep Learning AMI and attach the S3 bucket to theinstanc
+E. Train on a small amount of the data to verify the training code and hyperparameter
+F. Go back toAmazon SageMaker and train using the full dataset
+G. Use AWS Glue to train a model using a small subset of the data to confirm that the data will be compatible with Amazon SageMake
+H. Initiate a SageMaker training job using the full dataset from the S3 bucket using Pipe input mode.
+I. Load a smaller subset of the data into the SageMaker notebook and train locall
+J. Confirm that the training code is executing and the model parameters seem reasonabl
+K. Launch an Amazon EC2 instance with an AWS Deep Learning AMI and attach the S3 bucket to train the full dataset.
+Answer: A
+
+NEW QUESTION 90
+A Machine Learning Specialist working for an online fashion company wants to build a data ingestion solution for the company's Amazon S3-based data lake.
+The Specialist wants to create a set of ingestion mechanisms that will enable future capabilities comprised of:
+• Real-time analytics
+• Interactive analytics of historical data
+• Clickstream analytics
+• Product recommendations
+Which services should the Specialist use?
+A. AWS Glue as the data dialog; Amazon Kinesis Data Streams and Amazon Kinesis Data Analytics for real-time data insights; Amazon Kinesis Data Firehose for
+delivery to Amazon ES for clickstream analytics; Amazon EMR to generate personalized product recommendations
+B. Amazon Athena as the data catalog; Amazon Kinesis Data Streams and Amazon Kinesis Data Analytics for near-realtime data insights; Amazon Kinesis Data
+Firehose for clickstream analytics; AWS Glue to generate personalized product recommendations
+C. AWS Glue as the data catalog; Amazon Kinesis Data Streams and Amazon Kinesis Data Analytics for historical data insights; Amazon Kinesis Data Firehose
+for delivery to Amazon ES for clickstream analytics; Amazon EMR to generate personalized product recommendations
+D. Amazon Athena as the data catalog; Amazon Kinesis Data Streams and Amazon Kinesis Data Analytics for historical data insights; Amazon DynamoDB
+streams for clickstream analytics; AWS Glue to generate personalized product recommendations
+Answer: A
+
+NEW QUESTION 92
+A Machine Learning Specialist trained a regression model, but the first iteration needs optimizing. The Specialist needs to understand whether the model is more
+frequently overestimating or underestimating the target.
+What option can the Specialist use to determine whether it is overestimating or underestimating the target value?
+A. Root Mean Square Error (RMSE)
+B. Residual plots
+C. Area under the curve
+D. Confusion matrix
+Answer: B
+
+NEW QUESTION 94
+A large consumer goods manufacturer has the following products on sale
+• 34 different toothpaste variants
+• 48 different toothbrush variants
+• 43 different mouthwash variants
+The entire sales history of all these products is available in Amazon S3 Currently, the company is using custom-built autoregressive integrated moving average
+(ARIMA) models to forecast demand for these products The company wants to predict the demand for a new product that will soon be launched
+Which solution should a Machine Learning Specialist apply?
+A. Train a custom ARIMA model to forecast demand for the new product.
+B. Train an Amazon SageMaker DeepAR algorithm to forecast demand for the new product
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+C. Train an Amazon SageMaker k-means clustering algorithm to forecast demand for the new product.
+D. Train a custom XGBoost model to forecast demand for the new product
+Answer: B
+Explanation:
+The Amazon SageMaker DeepAR forecasting algorithm is a supervised learning algorithm for forecasting scalar (one-dimensional) time series using recurrent
+neural networks (RNN). Classical forecasting methods, such as autoregressive integrated moving average (ARIMA) or exponential smoothing (ETS), fit a single
+model to each individual time series. They then use that model to extrapolate the time series into the future.
+
+NEW QUESTION 98
+An employee found a video clip with audio on a company's social media feed. The language used in the video is Spanish. English is the employee's first language,
+and they do not understand Spanish. The employee wants to do a sentiment analysis.
+What combination of services is the MOST efficient to accomplish the task?
+A. Amazon Transcribe, Amazon Translate, and Amazon Comprehend
+B. Amazon Transcribe, Amazon Comprehend, and Amazon SageMaker seq2seq
+C. Amazon Transcribe, Amazon Translate, and Amazon SageMaker Neural Topic Model (NTM)
+D. Amazon Transcribe, Amazon Translate, and Amazon SageMaker BlazingText
+Answer: A
+
+NEW QUESTION 103
+A machine learning specialist stores IoT soil sensor data in Amazon DynamoDB table and stores weather event data as JSON files in Amazon S3. The dataset in
+DynamoDB is 10 GB in size and the dataset in Amazon S3 is 5 GB in size. The specialist wants to train a model on this data to help predict soil moisture levels as
+a function of weather events using Amazon SageMaker.
+Which solution will accomplish the necessary transformation to train the Amazon SageMaker model with the LEAST amount of administrative overhead?
+A. Launch an Amazon EMR cluste
+B. Create an Apache Hive external table for the DynamoDB table and S3 dat
+C. Join the Hive tables and write the results out to Amazon S3.
+D. Crawl the data using AWS Glue crawler
+E. Write an AWS Glue ETL job that merges the two tables and writes the output to an Amazon Redshift cluster.
+F. Enable Amazon DynamoDB Streams on the sensor tabl
+G. Write an AWS Lambda function that consumes the stream and appends the results to the existing weather files in Amazon S3.
+H. Crawl the data using AWS Glue crawler
+I. Write an AWS Glue ETL job that merges the two tables and writes the output in CSV format to Amazon S3.
+Answer: C
+
+NEW QUESTION 104
+A company's Machine Learning Specialist needs to improve the training speed of a time-series forecasting model using TensorFlow. The training is currently
+implemented on a single-GPU machine and takes approximately 23 hours to complete. The training needs to be run daily.
+The model accuracy js acceptable, but the company anticipates a continuous increase in the size of the training data and a need to update the model on an hourly,
+rather than a daily, basis. The company also wants to minimize coding effort and infrastructure changes
+What should the Machine Learning Specialist do to the training solution to allow it to scale for future demand?
+A. Do not change the TensorFlow cod
+B. Change the machine to one with a more powerful GPU to speed up the training.
+C. Change the TensorFlow code to implement a Horovod distributed framework supported by Amazon SageMake
+D. Parallelize the training to as many machines as needed to achieve the business goals.
+E. Switch to using a built-in AWS SageMaker DeepAR mode
+F. Parallelize the training to as many machines as needed to achieve the business goals.
+G. Move the training to Amazon EMR and distribute the workload to as many machines as needed to achieve the business goals.
+Answer: B
+
+NEW QUESTION 105
+A data scientist wants to use Amazon Forecast to build a forecasting model for inventory demand for a retail company. The company has provided a dataset of
+historic inventory demand for its products as a .csv file stored in an Amazon S3 bucket. The table below shows a sample of the dataset.
+
+How should the data scientist transform the data?
+A. Use ETL jobs in AWS Glue to separate the dataset into a target time series dataset and an item metadata datase
+B. Upload both datasets as .csv files to Amazon S3.
+C. Use a Jupyter notebook in Amazon SageMaker to separate the dataset into a related time series dataset and an item metadata datase
+D. Upload both datasets as tables in Amazon Aurora.
+E. Use AWS Batch jobs to separate the dataset into a target time series dataset, a related time series dataset, and an item metadata datase
+F. Upload them directly to Forecast from a local machine.
+G. Use a Jupyter notebook in Amazon SageMaker to transform the data into the optimized protobuf recordIO forma
+H. Upload the dataset in this format to Amazon S3.
+
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+Answer: A
+Explanation:
+https://docs.aws.amazon.com/forecast/latest/dg/dataset-import-guidelines-troubleshooting.html
+
+NEW QUESTION 106
+A Machine Learning Specialist must build out a process to query a dataset on Amazon S3 using Amazon Athena The dataset contains more than 800.000 records
+stored as plaintext CSV files Each record contains 200 columns and is approximately 1 5 MB in size Most queries will span 5 to 10 columns only
+How should the Machine Learning Specialist transform the dataset to minimize query runtime?
+A. Convert the records to Apache Parquet format
+B. Convert the records to JSON format
+C. Convert the records to GZIP CSV format
+D. Convert the records to XML format
+Answer: A
+Explanation:
+Using compressions will reduce the amount of data scanned by Amazon Athena, and also reduce your S3 bucket storage. It’s a Win-Win for your AWS bill.
+Supported formats: GZIP, LZO, SNAPPY (Parquet) and ZLIB.
+
+NEW QUESTION 107
+A Machine Learning Specialist is assigned to a Fraud Detection team and must tune an XGBoost model, which is working appropriately for test data. However,
+with unknown data, it is not working as expected. The existing parameters are provided as follows.
+
+Which parameter tuning guidelines should the Specialist follow to avoid overfitting?
+A. Increase the max_depth parameter value.
+B. Lower the max_depth parameter value.
+C. Update the objective to binary:logistic.
+D. Lower the min_child_weight parameter value.
+Answer: B
+
+NEW QUESTION 111
+A manufacturing company has structured and unstructured data stored in an Amazon S3 bucket. A Machine Learning Specialist wants to use SQL to run queries
+on this data.
+Which solution requires the LEAST effort to be able to query this data?
+A. Use AWS Data Pipeline to transform the data and Amazon RDS to run queries.
+B. Use AWS Glue to catalogue the data and Amazon Athena to run queries.
+C. Use AWS Batch to run ETL on the data and Amazon Aurora to run the queries.
+D. Use AWS Lambda to transform the data and Amazon Kinesis Data Analytics to run queries.
+Answer: B
+
+NEW QUESTION 114
+A Machine Learning Specialist is developing recommendation engine for a photography blog Given a picture, the recommendation engine should show a picture
+that captures similar objects The Specialist would like to create a numerical representation feature to perform nearest-neighbor searches
+What actions would allow the Specialist to get relevant numerical representations?
+A. Reduce image resolution and use reduced resolution pixel values as features
+B. Use Amazon Mechanical Turk to label image content and create a one-hot representation indicating the presence of specific labels
+C. Run images through a neural network pie-trained on ImageNet, and collect the feature vectors from the penultimate layer
+D. Average colors by channel to obtain three-dimensional representations of images.
+Answer: A
+
+NEW QUESTION 115
+A Machine Learning Specialist is planning to create a long-running Amazon EMR cluster. The EMR cluster will have 1 master node, 10 core nodes, and 20 task
+nodes. To save on costs, the Specialist will use Spot Instances in the EMR cluster.
+Which nodes should the Specialist launch on Spot Instances?
+A. Master node
+
+Your Partner of IT Exam
+
+visit - https://www.exambible.com
+
+ We recommend you to try the PREMIUM AWS-Certified-Machine-Learning-Specialty Dumps From Exambible
+https://www.exambible.com/AWS-Certified-Machine-Learning-Specialty-exam/ (208 Q&As)
+
+B. Any of the core nodes
+C. Any of the task nodes
+D. Both core and task nodes
+Answer: A
+
+NEW QUESTION 117
+A gaming company has launched an online game where people can start playing for free but they need to pay if they choose to use certain features The company
+needs to build an automated system to predict whether or not a new user will become a paid user within 1 year The company has gathered a labeled dataset from
+1 million users
+The training dataset consists of 1.000 positive samples (from users who ended up paying within 1 year) and 999.1 negative samples (from users who did not use
+any paid features) Each data sample consists of 200 features including user age, device, location, and play patterns
+Using this dataset for training, the Data Science team trained a random forest model that converged with over 99% accuracy on the training set However, the
+prediction results on a test dataset were not satisfactory.
+Which of the following approaches should the Data Science team take to mitigate this issue? (Select TWO.)
+A. Add more deep trees to the random forest to enable the model to learn more features.
+B. indicate a copy of the samples in the test database in the training dataset
+C. Generate more positive samples by duplicating the positive samples and adding a small amount of noise to the duplicated data.
+D. Change the cost function so that false negatives have a higher impact on the cost value than false positives
+E. Change the cost function so that false positives have a higher impact on the cost value than false negatives
+Answer: CD
+
+NEW QUESTION 119
+A Machine Learning Specialist is working with multiple data sources containing billions of records that need to be joined. What feature engineering and model
+development approach should the Specialist take with a dataset this large?
+A. Use an Amazon SageMaker notebook for both feature engineering and model development
+B. Use an Amazon SageMaker notebook for feature engineering and Amazon ML for model development
+C. Use Amazon EMR for feature engineering and Amazon SageMaker SDK for model development
+D. Use Amazon ML for both feature engineering and model development.
+Answer: B

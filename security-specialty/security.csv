@@ -1,0 +1,1752 @@
+NEW QUESTION 1
+You are hosting a web site via website hosting on an S3 bucket - http://demo.s3-website-us-east-l
+.amazonaws.com. You have some web pages that use Javascript that access resources in another bucket which has web site hosting also enabled. But when
+users access the web pages , they are getting a blocked Javascript error. How can you rectify this?
+Please select:
+A. Enable CORS for the bucket
+B. Enable versioning for the bucket
+C. Enable MFA for the bucket
+D. Enable CRR for the bucket
+Answer: A
+Explanation:
+Your answer is incorrect Answer-A
+Such a scenario is also given in the AWS Documentation Cross-Origin Resource Sharing:
+Use-case Scenarios
+The following are example scenarios for using CORS:
+• Scenario 1: Suppose that you are hosting a website in an Amazon S3 bucket named website as described in Hosting a Static Website on Amazon S3. Your
+users load the website endpoint http://website.s3-website-us-east-1 .amazonaws.com. Now you want to use JavaScript on the webpages that are stored in this
+bucket to be able to make authenticated GET and PUT requests against the same bucket by using the Amazon S3 API endpoint for the bucket
+website.s3.amazonaws.com. A browser would normally block JavaScript from allowing those requests, but with CORS you can configure your bucket to explicitly
+enable cross-origin requests from website.s3-website-us-east-1 .amazonaws.com.
+• Scenario 2: Suppose that you want to host a web font from your S3 bucket. Again, browsers require a CORS check (also called a preflight check) for loading web
+fonts. You would configure the bucket that is hosting the web font to allow any origin to make these requests.
+Option Bis invalid because versioning is only to create multiple versions of an object and can help in accidental deletion of objects
+Option C is invalid because this is used as an extra measure of caution for deletion of objects Option D is invalid because this is used for Cross region replication
+of objects
+For more information on Cross Origin Resource sharing, please visit the following URL
+• ittps://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html
+The correct answer is: Enable CORS for the bucket
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 2
+You have a vendor that needs access to an AWS resource. You create an AWS user account. You want to restrict access to the resource using a policy for just
+that user over a brief period. Which of the following would be an ideal policy to use?
+Please select:
+A. An AWS Managed Policy
+B. An Inline Policy
+C. A Bucket Policy
+D. A bucket ACL
+Answer: B
+Explanation:
+The AWS Documentation gives an example on such a case
+Inline policies are useful if you want to maintain a strict one-to-one relationship between a policy and the principal entity that if s applied to. For example, you want
+to be sure that the permissions in a policy are not inadvertently assigned to a principal entity other than the one they're intended for. When you use an inline policy,
+the permissions in the policy cannot be inadvertently attached to the wrong principal entity. In addition, when you use the AWS Management Console to delete that
+principal entit the policies embedded in the principal entity are deleted as well. That's because they are part of the principal entity.
+Option A is invalid because AWS Managed Polices are ok for a group of users, but for individual users,
+inline policies are better.
+Option C and D are invalid because they are specifically meant for access to S3 buckets For more information on policies, please visit the following URL:
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access managed-vs-inline
+The correct answer is: An Inline Policy Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 3
+Your company has an EC2 Instance that is hosted in an AWS VPC. There is a requirement to ensure that logs files from the EC2 Instance are stored accordingly.
+The access should also be limited for the destination of the log files. How can this be accomplished? Choose 2 answers from the options given below. Each
+answer forms part of the solution
+Please select:
+A. Stream the log files to a separate Cloudtrail trail
+B. Stream the log files to a separate Cloudwatch Log group
+C. Create an 1AM policy that gives the desired level of access to the Cloudtrail trail
+D. Create an 1AM policy that gives the desired level of access to the Cloudwatch Log group
+Answer: BD
+Explanation:
+You can create a Log group and send all logs from the EC2 Instance to that group. You can then limit the access to the Log groups via an 1AM policy.
+Option A is invalid because Cloudtrail is used to record API activity and not for storing log files Option C is invalid because Cloudtrail is the wrong service to be
+used for this requirement
+For more information on Log Groups and Log Streams, please visit the following URL:
+* https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Workinj
+For more information on Access to Cloudwatch logs, please visit the following URL:
+* https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/auth-and-access-control-cwl.html The correct answers are: Stream the log files to a separate
+Cloudwatch Log group. Create an 1AM policy that gives the desired level of access to the Cloudwatch Log group
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 4
+You have a web site that is sitting behind AWS Cloudfront. You need to protect the web site against threats such as SQL injection and Cross site scripting attacks.
+Which of the following service can help in such a scenario
+Please select:
+A. AWS Trusted Advisor
+B. AWS WAF
+C. AWS Inspector
+D. AWS Config
+Answer: B
+Explanation:
+The AWS Documentation mentions the following
+AWS WAF is a web application firewall that helps detect and block malicious web requests targeted at your web applications. AWS WAF allows you to create rules
+that can help protect against common
+web explogts like SQL injection and cross-site scripting. With AWS WAF you first identify the resource (either an Amazon CloudFront distribution or an Application
+Load Balancer) that you need to protect. Option A is invalid because this will only give advise on how you can better the security in your AWS account but not
+protect against threats mentioned in the question.
+Option C is invalid because this can be used to scan EC2 Instances for vulnerabilities but not protect against threats mentioned in the question.
+Option D is invalid because this can be used to check config changes but not protect against threats mentioned in the quest
+For more information on AWS WAF, please visit the following URL: https://aws.amazon.com/waf/details;
+The correct answer is: AWS WAF
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 5
+A Lambda function reads metadata from an S3 object and stores the metadata in a DynamoDB table.
+The function is triggered whenever an object is stored within the S3 bucket.
+How should the Lambda function be given access to the DynamoDB table? Please select:
+A. Create a VPC endpoint for DynamoDB within a VP
+B. Configure the Lambda function to access resources in the VPC.
+C. Create a resource policy that grants the Lambda function permissions to write to the DynamoDB tabl
+D. Attach the poll to the DynamoDB table.
+E. Create an 1AM user with permissions to write to the DynamoDB tabl
+F. Store an access key for that user in the Lambda environment variables.
+G. Create an 1AM service role with permissions to write to the DynamoDB tabl
+H. Associate that role with the Lambda function.
+Answer: D
+Explanation:
+The ideal way is to create an 1AM role which has the required permissions and then associate it with the Lambda function
+The AWS Documentation additionally mentions the following
+Each Lambda function has an 1AM role (execution role) associated with it. You specify the 1AM role when you create your Lambda function. Permissions you
+grant to this role determine what AWS Lambda can do when it assumes the role. There are two types of permissions that you grant to the 1AM role:
+If your Lambda function code accesses other AWS resources, such as to read an object from an S3 bucket or write logs to CloudWatch Logs, you need to grant
+permissions for relevant Amazon S3 and CloudWatch actions to the role.
+If the event source is stream-based (Amazon Kinesis Data Streams and DynamoDB streams), AWS Lambda polls these streams on your behalf. AWS Lambda
+needs permissions to poll the stream and read new records on the stream so you need to grant the relevant permissions to this role.
+Option A is invalid because the VPC endpoint allows access instances in a private subnet to access DynamoDB
+Option B is invalid because resources policies are present for resources such as S3 and KMS, but not AWS Lambda
+Option C is invalid because AWS Roles should be used and not 1AM Users
+For more information on the Lambda permission model, please visit the below URL: https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html
+The correct answer is: Create an 1AM service role with permissions to write to the DynamoDB table. Associate that role with the Lambda function.
+Submit your Feedback/Queries to our Exp
+
+NEW QUESTION 6
+When you enable automatic key rotation for an existing CMK key where the backing key is managed by AWS, after how long is the key rotated?
+Please select:
+A. After 30 days
+B. After 128 days
+C. After 365 days
+D. After 3 years
+Answer: D
+Explanation:
+The AWS Documentation states the following
+• AWS managed CM Ks: You cannot manage key rotation for AWS managed CMKs. AWS KMS automatically rotates AWS managed keys every three years
+(1095 days).
+Note: AWS-managed CMKs are rotated every 3yrs, Customer-Managed CMKs are rotated every 365- days from when rotation is enabled.
+Option A, B, C are invalid because the dettings for automatic key rotation is not changeable. For more information on key rotation please visit the below URL
+https://docs.aws.amazon.com/kms/latest/developereuide/rotate-keys.html
+AWS managed CMKs are CMKs in your account that are created, managed, and used on your behalf by an AWS service that is integrated with AWS KMS. This
+CMK is unique to your AWS account and region. Only the service that created the AWS managed CMK can use it
+You can login to you 1AM dashbaord . Click on "Encryption Keys" You will find the list based on the services you are using as follows:
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+• aws/elasticfilesystem 1 aws/lightsail
+• aws/s3
+• aws/rds and many more Detailed Guide: KMS
+You can recognize AWS managed CMKs because their aliases have the format aws/service-name, such as aws/redshift. Typically, a service creates its AWS
+managed CMK in your account when you set up the service or the first time you use the CMfC
+The AWS services that integrate with AWS KMS can use it in many different ways. Some services create AWS managed CMKs in your account. Other services
+require that you specify a customer managed CMK that you have created. And, others support both types of CMKs to allow you the ease of an AWS managed
+CMK or the control of a customer-managed CMK
+Rotation period for CMKs is as follows:
+• AWS managed CMKs: 1095 days
+• Customer managed CMKs: 365 days
+Since question mentions about "CMK where backing keys is managed by AWS", its Amazon(AWS) managed and its rotation period turns out to be 1095
+days{every 3 years)
+For more details, please check below AWS Docs: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html The correct answer is: After 3 years
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 7
+You have an S3 bucket hosted in AWS. This is used to host promotional videos uploaded by yourself. You need to provide access to users for a limited duration of
+time. How can this be achieved?
+Please select:
+A. Use versioning and enable a timestamp for each version
+B. Use Pre-signed URL's
+C. Use 1AM Roles with a timestamp to limit the access
+D. Use 1AM policies with a timestamp to limit the access
+Answer: B
+Explanation:
+The AWS Documentation mentions the following
+All objects by default are private. Only the object owner has permission to access these objects. However, the object owner can optionally share objects with
+others by creating a pre-signed URL using their own security credentials, to grant time-limited permission to download the objects. Option A is invalid because this
+can be used to prevent accidental deletion of objects
+Option C is invalid because timestamps are not possible for Roles
+Option D is invalid because policies is not the right way to limit access based on time For more information on pre-signed URL's, please visit the URL:
+https://docs.aws.ama2on.com/AmazonS3/latest/dev/ShareObiectPreSisnedURL.html
+The correct answer is: Use Pre-signed URL's Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 8
+You want to get a list of vulnerabilities for an EC2 Instance as per the guidelines set by the Center of Internet Security. How can you go about doing this?
+Please select:
+A. Enable AWS Guard Duty for the Instance
+B. Use AWS Trusted Advisor
+C. Use AWS inspector
+D. UseAWSMacie
+Answer: C
+Explanation:
+The AWS Inspector service can inspect EC2 Instances based on specific Rules. One of the rules packages is based on the guidelines set by the Center of Internet
+Security
+Center for Internet security (CIS) Benchmarks
+The CIS Security Benchmarks program provides well-defined, un-biased and consensus-based industry best practices to help organizations assess and improve
+their security. Amazon Web Services is a CIS Security Benchmarks Member company and the list of Amazon Inspector certifications can be viewed nere.
+Option A is invalid because this can be used to protect an instance but not give the list of vulnerabilities
+Options B and D are invalid because these services cannot give a list of vulnerabilities For more information on the guidelines, please visit the below URL:
+* https://docs.aws.amazon.com/inspector/latest/userguide/inspector_cis.html The correct answer is: Use AWS Inspector
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 9
+Your company has defined a number of EC2 Instances over a period of 6 months. They want to know if any of the security groups allow unrestricted access to a
+resource. What is the best option to accomplish this requirement?
+Please select:
+A. Use AWS Inspector to inspect all the security Groups
+B. Use the AWS Trusted Advisor to see which security groups have compromised access.
+C. Use AWS Config to see which security groups have compromised access.
+D. Use the AWS CLI to query the security groups and then filter for the rules which have unrestricted accessd
+Answer: B
+Explanation:
+The AWS Trusted Advisor can check security groups for rules that allow unrestricted access to a resource. Unrestricted access increases opportunities for
+malicious activity (hacking, denial-ofservice attacks, loss of data).
+If you go to AWS Trusted Advisor, you can see the details
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Option A is invalid because AWS Inspector is used to detect security vulnerabilities in instances and not for security groups.
+Option C is invalid because this can be used to detect changes in security groups but not show you security groups that have compromised access.
+Option Dis partially valid but would just be a maintenance overhead
+For more information on the AWS Trusted Advisor, please visit the below URL: https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices;
+The correct answer is: Use the AWS Trusted Advisor to see which security groups have compromised access. Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 10
+Your company is planning on hosting an internal network in AWS. They want machines in the VPC to authenticate using private certificates. They want to minimize
+the work and maintenance in working with certificates. What is the ideal way to fulfil this requirement.
+Please select:
+A. Consider using Windows Server 2016 Certificate Manager
+B. Consider using AWS Certificate Manager
+C. Consider using AWS Access keys to generate the certificates
+D. Consider using AWS Trusted Advisor for managing the certificates
+Answer: B
+Explanation:
+The AWS Documentation mentions the following
+ACM is tightly linked with AWS Certificate Manager Private Certificate Authority. You can use ACM PCA to create a private certificate authority (CA) and then use
+ACM to issue private certificates. These are SSL/TLS X.509 certificates that identify users, computers, applications, services, servers, and other devices internally.
+Private certificates cannot be publicly trusted
+Option A is partially invalid. Windows Server 2016 Certificate Manager can be used but since there is a requirement to "minimize the work and maintenance", AWS
+Certificate Manager should be used Option C and D are invalid because these cannot be used for managing certificates.
+For more information on ACM, please visit the below URL: https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html
+The correct answer is: Consider using AWS Certificate Manager Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 10
+You have just recently set up a web and database tier in a VPC and hosted the application. When testing the app , you are not able to reach the home page for the
+app. You have verified the security groups. What can help you diagnose the issue.
+Please select:
+A. Use the AWS Trusted Advisor to see what can be done.
+B. Use VPC Flow logs to diagnose the traffic
+C. Use AWS WAF to analyze the traffic
+D. Use AWS Guard Duty to analyze the traffic
+Answer: B
+Explanation:
+Option A is invalid because this can be used to check for security issues in your account, but not verify as to why you cannot reach the home page for your
+application
+Option C is invalid because this used to protect your app against application layer attacks, but not verify as to why you cannot reach the home page for your
+application
+Option D is invalid because this used to protect your instance against attacks, but not verify as to why you cannot reach the home page for your application
+The AWS Documentation mentions the following
+VPC Flow Logs capture network flow information for a VPC, subnet or network interface and stores it in Amazon CloudWatch Logs. Flow log data can help
+customers troubleshoot network issues; for example, to diagnose why specific traffic is not reaching an instance, which might be a result of overly restrictive
+security group rules. Customers can also use flow logs as a security toi to monitor the traffic that reaches their instances, to profile network traffic, and to look for
+abnormal traffic behaviors.
+For more information on AWS Security, please visit the following URL: https://aws.amazon.com/answers/networking/vpc-security-capabilities>
+The correct answer is: Use VPC Flow logs to diagnose the traffic Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 12
+You have setup a set of applications across 2 VPC's. You have also setup VPC Peering. The applications are still not able to communicate across the Peering
+connection. Which network troubleshooting steps should be taken to resolve the issue?
+Please select:
+A. Ensure the applications are hosted in a public subnet
+B. Check to see if the VPC has an Internet gateway attached.
+C. Check to see if the VPC has a NAT gateway attached.
+D. Check the Route tables for the VPC's
+Answer: D
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Explanation:
+After the VPC peering connection is established, you need to ensure that the route tables are modified to ensure traffic can between the VPCs
+Option A ,B and C are invalid because allowing access the Internet gateway and usage of public subnets can help for Inter, access, but not for VPC Peering.
+For more information on VPC peering routing, please visit the below URL:
+.com/AmazonVPC/latest/Peeri
+The correct answer is: Check the Route tables for the VPCs Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 13
+A company requires that data stored in AWS be encrypted at rest. Which of the following approaches achieve this requirement? Select 2 answers from the options
+given below.
+Please select:
+A. When storing data in Amazon EBS, use only EBS-optimized Amazon EC2 instances.
+B. When storing data in EBS, encrypt the volume by using AWS KMS.
+C. When storing data in Amazon S3, use object versioning and MFA Delete.
+D. When storing data in Amazon EC2 Instance Store, encrypt the volume by using KMS.
+E. When storing data in S3, enable server-side encryptio
+Answer: BE
+Explanation:
+The AWS Documentation mentions the following
+To create an encrypted Amazon EBS volume, select the appropriate box in the Amazon EBS section of the Amazon EC2 console. You can use a custom customer
+master key (CMK) by choosing one from the list that appears below the encryption box. If you do not specify a custom CMK, Amazon EBS uses the AWSmanaged CMK for Amazon EBS in your account. If there is no AWS-managed CMK for Amazon EBS in your account, Amazon EBS creates one.
+Data protection refers to protecting data while in-transit (as it travels to and from Amazon S3) and at rest (while it is stored on disks in Amazon S3 data centers).
+You can protect data in transit by using
+SSL or by using client-side encryption. You have the following options of protecting data at rest in Amazon S3.
+• Use Server-Side Encryption - You request Amazon S3 to encrypt your object before saving it on disks in its data centers and decrypt it when you download the
+objects.
+• Use Client-Side Encryption - You can encrypt data client-side and upload the encrypted data to Amazon S3. In this case, you manage the encryption process,
+the encryption keys, and related tools. Option A is invalid because using EBS-optimized Amazon EC2 instances alone will not guarantee protection of instances at
+rest. Option C is invalid because this will not encrypt data at rest for S3 objects. Option D is invalid because you don't store data in Instance store. For more
+information on EBS encryption, please visit the below URL: https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html
+For more information on S3 encryption, please visit the below URL: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsinEEncryption.html
+The correct answers are: When storing data in EBS, encrypt the volume by using AWS KMS. When storing data in S3, enable server-side encryption.
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 17
+You need to ensure that objects in an S3 bucket are available in another region. This is because of the criticality of the data that is hosted in the S3 bucket. How
+can you achieve this in the easiest way possible?
+Please select:
+A. Enable cross region replication for the bucket
+B. Write a script to copy the objects to another bucket in the destination region
+C. Create an S3 snapshot in the destination region
+D. Enable versioning which will copy the objects to the destination region
+Answer: A
+Explanation:
+Option B is partially correct but a big maintenance over head to create and maintain a script when the functionality is already available in S3
+Option C is invalid because snapshots are not available in S3 Option D is invalid because versioning will not replicate objects The AWS Documentation mentions
+the following
+Cross-region replication is a bucket-level configuration that enables automatic, asynchronous copying of objects across buck in different AWS Regions.
+For more information on Cross region replication in the Simple Storage Service, please visit the below URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html
+The correct answer is: Enable cross region replication for the bucket Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 22
+You want to ensure that you keep a check on the Active EBS Volumes, Active snapshots and Elastic IP addresses you use so that you don't go beyond the service
+limit. Which of the below services can
+help in this regard?
+Please select:
+A. AWS Cloudwatch
+B. AWS EC2
+C. AWS Trusted Advisor
+D. AWS SNS
+Answer: C
+Explanation:
+Below is a snapshot of the service limits that the Trusted Advisor can monitor
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Option A is invalid because even though you can monitor resources, it cannot be checked against the service limit.
+Option B is invalid because this is the Elastic Compute cloud service Option D is invalid because it can be send notification but not check on service limit For more
+information on the Trusted Advisor monitoring, please visit the below URL:
+https://aws.amazon.com/premiumsupport/ta-faqs> The correct answer is: AWS Trusted Advisor Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 26
+An application running on EC2 instances in a VPC must call an external web service via TLS (port 443). The instances run in public subnets.
+Which configurations below allow the application to function and minimize the exposure of the instances? Select 2 answers from the options given below
+Please select:
+A. A network ACL with a rule that allows outgoing traffic on port 443.
+B. A network ACL with rules that allow outgoing traffic on port 443 and incoming traffic on ephemeral ports
+C. A network ACL with rules that allow outgoing traffic on port 443 and incoming traffic on port 443.
+D. A security group with a rule that allows outgoing traffic on port 443
+E. A security group with rules that allow outgoing traffic on port 443 and incoming traffic on ephemeral ports.
+F. A security group with rules that allow outgoing traffic on port 443 and incoming traffic on port 443.
+Answer: BD
+Explanation:
+Since here the traffic needs to flow outbound from the Instance to a web service on Port 443, the outbound rules on both the Network and Security Groups need to
+allow outbound traffic. The Incoming traffic should be allowed on ephermal ports for the Operating System on the Instance to allow a connection to be established
+on any desired or available port.
+Option A is invalid because this rule alone is not enough. You also need to ensure incoming traffic on ephemeral ports
+Option C is invalid because need to ensure incoming traffic on ephemeral ports and not only port 443 Option E and F are invalid since here you are allowing
+additional ports on Security groups which are not required
+For more information on VPC Security Groups, please visit the below URL:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuideA/PC_SecurityGroups.htmll
+The correct answers are: A network ACL with rules that allow outgoing traffic on port 443 and incoming traffic on ephemeral ports, A security group with a rule that
+allows outgoing traffic on port 443
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 29
+You are building a large-scale confidential documentation web server on AWSand all of the documentation for it will be stored on S3. One of the requirements is
+that it cannot be publicly accessible from S3 directly, and you will need to use Cloud Front to accomplish this. Which of the methods listed below would satisfy the
+requirements as outlined? Choose an answer from the options below
+Please select:
+A. Create an Identity and Access Management (1AM) user for CloudFront and grant access to the objects in your S3 bucket to that 1AM User.
+B. Create an Origin Access Identity (OAI) for CloudFront and grant access to the objects in your S3 bucket to that OAl.
+C. Create individual policies for each bucket the documents are stored in and in that policy grant access to only CloudFront.
+D. Create an S3 bucket policy that lists the CloudFront distribution ID as the Principal and the target bucket as the Amazon Resource Name (ARN).
+Answer: B
+Explanation:
+If you want to use CloudFront signed URLs or signed cookies to provide access to objects in your Amazon S3 bucket you probably also want to prevent users from
+accessing your Amazon S3 objects using Amazon S3 URLs. If users access your objects directly in Amazon S3, they bypass the controls provided by CloudFront
+signed URLs or signed cookies, for example, control over the date and time that a user can no longer access your content and control over which IP addresses
+can be used to access content. In addition, if user's access objects both through CloudFront and directly by using Amazon S3 URLs, CloudFront ace logs are less
+useful because they're incomplete.
+Option A is invalid because you need to create a Origin Access Identity for Cloudfront and not an 1AM user
+Option C and D are invalid because using policies will not help fulfil the requirement For more information on Origin Access Identity please see the below Link:
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-contentrestrictine- access-to-s3.htmll
+The correct answer is: Create an Origin Access Identity (OAI) for CloudFront and grant access to the objects in your S3 bucket to that OAI.
+(
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 33
+Your company makes use of S3 buckets for storing dat
+A. There is a company policy that all services should have logging enable
+B. How can you ensure thatlogging is always enabled for created S3 buckets in the AWS Account? Please select:
+C. Use AWS Inspector to inspect all S3 buckets and enable logging for those where it is not enabled
+D. Use AWS Config Rules to check whether logging is enabled for buckets
+E. Use AWS Cloudwatch metrics to check whether logging is enabled for buckets
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+F. Use AWS Cloudwatch logs to check whether logging is enabled for buckets
+Answer: B
+Explanation:
+This is given in the AWS Documentation as an example rule in AWS Config Example rules with triggers
+Example rule with configuration change trigger
+1. You add the AWS Config managed rule, S3_BUCKET_LOGGING_ENABLED, to your account to check whether your Amazon S3 buckets have logging
+enabled.
+2. The trigger type for the rule is configuration changes. AWS Config runs the evaluations for the rule when an Amazon S3 bucket is created, changed, or deleted.
+3. When a bucket is updated, the configuration change triggers the rule and AWS Config evaluates whether the bucket is compliant against the rule.
+Option A is invalid because AWS Inspector cannot be used to scan all buckets
+Option C and D are invalid because Cloudwatch cannot be used to check for logging enablement for buckets.
+For more information on Config Rules please see the below Link: https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html
+The correct answer is: Use AWS Config Rules to check whether logging is enabled for buckets Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 37
+Your company has confidential documents stored in the simple storage service. Due to compliance requirements, you have to ensure that the data in the S3
+bucket is available in a different geographical location. As an architect what is the change you would make to comply with this requirement.
+Please select:
+A. Apply Multi-AZ for the underlying 53 bucket
+B. Copy the data to an EBS Volume in another Region
+C. Create a snapshot of the S3 bucket and copy it to another region
+D. Enable Cross region replication for the S3 bucket
+Answer: D
+Explanation:
+This is mentioned clearly as a use case for S3 cross-region replication
+You might configure cross-region replication on a bucket for various reasons, including the following:
+• Compliance requirements - Although, by default Amazon S3 stores your data across multiple geographically distant Availability Zones, compliance requirements
+might dictate that you store data at even further distances. Cross-region replication allows you to replicate data between distant AWS Regions to satisfy these
+compliance requirements.
+Option A is invalid because Multi-AZ cannot be used to S3 buckets
+Option B is invalid because copying it to an EBS volume is not a recommended practice Option C is invalid because creating snapshots is not possible in S3
+For more information on S3 cross-region replication, please visit the following URL: https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.htmll
+The correct answer is: Enable Cross region replication for the S3 bucket Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 39
+When managing permissions for the API gateway, what can be used to ensure that the right level of permissions are given to developers, IT admins and users?
+These permissions should be easily managed.
+Please select:
+A. Use the secure token service to manage the permissions for the different users
+B. Use 1AM Policies to create different policies for the different types of users.
+C. Use the AWS Config tool to manage the permissions for the different users
+D. Use 1AM Access Keys to create sets of keys for the different types of user
+Answer: B
+Explanation:
+The AWS Documentation mentions the following
+You control access to Amazon API Gateway with 1AM permissions by controlling access to the following two API Gateway component processes:
+* To create, deploy, and manage an API in API Gateway, you must grant the API developer permissions to perform the required actions supported by the API
+management component of API Gateway.
+* To call a deployed API or to refresh the API caching, you must grant the API caller permissions to perform required 1AM actions supported by the API execution
+component of API Gateway.
+Option A, C and D are invalid because these cannot be used to control access to AWS services. This needs to be done via policies. For more information on
+permissions with the API gateway, please visit the following URL: https://docs.aws.amazon.com/apisateway/latest/developerguide/permissions.html
+The correct answer is: Use 1AM Policies to create different policies for the different types of users. Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 43
+A company hosts data in S3. There is a requirement to control access to the S3 buckets. Which are the 2 ways in which this can be achieved?
+Please select:
+A. Use Bucket policies
+B. Use the Secure Token service
+C. Use 1AM user policies
+D. Use AWS Access Keys
+Answer: AC
+Explanation:
+The AWS Documentation mentions the following
+Amazon S3 offers access policy options broadly categorized as resource-based policies and user policies. Access policies you attach to your resources (buckets
+and objects) are referred to as
+resource-based policies. For example, bucket policies and access control lists (ACLs) are resourcebased policies. You can also attach access policies to users in
+your account. These are called user
+policies. You may choose to use resource-based policies, user policies, or some combination of these to manage permissions to your Amazon S3 resources.
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Option B and D are invalid because these cannot be used to control access to S3 buckets For more information on S3 access control, please refer to the below
+Link: https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.htmll
+The correct answers are: Use Bucket policies. Use 1AM user policies Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 47
+How can you ensure that instance in an VPC does not use AWS DNS for routing DNS requests. You want to use your own managed DNS instance. How can this
+be achieved?
+Please select:
+A. Change the existing DHCP options set
+B. Create a new DHCP options set and replace the existing one.
+C. Change the route table for the VPC
+D. Change the subnet configuration to allow DNS requests from the new DNS Server
+Answer: B
+Explanation:
+In order to use your own DNS server, you need to ensure that you create a new custom DHCP options set with the IP of th custom DNS server. You cannot modify
+the existing set, so you need to create a new one.
+Option A is invalid because you cannot make changes to an existing DHCP options Set.
+Option C is invalid because this can only be used to work with Routes and not with a custom DNS solution.
+Option D is invalid because this needs to be done at the VPC level and not at the Subnet level For more information on DHCP options set, please visit the
+following url https://docs.aws.amazon.com/AmazonVPC/latest/UserGuideA/PC DHCP Options.html
+The correct answer is: Create a new DHCP options set and replace the existing one. Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 51
+You need to have a cloud security device which would allow to generate encryption keys based on FIPS 140-2 Level 3. Which of the following can be used for this
+purpose.
+Please select:
+A. AWS KMS
+B. AWS Customer Keys
+C. AWS managed keys
+D. AWS Cloud HSM
+Answer: AD
+Explanation:
+AWS Key Management Service (KMS) now uses FIPS 140-2 validated hardware security modules (HSM) and supports FIPS 140-2 validated endpoints, which
+provide independent assurances about the confidentiality and integrity of your keys.
+All master keys in AWS KMS regardless of their creation date or origin are automatically protected using FIPS 140-2 validated
+HSMs. defines four levels of security, simply named "Level 1'' to "Level 4". It does not specify in detail what level of security is required by any particular
+application.
+• FIPS 140-2 Level 1 the lowest, imposes very limited requirements; loosely, all components must
+be "production-grade" anc various egregious kinds of insecurity must be absent
+• FIPS 140-2 Level 2 adds requirements for physical tamper-evidence and role-based authentication.
+• FIPS 140-2 Level 3 adds requirements for physical tamper-resistance (making it difficult for attackers to gain access to sensitive information contained in the
+module) and identity-based authentication, and for a physical or logical separation between the interfaces by which "critical security parameters" enter and leave
+the module, and its other interfaces.
+• FIPS 140-2 Level 4 makes the physical security requirements more stringent and requires robustness against environmental attacks.
+AWSCIoudHSM provides you with a FIPS 140-2 Level 3 validated single-tenant HSM cluster in your Amazon Virtual Private Cloud (VPQ to store and use your
+keys. You have exclusive control over how your keys are used via an authentication mechanism independent from AWS. You interact with keys in your AWS
+CloudHSM cluster similar to the way you interact with your applications running in Amazon EC2.
+AWS KMS allows you to create and control the encryption keys used by your applications and supported AWS services in multiple regions around the world from a
+single console. The service uses a FIPS 140-2 validated HSM to protect the security of your keys. Centralized management of all your keys in AWS KMS lets you
+enforce who can use your keys under which conditions, when they get rotated, and who can manage them.
+AWS KMS HSMs are validated at level 2 overall and at level 3 in the following areas:
+• Cryptographic Module Specification
+• Roles, Services, and Authentication
+• Physical Security
+• Design Assurance
+So I think that we can have 2 answers for this question. Both A & D.
+• https://aws.amazon.com/blo15s/security/aws-key-management-service- now-ffers-flps-140-2- validated-cryptographic-m< enabling-easier-adoption-of-the-servicefor-regulated-workloads/
+• https://a ws.amazon.com/cloudhsm/faqs/
+• https://aws.amazon.com/kms/faqs/
+• https://en.wikipedia.org/wiki/RPS
+The AWS Documentation mentions the following
+AWS CloudHSM is a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys on the AWS Cloud.
+With CloudHSM, you can manage your own encryption keys using FIPS 140-2 Level 3 validated HSMs. CloudHSM offers you the filexibility to integrate with your
+applications using industry-standard APIs, such as PKCS#11, Java
+Cryptography Extensions ()CE). and Microsoft CryptoNG (CNG) libraries. CloudHSM is also standardscompliant and enables you to export all of your keys to most
+other commercially-available HSMs. It is a fully-managed service that automates time-consuming administrative tasks for you, such as hardware provisioning,
+software patching, high-availability, and backups. CloudHSM also enables you to scale quickly by adding and removing HSM capacity on-demand, with no up-front
+costs.
+All other options are invalid since AWS Cloud HSM is the prime service that offers FIPS 140-2 Level 3 compliance
+For more information on CloudHSM, please visit the following url https://aws.amazon.com/cloudhsm;
+The correct answers are: AWS KMS, AWS Cloud HSM Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 56
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+You need to inspect the running processes on an EC2 Instance that may have a security issue. How can you achieve this in the easiest way possible. Also you
+need to ensure that the process does not interfere with the continuous running of the instance.
+Please select:
+A. Use AWS Cloudtrail to record the processes running on the server to an S3 bucket.
+B. Use AWS Cloudwatch to record the processes running on the server
+C. Use the SSM Run command to send the list of running processes information to an S3 bucket.
+D. Use AWS Config to see the changed process information on the server
+Answer: C
+Explanation:
+The SSM Run command can be used to send OS specific commands to an Instance. Here you can check and see the running processes on an instance and then
+send the output to an S3 bucket. Option A is invalid because this is used to record API activity and cannot be used to record running
+processes.
+Option B is invalid because Cloudwatch is a logging and metric service and cannot be used to record running processes.
+Option D is invalid because AWS Config is a configuration service and cannot be used to record running processes.
+For more information on the Systems Manager Run command, please visit the following URL: https://docs.aws.amazon.com/systemsmanaEer/latest/usereuide/execute-remote-commands.htmll The correct answer is: Use the SSM Run command to send the list of running processes information to
+an S3 bucket. Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 57
+You are trying to use the Systems Manager to patch a set of EC2 systems. Some of the systems are not getting covered in the patching process. Which of the
+following can be used to troubleshoot the issue? Choose 3 answers from the options given below.
+Please select:
+A. Check to see if the right role has been assigned to the EC2 instances
+B. Check to see if the 1AM user has the right permissions for EC2
+C. Ensure that agent is running on the instances.
+D. Check the Instance status by using the Health AP
+Answer: ACD
+Explanation:
+For ensuring that the instances are configured properly you need to ensure the followi .
+1) You installed the latest version of the SSM Agent on your instance
+2) Your instance is configured with an AWS Identity and Access Management (1AM) role that enables the instance to communicate with the Systems Manager API
+3) You can use the Amazon EC2 Health API to quickly determine the following information about Amazon EC2 instances The status of one or more instances
+The last time the instance sent a heartbeat value The version of the SSM Agent
+The operating system
+The version of the EC2Config service (Windows) The status of the EC2Config service (Windows)
+Option B is invalid because 1AM users are not supposed to be directly granted permissions to EC2 Instances For more information on troubleshooting AWS SSM,
+please visit the following URL: https://docs.aws.amazon.com/systems-manager/latest/userguide/troubleshooting-remotecommands. html
+The correct answers are: Check to see if the right role has been assigned to the EC2 Instances, Ensure that agent is running on the Instances., Check the
+Instance status by using the Health API.
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 59
+You are working for a company and been allocated the task for ensuring that there is a federated authentication mechanism setup between AWS and their Onpremise Active Directory. Which of the following are important steps that need to be covered in this process? Choose 2 answers from the options given below.
+Please select:
+A. Ensure the right match is in place for On-premise AD Groups and 1AM Roles.
+B. Ensure the right match is in place for On-premise AD Groups and 1AM Groups.
+C. Configure AWS as the relying party in Active Directory
+D. Configure AWS as the relying party in Active Directory Federation services
+Answer: AD
+Explanation:
+The AWS Documentation mentions some key aspects with regards to the configuration of Onpremise AD with AWS
+One is the Groups configuration in AD Active Directory Configuration
+Determining how you will create and delineate your AD groups and 1AM roles in AWS is crucial to how you secure access to your account and manage resources.
+SAML assertions to the AWS environment and the respective 1AM role access will be managed through regular expression (regex) matching between your onpremises AD group name to an AWS 1AM role.
+One approach for creating the AD groups that uniquely identify the AWS 1AM role mapping is by selecting a common group naming convention. For example, your
+AD groups would start with an identifier, for example, AWS-, as this will distinguish your AWS groups from others within the organization. Next include the
+12-digitAWS account number. Finally, add the matching role name within the AWS account. Here is an example:
+
+And next is the configuration of the relying party which is AWS
+ADFS federation occurs with the participation of two parties; the identity or claims provider (in this case the owner of the identity repository - Active Directory) and
+the relying party, which is another application that wishes to outsource authentication to the identity provider; in this case Amazon Secure Token Service (STS).
+The relying party is a federation partner that is represented by a claims provider trust in the federation service.
+Option B is invalid because AD groups should not be matched to 1AM Groups
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Option C is invalid because the relying party should be configured in Active Directory Federation services
+For more information on the federated access, please visit the following URL:
+1 https://aws.amazon.com/blogs/security/aws-federated-authentication-with-active-directoryfederation- services-ad-fs/
+The correct answers are: Ensure the right match is in place for On-premise AD Groups and 1AM Roles., Configure AWS as the relying party in Active Directory
+Federation services
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 62
+Which technique can be used to integrate AWS 1AM (Identity and Access Management) with an on Questions & Answers PDF P-63
+premise LDAP (Lightweight Directory Access Protocol) directory service? Please select:
+A. Use an 1AM policy that references the LDAP account identifiers and the AWS credentials.
+B. Use SAML (Security Assertion Markup Language) to enable single sign-on between AWS and LDAP.
+C. Use AWS Security Token Service from an identity broker to issue short-lived AWS credentials.
+D. Use 1AM roles to automatically rotate the 1AM credentials when LDAP credentials are update
+Answer: B
+Explanation:
+On the AWS Blog site the following information is present to help on this context
+The newly released whitepaper. Single Sign-On: Integrating AWS, OpenLDAP, and Shibboleth, will help you integrate your existing LDAP-based user directory
+with AWS. When you integrate your existing directory with AWS, your users can access AWS by using their existing credentials. This means that your users don't
+need to maintain yet another user name and password just to access AWS resources.
+Option A.C and D are all invalid because in this sort of configuration, you have to use SAML to enable single sign on.
+For more information on integrating AWS with LDAP for Single Sign-On, please visit the following URL:
+https://aws.amazon.eom/blogs/security/new-whitepaper-sinEle-sign-on-inteErating-aws-openldapand- shibboleth/l
+The correct answer is: Use SAML (Security Assertion Markup Language) to enable single sign-on between AWS and LDAP. Submit your Feedback/Queries to our
+Experts
+
+NEW QUESTION 65
+You have an EBS volume attached to an EC2 Instance which uses KMS for Encryption. Someone has now gone ahead and deleted the Customer Key which was
+used for the EBS encryption. What should be done to ensure the data can be decrypted.
+Please select:
+A. Create a new Customer Key using KMS and attach it to the existing volume
+B. You cannot decrypt the data that was encrypted under the CMK, and the data is not recoverable.
+C. Request AWS Support to recover the key
+D. Use AWS Config to recover the key
+Answer: B
+Explanation:
+Deleting a customer master key (CMK) in AWS Key Management Service (AWS KMS) is destructive and potentially dangerous. It deletes the key material and all
+metadata associated with the CMK, and is irreversible. After a CMK is deleted you can no longer decrypt the data that was encrypted under that CMK, which
+means that data becomes unrecoverable. You should delete a CMK only when you are sure that you don't need to use it anymore. If you are not sure, consider
+disabling the CMK instead of deleting it. You can re-enable a disabled CMK if you need to use it again later, but you cannot recover a deleted CMK.
+https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html
+A is incorrect because Creating a new CMK and attaching it to the exiting volume will not allow the data to be decrypted, you cannot attach customer master keys
+after the volume is encrypted
+Option C and D are invalid because once the key has been deleted, you cannot recover it For more information on EBS Encryption with KMS, please visit the
+following URL: https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html
+The correct answer is: You cannot decrypt the data that was encrypted under the CMK, and the data is not recoverable. Submit your Feedback/Queries to our
+Experts
+
+NEW QUESTION 66
+You have a requirement to serve up private content using the keys available with Cloudfront. How can this be achieved?
+Please select:
+A. Add the keys to the backend distribution.
+B. Add the keys to the S3 bucket
+C. Create pre-signed URL's
+D. Use AWS Access keys
+Answer: C
+Explanation:
+Option A and B are invalid because you will not add keys to either the backend distribution or the S3 bucket.
+Option D is invalid because this is used for programmatic access to AWS resources
+You can use Cloudfront key pairs to create a trusted pre-signed URL which can be distributed to users Specifying the AWS Accounts That Can Create Signed
+URLs and Signed Cookies (Trusted Signers) Topics
+• Creating CloudFront Key Pairs for Your Trusted Signers
+• Reformatting the CloudFront Private Key (.NET and Java Only)
+• Adding Trusted Signers to Your Distribution
+• Verifying that Trusted Signers Are Active (Optional) 1 Rotating CloudFront Key Pairs
+To create signed URLs or signed cookies, you need at least one AWS account that has an active CloudFront key pair. This accou is known as a trusted signer.
+The trusted signer has two purposes:
+• As soon as you add the AWS account ID for your trusted signer to your distribution, CloudFront starts to require that users us signed URLs or signed cookies to
+access your objects.
+' When you create signed URLs or signed cookies, you use the private key from the trusted signer's key pair to sign a portion of the URL or the cookie. When
+someone requests a restricted object CloudFront compares the signed portion of the URL or cookie with the unsigned portion to verify that the URL or cookie
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+hasn't been tampered with. CloudFront also verifies that the URL or cookie is valid, meaning, for example, that the expiration date and time hasn't passed.
+For more information on Cloudfront private trusted content please visit the following URL:
+• https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-contenttrusted- s
+The correct answer is: Create pre-signed URL's Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 67
+You are building a system to distribute confidential training videos to employees. Using CloudFront, what method could be used to serve content that is stored in
+S3, but not publicly accessible from S3 directly?
+Please select:
+A. Create an Origin Access Identity (OAI) for CloudFront and grant access to the objects in your S3 bucket to that OAl.
+B. Add the CloudFront account security group "amazon-cf/amazon-cf-sg" to the appropriate S3 bucket policy.
+C. Create an Identity and Access Management (1AM) User for CloudFront and grant access to the objects in your S3 bucket to that 1AM User.
+D. Create a S3 bucket policy that lists the CloudFront distribution ID as the Principal and the target bucket as the Amazon Resource Name (ARN).
+Answer: AExplanation:
+Explanation:
+You can optionally secure the content in your Amazon S3 bucket so users can access it through
+CloudFront but cannot access it directly by using Amazon S3 URLs. This prevents anyone from bypassing CloudFront and using the Amazon S3 URL to get
+content that you want to restrict access to. This step isn't required to use signed URLs, but we recommend it
+To require that users access your content through CloudFront URLs, you perform the following tasks: Create a special CloudFront user called an origin access
+identity.
+Give the origin access identity permission to read the objects in your bucket. Remove permission for anyone else to use Amazon S3 URLs to read the objects.
+Option B,C and D are all automatically invalid, because the right way is to ensure to create Origin Access Identity (OAI) for CloudFront and grant access
+accordingly.
+For more information on serving private content via Cloudfront, please visit the following URL:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.htmll
+The correct answer is: Create an Origin Access Identity (OAI) for CloudFront and grant access to the objects in your S3 bucket t that OAI.
+You can optionally secure the content in your Amazon S3 bucket so users can access it through CloudFront but cannot access it directly by using Amazon S3
+URLs. This prevents anyone from bypassing CloudFront and using the Amazon S3 URL to get content that you want to restrict access to. This step isn't required to
+use signed URLs, but we recommend it
+To require that users access your content through CloudFront URLs, you perform the following tasks: Create a special CloudFront user called an origin access
+identity.
+Give the origin access identity permission to read the objects in your bucket. Remove permission for anyone else to use Amazon S3 URLs to read the objects.
+Option B,C and D are all automatically invalid, because the right way is to ensure to create Origin Access Identity (OAI) for CloudFront and grant access
+accordingly.
+For more information on serving private content via Cloudfront, please visit the following URL:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.htmll
+The correct answer is: Create an Origin Access Identity (OAI) for CloudFront and grant access to the objects in your S3 bucket t that OAI.
+Submit your Feedback/Queries to our Experts Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 68
+A company has an existing AWS account and a set of critical resources hosted in that account. The employee who was in-charge of the root account has left the
+company. What must be now done to secure the account. Choose 3 answers from the options given below.
+Please select:
+A. Change the access keys for all 1AM users.
+B. Delete all custom created 1AM policies
+C. Delete the access keys for the root account
+D. Confirm MFAtoa secure device
+E. Change the password for the root account
+F. Change the password for all 1AM users
+Answer: CDE
+Explanation:
+Now if the root account has a chance to be compromised, then you have to carry out the below steps
+1. Delete the access keys for the root account
+2. Confirm MFA to a secure device
+3. Change the password for the root account
+This will ensure the employee who has left has no change to compromise the resources in AWS. Option A is invalid because this would hamper the working of the
+current IAM users
+Option B is invalid because this could hamper the current working of services in your AWS account Option F is invalid because this would hamper the working of
+the current IAM users
+For more information on IAM root user, please visit the following URL: https://docs.aws.amazon.com/IAM/latest/UserGuide/id root-user.html
+The correct answers are: Delete the access keys for the root account Confirm MFA to a secure device. Change the password for the root account
+Submit Your Feedback/Queries to our Experts
+
+NEW QUESTION 70
+Your application currently uses customer keys which are generated via AWS KMS in the US east region. You now want to use the same set of keys from the EUCentral region. How can this be accomplished?
+Please select:
+A. Export the key from the US east region and import them into the EU-Central region
+B. Use key rotation and rotate the existing keys to the EU-Central region
+C. Use the backing key from the US east region and use it in the EU-Central region
+D. This is not possible since keys from KMS are region specific
+Answer: D
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Explanation:
+Option A is invalid because keys cannot be exported and imported across regions. Option B is invalid because key rotation cannot be used to export keys
+Option C is invalid because the backing key cannot be used to export keys This is mentioned in the AWS documentation
+What geographic region are my keys stored in?
+Keys are only stored and used in the region in which they are created. They cannot be transferred to another region. For example; keys created in the EU-Central
+(Frankfurt) region are only stored and used within the EU-Central (Frankfurt) region
+For more information on KMS please visit the following URL: https://aws.amazon.com/kms/faqs/
+The correct answer is: This is not possible since keys from KMS are region specific Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 74
+You currently have an S3 bucket hosted in an AWS Account. It holds information that needs be accessed by a partner account. Which is the MOST secure way to
+allow the partner account to access the S3 bucket in your account? Select 3 options.
+Please select:
+A. Ensure an 1AM role is created which can be assumed by the partner account.
+B. Ensure an 1AM user is created which can be assumed by the partner account.
+C. Ensure the partner uses an external id when making the request
+D. Provide the ARN for the role to the partner account
+E. Provide the Account Id to the partner account
+F. Provide access keys for your account to the partner account
+Answer: ACD
+Explanation:
+Option B is invalid because Roles are assumed and not 1AM users
+Option E is invalid because you should not give the account ID to the partner Option F is invalid because you should not give the access keys to the partner
+The below diagram from the AWS documentation showcases an example on this wherein an 1AM role and external ID is us> access an AWS account resources
+
+For more information on creating roles for external ID'S please visit the following URL:
+The correct answers are: Ensure an 1AM role is created which can be assumed by the partner account. Ensure the partner uses an external id when making the
+request Provide the ARN for the role to the partner account
+
+NEW QUESTION 78
+A company is using a Redshift cluster to store their data warehouse. There is a requirement from the Internal IT Security team to ensure that data gets encrypted
+for the Redshift database. How can this be achieved?
+Please select:
+A. Encrypt the EBS volumes of the underlying EC2 Instances
+B. Use AWS KMS Customer Default master key
+C. Use SSL/TLS for encrypting the data
+D. Use S3 Encryption
+Answer: B
+Explanation:
+The AWS Documentation mentions the following
+Amazon Redshift uses a hierarchy of encryption keys to encrypt the database. You can use either
+AWS Key Management Servic (AWS KMS) or a hardware security module (HSM) to manage the toplevel
+encryption keys in this hierarchy. The process that Amazon Redshift uses for encryption differs depending on how you manage keys.
+Option A is invalid because its the cluster that needs to be encrypted
+Option C is invalid because this encrypts objects in transit and not objects at rest Option D is invalid because this is used only for objects in S3 buckets
+For more information on Redshift encryption, please visit the following URL: https://docs.aws.amazon.com/redshift/latest/memt/workine-with-db-encryption.htmll
+The correct answer is: Use AWS KMS Customer Default master key Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 83
+A company has resources hosted in their AWS Account. There is a requirement to monitor all API activity for all regions. The audit needs to be applied for future
+regions as well. Which of the following can be used to fulfil this requirement.
+Please select:
+A. Ensure Cloudtrail for each regio
+B. Then enable for each future region.
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+C. Ensure one Cloudtrail trail is enabled for all regions.
+D. Create a Cloudtrail for each regio
+E. Use Cloudformation to enable the trail for all future regions.
+F. Create a Cloudtrail for each regio
+G. Use AWS Config to enable the trail for all future region
+Answer: B
+Explanation:
+The AWS Documentation mentions the following
+You can now turn on a trail across all regions for your AWS account. CloudTrail will deliver log files from all regions to the Amazon S3 bucket and an optional
+CloudWatch Logs log group you specified. Additionally, when AWS launches a new region, CloudTrail will create the same trail in the new region. As a result you
+will receive log files containing API activity for the new region without taking any action.
+Option A and C is invalid because this would be a maintenance overhead to enable cloudtrail for every region
+Option D is invalid because this AWS Config cannot be used to enable trails For more information on this feature, please visit the following URL:
+https://aws.ama2on.com/about-aws/whats-new/20l5/l2/turn-on-cloudtrail-across-all-reeions-andsupport- for-multiple-trails
+The correct answer is: Ensure one Cloudtrail trail is enabled for all regions. Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 85
+Your company has a requirement to work with a DynamoDB table. There is a security mandate that all data should be encrypted at rest. What is the easiest way to
+accomplish this for DynamoDB. Please select:
+A. Use the AWS SDK to encrypt the data before sending it to the DynamoDB table
+B. Encrypt the DynamoDB table using KMS during its creation
+C. Encrypt the table using AWS KMS after it is created
+D. Use S3 buckets to encrypt the data before sending it to DynamoDB
+Answer: B
+Explanation:
+The most easiest option is to enable encryption when the DynamoDB table is created. The AWS Documentation mentions the following
+Amazon DynamoDB offers fully managed encryption at rest. DynamoDB encryption at rest provides enhanced security by encrypting your data at rest using an
+AWS Key Management Service (AWS KMS) managed encryption key for DynamoDB. This functionality eliminates the operational burden and complexity involved
+in protecting sensitive data.
+Option A is partially correct, you can use the AWS SDK to encrypt the data, but the easier option would be to encrypt the table before hand.
+Option C is invalid because you cannot encrypt the table after it is created
+Option D is invalid because encryption for S3 buckets is for the objects in S3 only.
+For more information on securing data at rest for DynamoDB please refer to below URL:
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/EncryptionAtRest.htmll The correct answer is: Encrypt the DynamoDB table using KMS
+during its creation Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 89
+Your company has a set of EC2 Instances defined in AWS. They need to ensure that all traffic packets are monitored and inspected for any security threats. How
+can this be achieved? Choose 2 answers from the options given below
+Please select:
+A. Use a host based intrusion detection system
+B. Use a third party firewall installed on a central EC2 instance
+C. Use VPC Flow logs
+D. Use Network Access control lists logging
+Answer: AB
+Explanation:
+If you want to inspect the packets themselves, then you need to use custom based software A diagram representation of this is given in the AWS Security best
+practices
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Option C is invalid because VPC Flow logs cannot conduct packet inspection. For more information on AWS Security best practices, please refer to below URL:
+The correct answers are: Use a host based intrusion detection system. Use a third party firewall installed on a central EC2
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 94
+Your company hosts a large section of EC2 instances in AWS. There are strict security rules governing the EC2 Instances. During a potential security breach , you
+need to ensure quick investigation of the underlying EC2 Instance. Which of the following service can help you quickly provision a test environment to look into the
+breached instance.
+Please select:
+A. AWS Cloudwatch
+B. AWS Cloudformation
+C. AWS Cloudtrail
+D. AWS Config
+Answer: B
+Explanation:
+The AWS Security best practises mentions the following
+Unique to AWS, security practitioners can use CloudFormation to quickly create a new, trusted environment in which to conduct deeper investigation. The
+CloudFormation template can preconfigure instances in an isolated environment that contains all the necessary tools forensic teams
+need to determine the cause of the incident This cuts down on the time it takes to gather necessary tools, isolates systems under examination, and ensures that
+the team is operating in a clean room. Option A is incorrect since this is a logging service and cannot be used to provision a test environment
+Option C is incorrect since this is an API logging service and cannot be used to provision a test environment
+Option D is incorrect since this is a configuration service and cannot be used to provision a test environment
+For more information on AWS Security best practises, please refer to below URL: https://d1.awsstatic.com/whitepapers/architecture/AWS-Security-Pillar.pd1
+The correct answer is: AWS Cloudformation Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 98
+Your company use AWS KMS for management of its customer keys. From time to time, there is a requirement to delete existing keys as part of housekeeping
+activities. What can be done during the deletion process to verify that the key is no longer being used.
+Please select:
+A. Use CloudTrail to see if any KMS API request has been issued against existing keys
+B. Use Key policies to see the access level for the keys
+C. Rotate the keys once before deletion to see if other services are using the keys
+D. Change the 1AM policy for the keys to see if other services are using the keys
+Answer: A
+Explanation:
+The AWS lentation mentions the following
+You can use a combination of AWS CloudTrail, Amazon CloudWatch Logs, and Amazon Simple Notification Service (Amazon SNS) to create an alarm that notifies
+you of AWS KMS API requests that attempt to use a customer master key (CMK) that is pending deletion. If you receive a notification from such an alarm, you
+might want to cancel deletion of the CMK to give yourself more time to determine whether you want to delete it
+Options B and D are incorrect because Key policies nor 1AM policies can be used to check if the keys are being used.
+Option C is incorrect since rotation will not help you check if the keys are being used. For more information on deleting keys, please refer to below URL:
+https://docs.aws.amazon.com/kms/latest/developereuide/deletine-keys-creatine-cloudwatchalarm. html
+The correct answer is: Use CloudTrail to see if any KMS API request has been issued against existing keys Submit your Feedback/Queries to our Experts
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+NEW QUESTION 101
+You have a bucket and a VPC defined in AWS. You need to ensure that the bucket can only be accessed by the VPC endpoint. How can you accomplish this?
+Please select:
+A. Modify the security groups for the VPC to allow access to the 53 bucket
+B. Modify the route tables to allow access for the VPC endpoint
+C. Modify the 1AM Policy for the bucket to allow access for the VPC endpoint
+D. Modify the bucket Policy for the bucket to allow access for the VPC endpoint
+Answer: D
+Explanation:
+This is mentioned in the AWS Documentation Restricting Access to a Specific VPC Endpoint
+The following is an example of an S3 bucket policy that restricts access to a specific bucket,
+examplebucket only from the VPC endpoint with the ID vpce-la2b3c4d. The policy denies all access to the bucket if the specified endpoint is not being used. The
+aws:sourceVpce condition is used to the specify the endpoint. The aws:sourceVpce condition does not require an ARN for the VPC endpoint resource, only the
+VPC endpoint ID. For more information about using conditions in a policy, see Specifying Conditions in a Policy.
+
+Options A and B are incorrect because using Security Groups nor route tables will help to allow access specifically for that bucke via the VPC endpoint Here you
+specifically need to ensure the bucket policy is changed.
+Option C is incorrect because it is the bucket policy that needs to be changed and not the 1AM policy. For more information on example bucket policies for VPC
+endpoints, please refer to below URL: https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies-vpc-endpoint.html
+The correct answer is: Modify the bucket Policy for the bucket to allow access for the VPC endpoint Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 105
+Which of the following is the responsibility of the customer? Choose 2 answers from the options given below.
+Please select:
+A. Management of the Edge locations
+B. Encryption of data at rest
+C. Protection of data in transit
+D. Decommissioning of old storage devices
+Answer: BC
+Explanation:
+Below is the snapshot of the Shared Responsibility Model
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+For more information on AWS Security best practises, please refer to below URL
+.awsstatic corn/whitepapers/Security/AWS Practices.
+The correct answers are: Encryption of data at rest Protection of data in transit Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 106
+A Devops team is currently looking at the security aspect of their CI/CD pipeline. They are making use of AWS resource? for their infrastructure. They want to
+ensure that the EC2 Instances don't have any high security vulnerabilities. They want to ensure a complete DevSecOps process. How can this be achieved?
+Please select:
+A. Use AWS Config to check the state of the EC2 instance for any sort of security issues.
+B. Use AWS Inspector API's in the pipeline for the EC2 Instances
+C. Use AWS Trusted Advisor API's in the pipeline for the EC2 Instances
+D. Use AWS Security Groups to ensure no vulnerabilities are present
+Answer: B
+Explanation:
+Amazon Inspector offers a programmatic way to find security defects or misconfigurations in your operating systems and applications. Because you can use API
+calls to access both the processing of assessments and the results of your assessments, integration of the findings into workflow and notification systems is
+simple. DevOps teams can integrate Amazon Inspector into their CI/CD pipelines and use it to identify any pre-existing issues or when new issues are introduced.
+Option A.C and D are all incorrect since these services cannot check for Security Vulnerabilities. These can only be checked by the AWS Inspector service.
+For more information on AWS Security best practices, please refer to below URL: https://d1.awsstatic.com/whitepapers/Security/AWS Security Best Practices.pdl
+The correct answer is: Use AWS Inspector API's in the pipeline for the EC2 Instances Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 109
+DDoS attacks that happen at the application layer commonly target web applications with lower volumes of traffic compared to infrastructure attacks. To mitigate
+these types of attacks, you should probably want to include a WAF (Web Application Firewall) as part of your infrastructure. To inspect all HTTP requests, WAFs
+sit in-line with your application traffic. Unfortunately, this creates a scenario where WAFs can become a point of failure or bottleneck. To mitigate this problem, you
+need the ability to run multiple WAFs on demand during traffic spikes. This type of scaling for WAF is done via a "WAF sandwich." Which of the following
+statements best describes what a "WAF sandwich" is? Choose the correct answer from the options below
+Please select:
+A. The EC2 instance running your WAF software is placed between your private subnets and any NATed connections to the internet.
+B. The EC2 instance running your WAF software is placed between your public subnets and your Internet Gateway.
+C. The EC2 instance running your WAF software is placed between your public subnets and your private subnets.
+D. he EC2 instance running your WAF software is included in an Auto Scaling group and placed in between two Elastic load balancers.
+Answer: D
+Explanation:
+The below diagram shows how a WAF sandwich is created. Its the concept of placing the Ec2 instance which hosts the WAF software in between 2 elastic load
+balancers.
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Option A.B and C are incorrect since the EC2 Instance with the WAF software needs to be placed in an Autoscaling Group For more information on a WAF
+sandwich please refer to the below Link: https://www.cloudaxis.eom/2016/11/2l/waf-sandwich/l
+The correct answer is: The EC2 instance running your WAF software is included in an Auto Scaling group and placed in between two Elastic load balancers.
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 110
+A company has hired a third-party security auditor, and the auditor needs read-only access to all AWS resources and logs of all VPC records and events that have
+occurred on AWS. How can the company meet the auditor's requirements without comprising security in the AWS environment? Choose the correct answer from
+the options below
+Please select:
+A. Create a role that has the required permissions for the auditor.
+B. Create an SNS notification that sends the CloudTrail log files to the auditor's email when CIoudTrail delivers the logs to S3, but do not allow the auditor access
+to the AWS environment.
+C. The company should contact AWS as part of the shared responsibility model, and AWS will grant required access to th^ third-party auditor.
+D. Enable CloudTrail logging and create an 1AM user who has read-only permissions to the required AWS resources, including the bucket containing the
+CloudTrail logs.
+Answer: D
+Explanation:
+AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With CloudTrail, you can log,
+continuously monitor, and retain events related to API calls across your AWS infrastructure. CloudTrail provides a history of AWS API calls for your account
+including API calls made through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This history simplifies security
+analysis, resource change tracking, and troubleshooting.
+Option A and C are incorrect since Cloudtrail needs to be used as part of the solution Option B is incorrect since the auditor needs to have access to Cloudtrail
+For more information on cloudtrail, please visit the below URL: https://aws.amazon.com/cloudtraiL
+The correct answer is: Enable CloudTrail logging and create an 1AM user who has read-only permissions to the required AWS resources, including the bucket
+containing the CloudTrail logs. Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 114
+An auditor needs access to logs that record all API events on AWS. The auditor only needs read-only access to the log files and does not need access to each
+AWS account. The company has multiple AWS accounts, and the auditor needs access to all the logs for all the accounts. What is the best way to configure
+access for the auditor to view event logs from all accounts? Choose the correct answer from the options below
+Please select:
+A. Configure the CloudTrail service in each AWS account, and have the logs delivered to an AWS bucket on each account, while granting the auditor permissions
+to the bucket via roles in the secondary accounts and a single primary 1AM account that can assume a read-only role in the secondary AWS accounts.
+B. Configure the CloudTrail service in the primary AWS account and configure consolidated billing for all the secondary account
+C. Then grant the auditor access to the S3 bucket that receives theCloudTrail log files.
+D. Configure the CloudTrail service in each AWS account and enable consolidated logging inside of CloudTrail.
+E. Configure the CloudTrail service in each AWS account and have the logs delivered to a single AWS bucket in the primary account and erant the auditor access
+to that single bucket in the orimarvaccoun
+Answer: D
+Explanation:
+Given the current requirements, assume the method of "least privilege" security design and only allow the auditor access to the minimum amount of AWS
+resources as possibli
+AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With CloudTrail, you can log,
+continuously monitor, and retain events
+related to API calls across your AWS infrastructure. CloudTrail provides a history of AWS API calls for your account including API calls made through the AWS
+Management Console, AWS SDKs, command line tools, and other AWS services. This history simplifies security analysis, resource change tracking, and
+troubleshooting
+only be granted access in one location
+Option Option A is incorrect since the auditor should B is incorrect since consolidated billing is not a key requirement as part of the question
+Option C is incorrect since there is not consolidated logging
+For more information on Cloudtrail please refer to the below URL: https://aws.amazon.com/cloudtraiL
+(
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+The correct answer is: Configure the CloudTrail service in each AWS account and have the logs delivered to a single AWS bud in the primary account and grant
+the auditor access to that single bucket in the primary account.
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 119
+A large organization is planning on AWS to host their resources. They have a number of autonomous departments that wish to use AWS. What could be the
+strategy to adopt for managing the accounts. Please select:
+A. Use multiple VPCs in the account each VPC for each department
+B. Use multiple 1AM groups, each group for each department
+C. Use multiple 1AM roles, each group for each department
+D. Use multiple AWS accounts, each account for each department
+Answer: D
+Explanation:
+A recommendation for this is given in the AWS Security best practices
+
+Option A is incorrect since this would be applicable for resources in a VPC Options B and C are incorrect since operationally it would be difficult to manage For
+more information on AWS Security best practices please refer to the below URL
+https://d1.awsstatic.com/whitepapers/Security/AWS Security Best Practices.pdl
+The correct answer is: Use multiple AWS accounts, each account for each department Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 123
+You are planning on using the AWS KMS service for managing keys for your application. For which of the following can the KMS CMK keys be used for
+encrypting? Choose 2 answers from the options given below
+Please select:
+A. Image Objects
+B. Large files
+C. Password
+D. RSA Keys
+Answer: CD
+Explanation:
+The CMK keys themselves can only be used for encrypting data that is maximum 4KB in size. Hence it can be used for encryptii information such as passwords
+and RSA keys.
+Option A and B are invalid because the actual CMK key can only be used to encrypt small amounts of data and not large amoui of dat
+A\\ You have to generate the data key from the CMK key in order to
+encrypt high amounts of data
+For more information on the concepts for KMS, please visit the following URL: https://docs.aws.amazon.com/kms/latest/developereuide/concepts.htmll
+The correct answers are: Password, RSA Keys Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 126
+A company wants to use Cloudtrail for logging all API activity. They want to segregate the logging of data events and management events. How can this be
+achieved? Choose 2 answers from the options given below
+Please select:
+A. Create one Cloudtrail log group for data events
+B. Create one trail that logs data events to an S3 bucket
+C. Create another trail that logs management events to another S3 bucket
+D. Create another Cloudtrail log group for management events
+Answer: BC
+Explanation:
+The AWS Documentation mentions the following
+You can configure multiple trails differently so that the trails process and log only the events that you specify. For example, one trail can log read-only data and
+management events, so that all read-only events are delivered to one S3 bucket. Another trail can log only write-only data and management events, so that all
+write-only events are delivered to a separate S3 bucket
+Options A and D are invalid because you have to create a trail and not a log group
+For more information on managing events with cloudtrail, please visit the following URL:
+https://docs.aws.amazon.com/awscloudtrail/latest/userguide/loHEing-manasement-and-dataevents- with-cloudtrai
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+The correct answers are: Create one trail that logs data events to an S3 bucket. Create another trail that logs management events to another S3 bucket
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 131
+An application is designed to run on an EC2 Instance. The applications needs to work with an S3 bucket. From a security perspective , what is the ideal way for the
+EC2 instance/ application to be configured?
+Please select:
+A. Use the AWS access keys ensuring that they are frequently rotated.
+B. Assign an 1AM user to the application that has specific access to only that S3 bucket
+C. Assign an 1AM Role and assign it to the EC2 Instance
+D. Assign an 1AM group and assign it to the EC2 Instance
+Answer: C
+Explanation:
+The below diagram from the AWS whitepaper shows the best security practicse of allocating a role that has access to the S3 bucket
+
+Options A,B and D are invalid because using users, groups or access keys is an invalid security practise when giving access to resources from other AWS
+resources.
+For more information on the Security Best practices, please visit the following URL: https://d1.awsstatic.com/whitepapers/Security/AWS Security Best Practices.pdl
+The correct answer is: Assign an 1AM Role and assign it to the EC2 Instance Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 132
+Which of the below services can be integrated with the AWS Web application firewall service. Choose 2 answers from the options given below
+Please select:
+A. AWS Cloudfront
+B. AWS Lambda
+C. AWS Application Load Balancer
+D. AWS Classic Load Balancer
+Answer: AC
+Explanation:
+The AWS documentation mentions the following on the Application Load Balancer
+AWS WAF can be deployed on Amazon CloudFront and the Application Load Balancer (ALB). As part of Amazon CloudFront it car be part of your Content
+Distribution Network (CDN) protecting your resources and content at the Edge locations and as part of the Application Load Balancer it can
+protect your origin web servers running behind the ALBs.
+Options B and D are invalid because only Cloudfront and the Application Load Balancer services are supported by AWS WAF.
+For more information on the web application firewall please refer to the below URL: https://aws.amazon.com/waf/faq;
+The correct answers are: AWS Cloudfront AWS Application Load Balancer Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 133
+A company hosts critical data in an S3 bucket. Even though they have assigned the appropriate permissions to the bucket, they are still worried about data
+deletion. What measures can be taken to restrict the risk of data deletion on the bucket. Choose 2 answers from the options given below Please select:
+A. Enable versioning on the S3 bucket
+B. Enable data at rest for the objects in the bucket
+C. Enable MFA Delete in the bucket policy
+D. Enable data in transit for the objects in the bucket
+Answer: AC
+Explanation:
+One of the AWS Security blogs mentions the followinj
+Versioning keeps multiple versions of an object in the same bucket. When you enable it on a bucket Amazon S3 automatically adds a unique version ID to every
+object stored in the bucket. At that point, a simple DELETE action does not permanently delete an object version; it merely associates a delete marker with the
+object. If you want to permanently delete an object version, you must specify its version ID in your DELETE request.
+You can add another layer of protection by enabling MFA Delete on a versioned bucket. Once you do so, you must provide your AWS accounts access keys and a
+valid code from the account's MFA device in order to permanently delete an object version or suspend or reactivate versioning on the bucket. Option B is invalid
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+because enabling encryption does not guarantee risk of data deletion.
+Option D is invalid because this option does not guarantee risk of data deletion.
+For more information on AWS S3 versioning and MFA please refer to the below URL: https://aws.amazon.com/blogs/security/securing-access-to-aws-using-mfapart-3/
+
+NEW QUESTION 138
+You are planning to use AWS Configto check the configuration of the resources in your AWS account. You are planning on using an existing 1AM role and using it
+for the AWS Config resource. Which of the following is required to ensure the AWS config service can work as required?
+Please select:
+A. Ensure that there is a trust policy in place for the AWS Config service within the role
+B. Ensure that there is a grant policy in place for the AWS Config service within the role
+C. Ensure that there is a user policy in place for the AWS Config service within the role
+D. Ensure that there is a group policy in place for the AWS Config service within the role
+Answer: A
+Explanation:
+
+Options B,C and D are invalid because you need to ensure a trust policy is in place and not a grant, user or group policy or more information on the 1AM role
+permissions please visit the below Link: https://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.htmll
+The correct answer is: Ensure that there is a trust policy in place for the AWS Config service within the role
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 142
+Your company has an external web site. This web site needs to access the objects in an S3 bucket. Which of the following would allow the web site to access the
+objects in the most secure manner? Please select:
+A. Grant public access for the bucket via the bucket policy
+B. Use the aws:Referer key in the condition clause for the bucket policy
+C. Use the aws:sites key in the condition clause for the bucket policy
+D. Grant a role that can be assumed by the web site
+Answer: B
+Explanation:
+An example of this is given intheAWS Documentatioi Restricting Access to a Specific HTTP Referrer
+Suppose you have a website with domain name (www.example.com or example.com) with links to photos and videos stored in your S3 bucket examplebucket. By
+default, all the S3 resources are private, so only the AWS account that created the resources can access them. To allow read access to these objects from your
+website, you can add a bucket policy that allows s3:GetObject permission with a condition, using the aws:referer key, that the get request must originate from
+specific webpages. The following policy specifies the StringLike condition with the aws:Referer condition key.
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Option A is invalid because giving public access is not a secure way to provide access Option C is invalid because aws:sites is not a valid condition key Option D
+is invalid because 1AM roles will not be assigned to web sites
+For more information on example bucket policies please visit the below Link:
+1 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
+The correct answer is: Use the aws:Referer key in the condition clause for the bucket policy Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 144
+A company has a set of EC2 instances hosted in AWS. These instances have EBS volumes for storing critical information. There is a business continuity
+requirement and in order to boost the agility of the business and to ensure data durability which of the following options are not required.
+Please select:
+A. Use lifecycle policies for the EBS volumes
+B. Use EBS Snapshots
+C. Use EBS volume replication
+D. Use EBS volume encryption
+Answer: CD
+Explanation:
+Data stored in Amazon EBS volumes is redundantly stored in multiple physical locations as part of normal operation of those services and at no additional charge.
+However, Amazon EBS replication is stored within the same availability zone, not across multiple zones; therefore, it is highly recommended that you conduct
+regular snapshots to Amazon S3 for long-term data durability.
+You can use Amazon Data Lifecycle Manager (Amazon DLM) to automate the creation, retention, and deletion of snapshots
+taken to back up your Amazon EBS volumes.
+With lifecycle management, you can be sure that snapshots are cleaned up regularly and keep costs under control.
+EBS Lifecycle Policies
+A lifecycle policy consists of these core settings:
+• Resource type—The AWS resource managed by the policy, in this case, EBS volumes.
+• Target tag—The tag that must be associated with an EBS volume for it to be managed by the policy.
+• Schedule—Defines how often to create snapshots and the maximum number of snapshots to keep. Snapshot creation starts within an hour of the specified start
+time. If creating a new snapshot exceeds the maximum number of snapshots to keep for the volume, the oldest snapshot is deleted.
+Option C is correct. Each Amazon EBS volume is automatically replicated within its Availability Zone to protect you from component failure, offering high availability
+and durability. But it does not have an explicit feature like that.
+Option D is correct Encryption does not ensure data durability
+For information on security for Compute Resources, please visit the below URL https://d1.awsstatic.com/whitepapers/Security/Security Compute Services
+Whitepaper.pdl
+The correct answers are: Use EBS volume replication. Use EBS volume encryption Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 149
+The CFO of a company wants to allow one of his employees to view only the AWS usage report page. Which of the below mentioned 1AM policy statements
+allows the user to have access to the AWS usage report page?
+Please select:
+A. "Effect": "Allow". "Action": ["Describe"], "Resource": "Billing"
+B. "Effect": "Allow", "Action": ["AccountUsage], "Resource": "*"
+C. "Effect': "Allow", "Action": ["aws-portal:ViewUsage"," aws-portal:ViewBilling"], "Resource": "*"
+D. "Effect": "Allow", "Action": ["aws-portal: ViewBilling"], "Resource": "*"
+Answer: C
+Explanation:
+the aws documentation, below is the access required for a user to access the Usage reports page and as per this, Option C is the right answer.
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+NEW QUESTION 153
+There is a set of Ec2 Instances in a private subnet. The application hosted on these EC2 Instances need to access a DynamoDB table. It needs to be ensured that
+traffic does not flow out to the internet. How can this be achieved?
+Please select:
+A. Use a VPC endpoint to the DynamoDB table
+B. Use a VPN connection from the VPC
+C. Use a VPC gateway from the VPC
+D. Use a VPC Peering connection to the DynamoDB table
+Answer: A
+Explanation:
+The following diagram from the AWS Documentation shows how you can access the DynamoDB service from within a V without going to the Internet This can be
+done with the help of a VPC endpoint
+
+Option B is invalid because this is used for connection between an on-premise solution and AWS Option C is invalid because there is no such option
+Option D is invalid because this is used to connect 2 VPCs
+For more information on VPC endpointsfor DynamoDB, please visit the URL:
+The correct answer is: Use a VPC endpoint to the DynamoDB table Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 157
+You need to establish a secure backup and archiving solution for your company, using AWS. Documents should be immediately accessible for three months and
+available for five years for compliance reasons. Which AWS service fulfills these requirements in the most cost-effective way?
+Choose the correct answer
+Please select:
+A. Upload data to S3 and use lifecycle policies to move the data into Glacier for long-term archiving.
+B. Upload the data on EBS, use lifecycle policies to move EBS snapshots into S3 and later into Glacier for long-term archiving.
+C. Use Direct Connect to upload data to S3 and use 1AM policies to move the data into Glacier for long-term archiving.
+D. Use Storage Gateway to store data to S3 and use lifecycle policies to move the data into Redshift for long-term archiving.
+Answer: A
+Explanation:
+amazon Glacier is a secure, durable, and extremely low-cost cloud storage service for data archiving and long-term backup. Customers can reliably store large or
+small amounts of data for as little as
+$0,004 per gigabyte per month, a significant savings compared to on-premises solutions.
+With Amazon lifecycle policies you can create transition actions in which you define when objects transition to another Amazon S3 storage class. For example, you
+may choose to transition objects to the STANDARDJA (IA, for infrequent access) storage class 30 days after creation, or archive objects to the GLACIER storage
+class one year after creation.
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Option B is invalid because lifecycle policies are not available for EBS volumes Option C is invalid because 1AM policies cannot be used to move data to Glacier
+Option D is invalid because lifecycle policies is not used to move data to Redshif For more information on S3 lifecycle policies, please visit the URL:
+http://docs.aws.amazon.com/AmazonS3/latest/dev/obiect-lifecycle-mgmt.html
+The correct answer is: Upload data to S3 and use lifecycle policies to move the data into Glacier for long-term archiving.
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 162
+What is the result of the following bucket policy?
+
+Choose the correct answer
+Please select:
+A. It will allow all access to the bucket mybucket
+B. It will allow the user mark from AWS account number 111111111 all access to the bucket but deny everyone else all access to the bucket
+C. It will deny all access to the bucket mybucket
+D. None of these
+Answer: C
+Explanation:
+The policy consists of 2 statements, one is the allow for the user mark to the bucket and the next is the deny policy for all other users. The deny permission will
+override the allow and hence all users
+will not have access to the bucket.
+Options A,B and D are all invalid because this policy is used to deny all access to the bucket mybucket For examples on S3 bucket policies, please refer to the
+below Link: http://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.htmll
+The correct answer is: It will deny all access to the bucket mybucket Submit your FeedbacK/Quenes to our Experts
+
+NEW QUESTION 165
+You have an Amazon VPC that has a private subnet and a public subnet in which you have a NAT instance server. You have created a group of EC2 instances
+that configure themselves at startup by downloading a bootstrapping script
+from S3 that deploys an application via GIT.
+Which one of the following setups would give us the highest level of security? Choose the correct answer from the options given below.
+Please select:
+A. EC2 instances in our public subnet, no EIPs, route outgoing traffic via the IGW
+B. EC2 instances in our public subnet, assigned EIPs, and route outgoing traffic via the NAT
+C. EC2 instance in our private subnet, assigned EIPs, and route our outgoing traffic via our IGW
+D. EC2 instances in our private subnet, no EIPs, route outgoing traffic via the NAT
+Answer: D
+Explanation:
+The below diagram shows how the NAT instance works. To make EC2 instances very secure, they need to be in a private sub such as the database server shown
+below with no EIP and all traffic routed via the NAT.
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Options A and B are invalid because the instances need to be in the private subnet
+Option C is invalid because since the instance needs to be in the private subnet, you should not attach an EIP to the instance
+For more information on NAT instance, please refer to the below Link: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuideA/PC lnstance.html!
+The correct answer is: EC2 instances in our private subnet no EIPs, route outgoing traffic via the NAT Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 170
+In your LAMP application, you have some developers that say they would like access to your logs. However, since you are using an AWS Auto Scaling group, your
+instances are constantly being recreated.
+What would you do to make sure that these developers can access these log files? Choose the correct answer from the options below
+Please select:
+A. Give only the necessary access to the Apache servers so that the developers can gain access to thelog files.
+B. Give root access to your Apache servers to the developers.
+C. Give read-only access to your developers to the Apache servers.
+D. Set up a central logging server that you can use to archive your logs; archive these logs to an S3 bucket for developer-access.
+Answer: D
+Explanation:
+One important security aspect is to never give access to actual servers, hence Option A.B and C are just totally wrong from a security perspective.
+The best option is to have a central logging server that can be used to archive logs. These logs can then be stored in S3.
+Options A,B and C are all invalid because you should not give access to the developers on the Apache se
+For more information on S3, please refer to the below link https://aws.amazon.com/documentation/s3j
+The correct answer is: Set up a central logging server that you can use to archive your logs; archive these logs to an S3 bucket for developer-access.
+Submit vour Feedback/Queries to our Experts
+
+NEW QUESTION 174
+Your company is planning on developing an application in AWS. This is a web based application. The application users will use their facebook or google identities
+for authentication. You want to have the ability to manage user profiles without having to add extra coding to manage this. Which of the below would assist in this.
+Please select:
+A. Create an OlDC identity provider in AWS
+B. Create a SAML provider in AWS
+C. Use AWS Cognito to manage the user profiles
+D. Use 1AM users to manage the user profiles
+Answer: B
+Explanation:
+The AWS Documentation mentions the following The AWS Documentation mentions the following
+OIDC identity providers are entities in 1AM that describe an identity provider (IdP) service that supports the OpenID Connect (OIDC) standard. You use an OIDC
+identity provider when you want to establish trust between an OlDC-compatible IdP—such as Google, Salesforce, and many others—and your AWS account This is
+useful if you are creating a mobile app or web application that requires access to AWS resources, but you don't want to create custom sign-in code or manage your
+own user identities
+Option A is invalid because in the security groups you would not mention this information/ Option C is invalid because SAML is used for federated authentication
+Option D is invalid because you need to use the OIDC identity provider in AWS For more information on ODIC identity providers, please refer to the below Link:
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id roles providers create oidc.htmll The correct answer is: Create an OIDC identity provider in AWS
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+NEW QUESTION 177
+Your organization is preparing for a security assessment of your use of AWS. In preparation for this assessment, which three 1AM best practices should you
+consider implementing?
+Please select:
+A. Create individual 1AM users
+B. Configure MFA on the root account and for privileged 1AM users
+C. Assign 1AM users and groups configured with policies granting least privilege access
+D. Ensure all users have been assigned and dre frequently rotating a password, access ID/secret key, and X.509 certificate
+Answer: ABC
+Explanation:
+When you go to the security dashboard, the security status will show the best practices for initiating the first level of security.
+
+Option D is invalid because as per the dashboard, this is not part of the security recommendation For more information on best security practices please visit the
+URL: https://aws.amazon.com/whitepapers/aws-security-best-practices;
+The correct answers are: Create individual 1AM users, Configure MFA on the root account and for privileged 1AM users. Assign 1AM users and groups configured
+with policies granting least privilege access
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 182
+A company has set up EC2 instances on the AW5 Cloud. There is a need to see all the IP addresses which are accessing the EC2 Instances. Which service can
+help achieve this?
+Please select:
+A. Use the AWS Inspector service
+B. Use AWS VPC Flow Logs
+C. Use Network ACL's
+D. Use Security Groups
+Answer: B
+Explanation:
+The AWS Documentation mentions the foil
+A flow log record represents a network flow in your flow log. Each record captures the network flow for a specific 5-tuple, for a specific capture window. A 5-tuple is
+a set of five different values that specify the source, destination, and protocol for an internet protocol (IP) flow.
+Options A,C and D are all invalid because these services/tools cannot be used to get the the IP addresses which are accessing the EC2 Instances
+For more information on VPC Flow Logs please visit the URL https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html
+The correct answer is: Use AWS VPC Flow Logs Submit vour Feedback/Queries to our Experts
+
+NEW QUESTION 186
+A company is hosting sensitive data in an AWS S3 bucket. It needs to be ensured that the bucket always remains private. How can this be ensured continually?
+Choose 2 answers from the options given below
+Please select:
+A. Use AWS Config to monitor changes to the AWS Bucket
+B. Use AWS Lambda function to change the bucket policy
+C. Use AWS Trusted Advisor API to monitor the changes to the AWS Bucket
+D. Use AWS Lambda function to change the bucket ACL
+Answer: AD
+Explanation:
+One of the AWS Blogs mentions the usage of AWS Config and Lambda to achieve this. Below is the diagram representation of this
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+ption C is invalid because the Trusted Advisor API cannot be used to monitor changes to the AWS Bucket Option B doesn't seems to be the most appropriate.
+1. If the object is in a bucket in which all the objects need to be private and the object is not private anymore, the Lambda function makes a PutObjectAcI call to S3
+to make the object private.
+|https://aws.amazon.com/blogs/security/how-to-detect-and-automatically-remediate-unintendedpermissions- in-amazon-s3-bbiect-acls-with-cloudwatch-events/
+The following link also specifies that
+Create a new Lambda function to examine an Amazon S3 buckets ACL and bucket policy. If the bucket ACL is found to al public access, the Lambda function
+overwrites it to be private. If a bucket policy is found, the Lambda function creatt an SNS message, puts the policy in the message body, and
+publishes it to the Amazon SNS topic we created. Bucket policies can be complex, and overwriting your policy may cause unexpected loss of access, so this
+Lambda function doesn't attempt to alter your policy in any way.
+https://aws.amazon.com/blogs/security/how-to-use-aws-config-to-monitor-for-and-respond-toamazon- s3-buckets-allowinj
+Based on these facts Option D seems to be more appropriate then Option B.
+For more information on implementation of this use case, please refer to the Link: https://aws.amazon.com/blogs/security/how-to-use-aws-config-to-monitor-forand-respond-toamazon- s3-buckets-allowinj
+The correct answers are: Use AWS Config to monitor changes to the AWS Bucket Use AWS Lambda function to change the bucket ACL
+
+NEW QUESTION 188
+You have a set of 100 EC2 Instances in an AWS account. You need to ensure that all of these instances are patched and kept to date. All of the instances are in a
+private subnet. How can you achieve this. Choose 2 answers from the options given below
+Please select:
+A. Ensure a NAT gateway is present to download the updates
+B. Use the Systems Manager to patch the instances
+C. Ensure an internet gateway is present to download the updates
+D. Use the AWS inspector to patch the updates
+Answer: AB
+Explanation:
+Option C is invalid because the instances need to remain in the private: Option D is invalid because AWS inspector can only detect the patches
+One of the AWS Blogs mentions how patching of Linux servers can be accomplished. Below is the diagram representation of the architecture setup
+
+For more information on patching Linux workloads in AWS, please refer to the Lin. https://aws.amazon.com/blogs/security/how-to-patch-linux-workloads-on-awsj
+The correct answers are: Ensure a NAT gateway is present to download the updates. Use the Systems Manager to patch the instances
+Submit your Feedback/Queries to our Experts
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+NEW QUESTION 190
+An enterprise wants to use a third-party SaaS application. The SaaS application needs to have access to issue several API commands to discover Amazon EC2
+resources running within the enterprise's account. The enterprise has internal security policies that require any outside access to their environment must conform
+to the principles of least privilege and there must be controls in place to ensure that the credentials used by the SaaS vendor cannot be used by any other third
+party. Which of the following would meet all of these conditions?
+Please select:
+A. From the AWS Management Console, navigate to the Security Credentials page and retrieve the access and secret key for your account.
+B. Create an 1AM user within the enterprise account assign a user policy to the 1AM user that allows only the actions required by the SaaS applicatio
+C. Create a new access and secret key for the user and provide these credentials to the SaaS provider.
+D. Create an 1AM role for cross-account access allows the SaaS provider's account to assume the role and assign it a policy that allows only the actions required
+by the SaaS application.
+E. Create an 1AM role for EC2 instances, assign it a policy that allows only the actions required tor the Saas application to work, provide the role ARN to the SaaS
+provider to use when launching their application instances.
+Answer: C
+Explanation:
+The below diagram from an AWS blog shows how access is given to other accounts for the services in your own account
+
+Options A and B are invalid because you should not user 1AM users or 1AM Access keys Options D is invalid because you need to create a role for cross account
+access
+For more information on Allowing access to external accounts, please visit the below URL:
+|https://aws.amazon.com/blogs/apn/how-to-best-architect-your-aws-marketplace-saassubscription- across-multiple-aws-accounts;
+The correct answer is: Create an 1AM role for cross-account access allows the SaaS provider's account to assume the role and assign it a policy that allows only
+the actions required by the SaaS application.
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 195
+Your company has a set of EC2 Instances defined in AWS. These Ec2 Instances have strict security groups attached to them. You need to ensure that changes to
+the Security groups are noted and acted on accordingly. How can you achieve this?
+Please select:
+A. Use Cloudwatch logs to monitor the activity on the Security Group
+B. Use filters to search for the changes and use SNS for the notification.
+C. Use Cloudwatch metrics to monitor the activity on the Security Group
+D. Use filters to search for the changes and use SNS for the notification.
+E. Use AWS inspector to monitor the activity on the Security Group
+F. Use filters to search for the changes and use SNS f the notification.
+G. Use Cloudwatch events to be triggered for any changes to the Security Group
+H. Configure theLambda function for email notification as wel
+Answer: D
+Explanation:
+The below diagram from an AWS blog shows how security groups can be monitored
+
+Option A is invalid because you need to use Cloudwatch Events to check for chan, Option B is invalid because you need to use Cloudwatch Events to check for
+
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+chang
+Option C is invalid because AWS inspector is not used to monitor the activity on Security Groups For more information on monitoring security groups, please visit
+the below URL: Ihttpsy/aws.amazon.com/blogs/security/how-to-automatically-revert-and-receive-notificationsabout- changes-to-your-amazonj 'pc-security-groups/
+The correct answer is: Use Cloudwatch events to be triggered for any changes to the Security Groups. Configure the Lambda function for email notification as well.
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 197
+A company's AWS account consists of approximately 300 IAM users. Now there is a mandate that an access change is required for 100 IAM users to have
+unlimited privileges to S3.As a system administrator, how can you implement this effectively so that there is no need to apply the policy at the individual user level?
+Please select:
+A. Create a new role and add each user to the IAM role
+B. Use the IAM groups and add users, based upon their role, to different groups and apply the policy to group
+C. Create a policy and apply it to multiple users using a JSON script
+D. Create an S3 bucket policy with unlimited access which includes each user's AWS account ID
+Answer: B
+Explanation:
+Option A is incorrect since you don't add a user to the 1AM Role Option C is incorrect since you don't assign multiple users to a policy Option D is incorrect since
+this is not an ideal approach
+An 1AM group is used to collectively manage users who need the same set of permissions. By having groups, it becomes easier to manage permissions. So if you
+change the permissions on the group scale, it will affect all the users in that group
+For more information on 1AM Groups, just browse to the below URL:
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_eroups.html
+The correct answer is: Use the 1AM groups and add users, based upon their role, to different groups and apply the policy to group
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 200
+You need to create a policy and apply it for just an individual user. How could you accomplish this in the right way?
+Please select:
+A. Add an AWS managed policy for the user
+B. Add a service policy for the user
+C. Add an 1AM role for the user
+D. Add an inline policy for the user
+Answer: D
+Explanation:
+Options A and B are incorrect since you need to add an inline policy just for the user Option C is invalid because you don't assign an 1AM role to a user
+The AWS Documentation mentions the following
+An inline policy is a policy that's embedded in a principal entity (a user, group, or role)—that is, the policy is an inherent part of the principal entity. You can create a
+policy and embed it in a principal entity, either when you create the principal entity or later.
+For more information on 1AM Access and Inline policies, just browse to the below URL: https://docs.aws.amazon.com/IAM/latest/UserGuide/access
+The correct answer is: Add an inline policy for the user Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 202
+Your company is planning on using bastion hosts for administering the servers in AWS. Which of the following is the best description of a bastion host from a
+security perspective?
+Please select:
+A. A Bastion host should be on a private subnet and never a public subnet due to security concerns
+B. A Bastion host sits on the outside of an internal network and is used as a gateway into the private network and is considered the critical strong point of the
+network
+C. Bastion hosts allow users to log in using RDP or SSH and use that session to S5H into internal network to access private subnet resources.
+D. A Bastion host should maintain extremely tight security and monitoring as it is available to the public
+Answer: C
+Explanation:
+A bastion host is a special purpose computer on a network specifically designed and configured to withstand attacks. The computer generally hosts a single
+application, for example a proxy server, and all other services are removed or limited to reduce the threat to the computer.
+In AWS, A bastion host is kept on a public subnet. Users log on to the bastion host via SSH or RDP and
+then use that session to manage other hosts in the private subnets.
+Options A and B are invalid because the bastion host needs to sit on the public network. Option D is invalid because bastion hosts are not used for monitoring For
+more information on bastion hosts, just browse to the below URL:
+https://docsaws.amazon.com/quickstart/latest/linux-bastion/architecture.htl
+The correct answer is: Bastion hosts allow users to log in using RDP or SSH and use that session to SSH into internal network to access private subnet resources.
+Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 205
+Your CTO is very worried about the security of your AWS account. How best can you prevent hackers from completely hijacking your account?
+Please select:
+A. Use short but complex password on the root account and any administrators.
+B. Use AWS 1AM Geo-Lock and disallow anyone from logging in except for in your city.
+C. Use MFA on all users and accounts, especially on the root account.
+D. Don't write down or remember the root account password after creating the AWS accoun
+Guaranteed success with Our exam guides
+
+visit - https://www.certshared.com
+
+, gCertshared now are offering 100% pass ensure AWS-Certified-Security-Specialty dumps!
+https://www.certshared.com/exam/AWS-Certified-Security-Specialty/ (191 Q&As)
+
+Answer: C
+Explanation:
+Multi-factor authentication can add one more layer of security to your AWS account Even when you go to your Security Credentials dashboard one of the items is
+to enable MFA on your root account
+
+Option A is invalid because you need to have a good password policy Option B is invalid because there is no 1AM Geo-Lock Option D is invalid because this is not
+a recommended practices For more information on MFA, please visit the below URL http://docs.aws.amazon.com/IAM/latest/UserGuide/id credentials mfa.htmll
+The correct answer is: Use MFA on all users and accounts, especially on the root account. Submit your Feedback/Queries to our Experts
+
+NEW QUESTION 209
+Your CTO thinks your AWS account was hacked. What is the only way to know for certain if there was unauthorized access and what they did, assuming your
+hackers are very sophisticated AWS engineers and doing everything they can to cover their tracks?
+Please select:
+A. Use CloudTrail Log File Integrity Validation.
+B. Use AWS Config SNS Subscriptions and process events in real time.
+C. Use CloudTrail backed up to AWS S3 and Glacier.
+D. Use AWS Config Timeline forensic
+Answer: A
+Explanation:
+The AWS Documentation mentions the following
+To determine whether a log file was modified, deleted, or unchanged after CloudTrail delivered it you can use CloudTrail log file integrity validation. This feature is
+built using industry standard algorithms: SHA-256 for hashing and SHA-256 with RSA for digital signing. This makes it computationally infeasible to modify, delete
+or forge CloudTrail log files without detection. You can use the AWS CLI to validate the files in the location where CloudTrail delivered them
+Validated log files are invaluable in security and forensic investigations. For example, a validated log file enables you to assert positively that the log file itself has
+not changed, or that particular user credentials performed specific API activity. The CloudTrail log file integrity validation process also lets you know if a log file has
+been deleted or changed, or assert positively that no log files were
+delivered to your account during a given period of time.
+Options B.C and D is invalid because you need to check for log File Integrity Validation for cloudtrail logs
+For more information on Cloudtrail log file validation, please visit the below URL: http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-filevalidation-intro.html The correct answer is: Use CloudTrail Log File Integrity Validation.
+omit your Feedback/Queries to our Expert
+
+NEW QUESTION 211
+You work at a company that makes use of AWS resources. One of the key security policies is to ensure that all data i encrypted both at rest and in transit. Which of
+the following is one of the right ways to implement this.
+Please select:
+A. Use S3 SSE and use SSL for data in transit
+B. SSL termination on the ELB
+C. Enabling Proxy Protocol
+D. Enabling sticky sessions on your load balancer
+Answer: A
+Explanation:
+By disabling SSL termination, you are leaving an unsecure connection from the ELB to the back end instances. Hence this means that part of the data transit is not
+being encrypted.
+Option B is incorrect because this would not guarantee complete encryption of data in transit Option C and D are incorrect because these would not guarantee
+encryption
+For more information on SSL Listeners for your load balancer, please visit the below URL: http://docs.aws.amazon.com/elasticloadbalancine/latest/classic/elb-httpsload-balancers.htmll The correct answer is: Use S3 SSE and use SSL for data in transit
+Submit your Feedback/Queries to our Experts

@@ -1,0 +1,1427 @@
+NEW QUESTION 1
+A data engineer needs to join data from multiple sources to perform a one-time analysis job. The data is stored in Amazon DynamoDB, Amazon RDS, Amazon
+Redshift, and Amazon S3.
+Which solution will meet this requirement MOST cost-effectively?
+A. Use an Amazon EMR provisioned cluster to read from all source
+B. Use Apache Spark to join the data and perform the analysis.
+C. Copy the data from DynamoDB, Amazon RDS, and Amazon Redshift into Amazon S3. Run Amazon Athena queries directly on the S3 files.
+D. Use Amazon Athena Federated Query to join the data from all data sources.
+E. Use Redshift Spectrum to query data from DynamoDB, Amazon RDS, and Amazon S3 directly from Redshift.
+Answer: C
+Explanation:
+Amazon Athena Federated Query is a feature that allows you to query data from multiple sources using standard SQL. You can use Athena Federated Query to
+join data from Amazon DynamoDB, Amazon RDS, Amazon Redshift, and Amazon S3, as well as other data sources such as MongoDB, Apache HBase, and
+Apache Kafka1. Athena Federated Query is a serverless and interactive service, meaning you do not need to provision or manage any infrastructure, and you only
+pay for the amount of data scanned by your queries. Athena Federated Query is the most cost-effective solution for performing a one-time analysis job on data
+from multiple sources, as it eliminates the need to copy or move data, and allows you to query data directly from the source.
+The other options are not as cost-effective as Athena Federated Query, as they involve additional steps or costs. Option A requires you to provision and pay for an
+Amazon EMR cluster, which can be expensive and time-consuming for a one-time job. Option B requires you to copy or move data from DynamoDB, RDS, and
+Redshift to S3, which can incur additional costs for data transfer and storage, and also introduce latency and complexity. Option D requires you to have an existing
+Redshift cluster, which can be costly and may not be necessary for a one-time job. Option D also does not supportquerying data from RDS directly, so you would
+need to use Redshift Federated Query to access RDS data, which adds another layer of complexity2. References:
+? Amazon Athena Federated Query
+? Redshift Spectrum vs Federated Query
+
+NEW QUESTION 2
+A media company uses software as a service (SaaS) applications to gather data by using third-party tools. The company needs to store the data in an Amazon S3
+bucket. The company will use Amazon Redshift to perform analytics based on the data.
+Which AWS service or feature will meet these requirements with the LEAST operational overhead?
+A. Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+B. Amazon AppFlow
+C. AWS Glue Data Catalog
+D. Amazon Kinesis
+Answer: B
+Explanation:
+Amazon AppFlow is a fully managed integration service that enables you to securely transfer data between SaaS applications and AWS services like Amazon S3
+and AmazonRedshift. Amazon AppFlow supports many SaaS applications as data sources and targets, and allows you to configure data flows with a few clicks.
+Amazon AppFlow also provides features such as data transformation, filtering, validation, and encryption to prepare and protect your data. Amazon AppFlow
+meets the requirements of the media company with the least operational overhead, as it eliminates the need to write code, manage infrastructure, or monitor data
+pipelines. References:
+? Amazon AppFlow
+? Amazon AppFlow | SaaS Integrations List
+? Get started with data integration from Amazon S3 to Amazon Redshift using AWS Glue interactive sessions
+
+NEW QUESTION 3
+A company uses an Amazon QuickSight dashboard to monitor usage of one of the company's applications. The company uses AWS Glue jobs to process data for
+the dashboard. The company stores the data in a single Amazon S3 bucket. The company adds new data every day.
+A data engineer discovers that dashboard queries are becoming slower over time. The data engineer determines that the root cause of the slowing queries is longrunning AWS Glue jobs.
+Which actions should the data engineer take to improve the performance of the AWS Glue jobs? (Choose two.)
+A. Partition the data that is in the S3 bucke
+B. Organize the data by year, month, and day.
+C. Increase the AWS Glue instance size by scaling up the worker type.
+D. Convert the AWS Glue schema to the DynamicFrame schema class.
+E. Adjust AWS Glue job scheduling frequency so the jobs run half as many times each day.
+F. Modify the 1AM role that grants access to AWS glue to grant access to all S3 features.
+Answer: AB
+Explanation:
+Partitioning the data in the S3 bucket can improve the performance of AWS Glue jobs by reducing the amount of data that needs to be scanned and processed.
+By organizingthe data by year, month, and day, the AWS Glue job can use partition pruning to filter out irrelevant data and only read the data that matches the
+query criteria. This can speed up the data processing and reduce the cost of running the AWS Glue job. Increasing the AWS Glue instance size by scaling up the
+worker type can also improve the performance of AWS Glue jobs by providing more memory and CPU resources for the Spark execution engine. This can help the
+AWS Glue job handle larger data sets and complex transformations more efficiently. The other options are either incorrect or irrelevant, as they do not affect the
+performance of the AWS Glue jobs. Converting the AWS Glue schema to the DynamicFrame schema class does not improve the performance, but rather provides
+additional functionality and flexibility for data manipulation. Adjusting the AWS Glue job scheduling frequency does not improve the performance, but rather
+reduces the frequency of data updates. Modifying the IAM role that grants access to AWS Glue does not improve the performance, but rather affects the security
+and permissions of the AWS Glue service. References:
+? Optimising Glue Scripts for Efficient Data Processing: Part 1 (Section: Partitioning Data in S3)
+? Best practices to optimize cost and performance for AWS Glue streaming ETL jobs (Section: Development tools)
+? Monitoring with AWS Glue job run insights (Section: Requirements)
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide (Chapter 5, page 133)
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+NEW QUESTION 4
+A data engineer maintains custom Python scripts that perform a data formatting process that many AWS Lambda functions use. When the data engineer needs to
+modify the Python scripts, the data engineer must manually update all the Lambda functions.
+The data engineer requires a less manual way to update the Lambda functions. Which solution will meet this requirement?
+A. Store a pointer to the custom Python scripts in the execution context object in a shared Amazon S3 bucket.
+B. Package the custom Python scripts into Lambda layer
+C. Apply the Lambda layers to the Lambda functions.
+D. Store a pointer to the custom Python scripts in environment variables in a shared Amazon S3 bucket.
+E. Assign the same alias to each Lambda functio
+F. Call reach Lambda function by specifying the function's alias.
+Answer: B
+Explanation:
+Lambda layers are a way to share code and dependencies across multiple Lambda functions. By packaging the custom Python scripts into Lambda layers, the
+data engineer can update the scripts in one place and have them automatically applied to all the Lambda functions that use the layer. This reduces the manual
+effort and ensures consistency across the Lambda functions. The other options are either not feasible or not efficient. Storing a pointer to the custom Python
+scripts in the execution context object or in environment variables would require the Lambda functions to download the scripts from Amazon S3 every time they are
+invoked, which would increase latency and cost. Assigning the same alias to each Lambda function would not help with updating the Python scripts, as the alias
+only points to a specific version of the Lambda function code. References:
+? AWS Lambda layers
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide, Chapter 3: Data Ingestion and Transformation, Section 3.4: AWS Lambda
+
+NEW QUESTION 5
+A data engineer is configuring Amazon SageMaker Studio to use AWS Glue interactive sessions to prepare data for machine learning (ML) models.
+The data engineer receives an access denied error when the data engineer tries to prepare the data by using SageMaker Studio.
+Which change should the engineer make to gain access to SageMaker Studio?
+A. Add the AWSGlueServiceRole managed policy to the data engineer's IAM user.
+B. Add a policy to the data engineer's IAM user that includes the sts:AssumeRole action for the AWS Glue and SageMaker service principals in the trust policy.
+C. Add the AmazonSageMakerFullAccess managed policy to the data engineer's IAM user.
+D. Add a policy to the data engineer's IAM user that allows the sts:AddAssociation action for the AWS Glue and SageMaker service principals in the trust policy.
+Answer: B
+Explanation:
+This solution meets the requirement of gaining access to SageMaker Studio to use AWS Glue interactive sessions. AWS Glue interactive sessions are a way to
+use AWS Glue DataBrew and AWS Glue Data Catalog from within SageMaker Studio. To use AWS Glue interactive sessions, the data engineer’s IAM user needs
+to have permissions to assume the AWS Glue service role and the SageMaker execution role. By adding a policy to the data engineer’s IAM user that includes the
+sts:AssumeRole action for the AWS Glue and SageMaker service principals in the trust policy, the data engineer can grant these permissions and avoid the
+access denied error. The other options are not sufficient or necessary to resolve the error. References:
+? Get started with data integration from Amazon S3 to Amazon Redshift using AWS Glue interactive sessions
+? Troubleshoot Errors - Amazon SageMaker
+? AccessDeniedException on sagemaker:CreateDomain in AWS SageMaker Studio, despite having SageMakerFullAccess
+
+NEW QUESTION 6
+A data engineer needs to schedule a workflow that runs a set of AWS Glue jobs every day. The data engineer does not require the Glue jobs to run or finish at a
+specific time.
+Which solution will run the Glue jobs in the MOST cost-effective way?
+A. Choose the FLEX execution class in the Glue job properties.
+B. Use the Spot Instance type in Glue job properties.
+C. Choose the STANDARD execution class in the Glue job properties.
+D. Choose the latest version in the GlueVersion field in the Glue job properties.
+Answer: A
+Explanation:
+The FLEX execution class allows you to run AWS Glue jobs on spare compute capacity instead of dedicated hardware. This can reduce the cost of running nonurgent or non-time sensitive data integration workloads, such as testing and one-time data loads. The FLEX execution class is available for AWS Glue 3.0 Spark
+jobs. The other options are not as cost-effective as FLEX, because they either use dedicated resources (STANDARD) or do not affect the cost at all (Spot Instance
+type and GlueVersion). References:
+? Introducing AWS Glue Flex jobs: Cost savings on ETL workloads
+? Serverless Data Integration – AWS Glue Pricing
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide (Chapter 5, page 125)
+
+NEW QUESTION 7
+A data engineer must manage the ingestion of real-time streaming data into AWS. The data engineer wants to perform real-time analytics on the incoming
+streaming data by using time-based aggregations over a window of up to 30 minutes. The data engineer needs a solution that is highly fault tolerant.
+Which solution will meet these requirements with the LEAST operational overhead?
+A. Use an AWS Lambda function that includes both the business and the analytics logic to perform time-based aggregations over a window of up to 30 minutes for
+the data in Amazon Kinesis Data Streams.
+B. Use Amazon Managed Service for Apache Flink (previously known as Amazon Kinesis Data Analytics) to analyze the data that might occasionally contain
+duplicates by using multiple types of aggregations.
+C. Use an AWS Lambda function that includes both the business and the analytics logic to perform aggregations for a tumbling window of up to 30 minutes, based
+on the event timestamp.
+D. Use Amazon Managed Service for Apache Flink (previously known as Amazon Kinesis Data Analytics) to analyze the data by using multiple types of
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+aggregations to perform time- based analytics over a window of up to 30 minutes.
+Answer: A
+Explanation:
+This solution meets the requirements of managing the ingestion of real-time streaming data into AWS and performing real-time analytics on the incoming
+streaming data with the least operational overhead. Amazon Managed Service for Apache Flink is a fully managed service that allows you to run Apache Flink
+applications without having to manage any infrastructure or clusters. Apache Flink is a framework for stateful stream processing that supports various types of
+aggregations, such as tumbling, sliding, and session windows, over streaming data. By using Amazon Managed Service for Apache Flink, you can easily connect
+to Amazon Kinesis Data Streams as the source and sink of your streaming data, and perform time-based analytics over a window of up to 30 minutes. This
+solution is also highly fault tolerant, as Amazon Managed Service for Apache Flink automatically scales, monitors, and restarts your Flink applications in case of
+failures. References:
+? Amazon Managed Service for Apache Flink
+? Apache Flink
+? Window Aggregations in Flink
+
+NEW QUESTION 8
+A company is planning to upgrade its Amazon Elastic Block Store (Amazon EBS) General Purpose SSD storage from gp2 to gp3. The company wants to prevent
+any interruptions in its Amazon EC2 instances that will cause data loss during the migration to the upgraded storage.
+Which solution will meet these requirements with the LEAST operational overhead?
+A. Create snapshots of the gp2 volume
+B. Create new gp3 volumes from the snapshot
+C. Attach the new gp3 volumes to the EC2 instances.
+D. Create new gp3 volume
+E. Gradually transfer the data to the new gp3 volume
+F. When the transfer is complete, mount the new gp3 volumes to the EC2 instances to replace the gp2 volumes.
+G. Change the volume type of the existing gp2 volumes to gp3. Enter new values for volume size, IOPS, and throughput.
+H. Use AWS DataSync to create new gp3 volume
+I. Transfer the data from the original gp2 volumes to the new gp3 volumes.
+Answer: C
+Explanation:
+Changing the volume type of the existing gp2 volumes to gp3 is the easiest and fastest way to migrate to the new storage type without any downtime or data loss.
+You can use the AWS Management Console, the AWS CLI, or the Amazon EC2 API to modify the volume type, size, IOPS, and throughput of your gp2 volumes.
+The modification takes effect immediately, and you can monitor the progress of the modification using CloudWatch. The other options are either more complex or
+require additional steps, such as creating snapshots, transferring data, or attaching new volumes, which can increase the operational overhead and the risk of
+errors. References:
+? Migrating Amazon EBS volumes from gp2 to gp3 and save up to 20% on
+costs (Section: How to migrate from gp2 to gp3)
+? Switching from gp2 Volumes to gp3 Volumes to Lower AWS EBS Costs (Section: How to Switch from GP2 Volumes to GP3 Volumes)
+? Modifying the volume type, IOPS, or size of an EBS volume - Amazon Elastic Compute Cloud (Section: Modifying the volume type)
+
+NEW QUESTION 9
+A data engineer is building a data pipeline on AWS by using AWS Glue extract, transform, and load (ETL) jobs. The data engineer needs to process data from
+Amazon RDS and MongoDB, perform transformations, and load the transformed data into Amazon Redshift for analytics. The data updates must occur every hour.
+Which combination of tasks will meet these requirements with the LEAST operational overhead? (Choose two.)
+A. Configure AWS Glue triggers to run the ETL jobs even/ hour.
+B. Use AWS Glue DataBrewto clean and prepare the data for analytics.
+C. Use AWS Lambda functions to schedule and run the ETL jobs even/ hour.
+D. Use AWS Glue connections to establish connectivity between the data sources and Amazon Redshift.
+E. Use the Redshift Data API to load transformed data into Amazon Redshift.
+Answer: AD
+Explanation:
+The correct answer is to configure AWS Glue triggers to run the ETL jobs every hour and use AWS Glue connections to establish connectivity between the data
+sources and Amazon Redshift. AWS Glue triggers are a way to schedule and orchestrate ETL jobs with the least operational overhead. AWS Glue connections are
+a way to securely connect to data sources and targets using JDBC or MongoDB drivers. AWS Glue DataBrew is a visual data preparation tool that does not
+support MongoDB as a data source. AWS Lambda functions are a serverless option to schedule and run ETL jobs, but they have a limit of 15 minutes for
+execution time, which may not be enough for complex transformations. The Redshift Data API is a way to run SQL commands on Amazon Redshift clusters
+without needing a persistent connection, but it does not support loading data from AWS Glue ETL jobs. References:
+? AWS Glue triggers
+? AWS Glue connections
+? AWS Glue DataBrew
+? [AWS Lambda functions]
+? [Redshift Data API]
+
+NEW QUESTION 10
+A company needs to set up a data catalog and metadata management for data sources that run in the AWS Cloud. The company will use the data catalog to
+maintain the metadata of all the objects that are in a set of data stores. The data stores include structured sources such as Amazon RDS and Amazon Redshift.
+The data stores also include semistructured sources such as JSON files and .xml files that are stored in Amazon S3.
+The company needs a solution that will update the data catalog on a regular basis. The solution also must detect changes to the source metadata.
+Which solution will meet these requirements with the LEAST operational overhead?
+A. Use Amazon Aurora as the data catalo
+B. Create AWS Lambda functions that will connect to the data catalo
+C. Configure the Lambda functions to gather the metadata information from multiple sources and to update the Aurora data catalo
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+D. Schedule the Lambda functions to run periodically.
+E. Use the AWS Glue Data Catalog as the central metadata repositor
+F. Use AWS Glue crawlers to connect to multiple data stores and to update the Data Catalog with metadata change
+G. Schedule the crawlers to run periodically to update the metadata catalog.
+H. Use Amazon DynamoDB as the data catalo
+I. Create AWS Lambda functions that will connect to the data catalo
+J. Configure the Lambda functions to gather the metadata information from multiple sources and to update the DynamoDB data catalo
+K. Schedule the Lambda functions to run periodically.
+L. Use the AWS Glue Data Catalog as the central metadata repositor
+M. Extract the schema for Amazon RDS and Amazon Redshift sources, and build the Data Catalo
+N. Use AWS Glue crawlers for data that is in Amazon S3 to infer the schema and to automatically update the Data Catalog.
+Answer: B
+Explanation:
+This solution will meet the requirements with the least operational overhead because it uses the AWS Glue Data Catalog as the central metadata repository for
+data sources that run in the AWS Cloud. The AWS Glue Data Catalog is a fully managed service that provides a unified view of your data assets across AWS and
+on-premises data sources. It stores the metadata of your data in tables, partitions, and columns, and enables you to access and query your data using various
+AWS services, such as Amazon Athena, Amazon EMR, and Amazon Redshift Spectrum. You can use AWS Glue crawlers to connect to multiple data stores, such
+as Amazon RDS, Amazon Redshift, and Amazon S3, and to update the Data Catalog with metadata changes. AWS Glue crawlers can automatically discover the
+schema and partition structure of your data, and create or update the corresponding tables in the Data Catalog. You can schedule the crawlers to run periodically
+to update the metadata catalog, and configure them to detect changes to the source metadata, such as new columns, tables, or partitions12.
+The other options are not optimal for the following reasons:
+? A. Use Amazon Aurora as the data catalog. Create AWS Lambda functions that will connect to the data catalog. Configure the Lambda functions to gather the
+metadata information from multiple sources and to update the Aurora data catalog. Schedule the Lambda functions to run periodically. This option is not
+recommended, as it would require more operational overhead to create and manage an Amazon Aurora database as the data catalog, and to write and maintain
+AWS Lambda functions to gather and update the metadata information from multiple sources. Moreover, this option would not leverage the benefits of the AWS
+Glue Data Catalog, such as data cataloging, data transformation, and data governance.
+? C. Use Amazon DynamoDB as the data catalog. Create AWS Lambda functions that will connect to the data catalog. Configure the Lambda functions to gather
+the metadata information from multiple sources and to update the DynamoDB data catalog. Schedule the Lambda functions to run periodically. This option is also
+not recommended, as it would require more operational overhead to create and manage an Amazon DynamoDB table as the data catalog, and to write and
+maintain AWS Lambda functions to gather and update the metadata information from multiple sources. Moreover, this option would not leverage the benefits of the
+AWS Glue Data Catalog, such as data cataloging, data transformation, and data governance.
+? D. Use the AWS Glue Data Catalog as the central metadata repository. Extract the schema for Amazon RDS and Amazon Redshift sources, and build the Data
+Catalog. Use AWS Glue crawlers for data that is in Amazon S3 to infer the schema and to automatically update the Data Catalog. This option is not optimal, as it
+would require more manual effort to extract the schema for Amazon RDS and Amazon Redshift sources, and to build the Data Catalog. This option would not take
+advantage of the AWS Glue crawlers’ ability to automatically discover the schema and partition structure of your data from various data sources, and to create or
+update the corresponding tables in the Data Catalog.
+References:
+? 1: AWS Glue Data Catalog
+? 2: AWS Glue Crawlers
+? : Amazon Aurora
+? : AWS Lambda
+? : Amazon DynamoDB
+
+NEW QUESTION 10
+A company uses Amazon Athena to run SQL queries for extract, transform, and load (ETL) tasks by using Create Table As Select (CTAS). The company must use
+Apache Spark instead of SQL to generate analytics.
+Which solution will give the company the ability to use Spark to access Athena?
+A. Athena query settings
+B. Athena workgroup
+C. Athena data source
+D. Athena query editor
+Answer: C
+Explanation:
+Athena data source is a solution that allows you to use Spark to access Athena by using the Athena JDBC driver and the Spark SQL interface. You can use the
+Athena data source to create Spark DataFrames from Athena tables, run SQL queries on the DataFrames, and write the results back to Athena. The Athena data
+source supports various data formats, such as CSV, JSON, ORC, and Parquet, and also supports partitioned and bucketed tables. The Athena data source is a
+cost-effective and scalable way to use Spark to access Athena, as it does not require any additional infrastructure or services, and you only pay for the data
+scanned by Athena.
+The other options are not solutions that give the company the ability to use Spark to access Athena. Option A, Athena query settings, is a feature that allows you to
+configure various parameters for your Athena queries, such as the output location, the encryption settings, the query timeout, and the workgroup. Option B, Athena
+workgroup, is a feature that allows you to isolate and manage your Athena queries and resources, such as the query history, the query notifications, the query
+concurrency, and the query cost. Option D, Athena query editor, is a feature that allows you to write and run SQL queries on Athena using the web console or the
+API. None of these options enable you to use Spark instead of SQL to generate analytics on Athena. References:
+? Using Apache Spark in Amazon Athena
+? Athena JDBC Driver
+? Spark SQL
+? Athena query settings
+? [Athena workgroups]
+? [Athena query editor]
+
+NEW QUESTION 12
+A security company stores IoT data that is in JSON format in an Amazon S3 bucket. The data structure can change when the company upgrades the IoT devices.
+The company wants to create a data catalog that includes the IoT data. The company's analytics department will use the data catalog to index the data.
+Which solution will meet these requirements MOST cost-effectively?
+A. Create an AWS Glue Data Catalo
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+B. Configure an AWS Glue Schema Registr
+C. Create a new AWS Glue workload to orchestrate the ingestion of the data that the analytics department will use into Amazon Redshift Serverless.
+D. Create an Amazon Redshift provisioned cluste
+E. Create an Amazon Redshift Spectrum database for the analytics department to explore the data that is in Amazon S3. Create Redshift stored procedures to
+load the data into Amazon Redshift.
+F. Create an Amazon Athena workgrou
+G. Explore the data that is in Amazon S3 by using Apache Spark through Athen
+H. Provide the Athena workgroup schema and tables to the analytics department.
+I. Create an AWS Glue Data Catalo
+J. Configure an AWS Glue Schema Registr
+K. Create AWS Lambda user defined functions (UDFs) by using the Amazon Redshift Data AP
+L. Create an AWS Step Functions job to orchestrate the ingestion of the data that the analytics department will use into Amazon Redshift Serverless.
+Answer: C
+Explanation:
+The best solution to meet the requirements of creating a data catalog that includes the IoT data, and allowing the analytics department to index the data, most
+cost- effectively, is to create an Amazon Athena workgroup, explore the data that is in Amazon S3 by using Apache Spark through Athena, and provide the Athena
+workgroup schema and tables to the analytics department.
+Amazon Athena is a serverless, interactive query service that makes it easy to analyze data directly in Amazon S3 using standard SQL or Python1. Amazon
+Athena also supports Apache Spark, an open-source distributed processing framework that can run large-scale data analytics applications across clusters of
+servers2. You can use Athena to run Spark code on data in Amazon S3 without having to set up, manage, or scale any infrastructure. You can also use Athena to
+create and manage external tables that point to your data in Amazon S3, and store them in an external data catalog, such as AWS Glue Data Catalog, Amazon
+Athena Data Catalog, or your own Apache Hive metastore3. You can create Athena workgroups to separate query execution and resource allocation based on
+different criteria, such as users, teams, or applications4. You can share the schemas and tables in your Athena workgroup with other users or applications, such as
+Amazon QuickSight, for data visualization and analysis5.
+Using Athena and Spark to create a data catalog and explore the IoT data in Amazon S3 is the most cost-effective solution, as you pay only for the queries you run
+or the compute you use, and you pay nothing when the service is idle1. You also save on the operational overhead and complexity of managing data warehouse
+infrastructure, as Athena and Spark are serverless and scalable. You can also benefit from the flexibility and performance of Athena and Spark, as they support
+various data formats, including JSON, and can handle schema changes and complex queries efficiently.
+Option A is not the best solution, as creating an AWS Glue Data Catalog, configuring an AWS Glue Schema Registry, creating a new AWS Glue workload to
+orchestrate theingestion of the data that the analytics department will use into Amazon Redshift Serverless, would incur more costs and complexity than using
+Athena and Spark. AWS Glue Data Catalog is a persistent metadata store that contains table definitions, job definitions, and other control information to help you
+manage your AWS Glue components6. AWS Glue Schema Registry is a service that allows you to centrally store and manage the schemas of your streaming data
+in AWS Glue Data Catalog7. AWS Glue is a serverless data integration service that makes it easy to prepare, clean, enrich, and move data between data stores8.
+Amazon Redshift Serverless is a feature of Amazon Redshift, a fully managed data warehouse service, that allows you to run and scale analytics without having to
+manage data warehouse infrastructure9. While these services are powerful and useful for many data engineering scenarios, they are not necessary or costeffective for creating a data catalog and indexing the IoT data in Amazon S3. AWS Glue Data Catalog and Schema Registry charge you based on the number of
+objects stored and the number of requests made67. AWS Glue charges you based on the compute time and the data processed by your ETL jobs8. Amazon
+Redshift Serverless charges you based on the amount of data scanned by your queries and the compute time used by your workloads9. These costs can add up
+quickly, especially if you have large volumes of IoT data and frequent schema changes. Moreover, using AWS Glue and Amazon Redshift Serverless would
+introduce additional latency and complexity, as you would have to ingest the data from Amazon S3 to Amazon Redshift Serverless, and then query it from there,
+instead of querying it directly from Amazon S3 using Athena and Spark.
+Option B is not the best solution, as creating an Amazon Redshift provisioned cluster, creating an Amazon Redshift Spectrum database for the analytics
+department to explore the data that is in Amazon S3, and creating Redshift stored procedures to load the data into Amazon Redshift, would incur more costs and
+complexity than using Athena and Spark. Amazon Redshift provisioned clusters are clusters that you create and manage by specifying the number and type of
+nodes, and the amount of storage and compute capacity10. Amazon Redshift Spectrum is a feature of Amazon Redshift that allows you to query and join data
+across your data warehouse and your data lake using standard SQL11. Redshift stored procedures are SQL statements that you can define and store in Amazon
+Redshift, and then call them by using the CALL command12. While these features are powerful and useful for many data warehousing scenarios, they are not
+necessary or cost-effective for creating a data catalog and indexing the IoT data in Amazon S3. Amazon Redshift provisioned clusters charge you based on the
+node type, the number of nodes, and the duration of the cluster10. Amazon Redshift Spectrum charges you based on the amount of data scanned by your
+queries11. These costs can add up quickly, especially if you have large volumes of IoT data and frequent schema changes. Moreover, using Amazon Redshift
+provisioned clusters and Spectrum would introduce additional latency and complexity, as you would have to provision andmanage the cluster, create an external
+schema and database for the data in Amazon S3, and load the data into the cluster using stored procedures, instead of querying it directly from Amazon S3 using
+Athena and Spark. Option D is not the best solution, as creating an AWS Glue Data Catalog, configuring an AWS Glue Schema Registry, creating AWS Lambda
+user defined functions (UDFs) by using the Amazon Redshift Data API, and creating an AWS Step Functions job to orchestrate the ingestion of the data that the
+analytics department will use into Amazon Redshift Serverless, would incur more costs and complexity than using Athena and Spark. AWS Lambda is a serverless
+compute service that lets you run code without provisioning or managing servers13. AWS Lambda UDFs are Lambda functions that you can invoke from within an
+Amazon Redshift query. Amazon Redshift Data API is a service that allows you to run SQL statements on Amazon Redshift clusters using HTTP requests, without
+needing a persistent connection. AWS Step Functions is a service that lets you coordinate multiple AWS services into serverless workflows. While these services
+are powerful and useful for many data engineering scenarios, they are not necessary or cost- effective for creating a data catalog and indexing the IoT data in
+Amazon S3. AWS Glue Data Catalog and Schema Registry charge you based on the number of objects stored and the number of requests made67. AWS Lambda
+charges you based on the number of requests and the duration of your functions13. Amazon Redshift Serverless charges you based on the amount of data
+scanned by your queries and the compute time used by your workloads9. AWS Step Functions charges you based on the number of state transitions in your
+workflows. These costs can add up quickly, especially if you have large volumes of IoT data and frequent schema changes. Moreover, using AWS Glue, AWS
+Lambda, Amazon Redshift Data API, and AWS Step Functions would introduce additional latency and complexity, as you would have to create and invoke Lambda
+functions to ingest the data from Amazon S3 to Amazon Redshift Serverless using the Data API, and coordinate the ingestion process using Step Functions,
+instead of querying it directly from Amazon S3 using Athena and Spark. References:
+? What is Amazon Athena?
+? Apache Spark on Amazon Athena
+? Creating tables, updating the schema, and adding new partitions in the Data Catalog from AWS Glue ETL jobs
+? Managing Athena workgroups
+? Using Amazon QuickSight to visualize data in Amazon Athena
+? AWS Glue Data Catalog
+? AWS Glue Schema Registry
+? What is AWS Glue?
+? Amazon Redshift Serverless
+? Amazon Redshift provisioned clusters
+? Querying external data using Amazon Redshift Spectrum
+? Using stored procedures in Amazon Redshift
+? What is AWS Lambda?
+? [Creating and using AWS Lambda UDFs]
+? [Using the Amazon Redshift Data API]
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+? [What is AWS Step Functions?]
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide
+
+NEW QUESTION 16
+A company is migrating its database servers from Amazon EC2 instances that run Microsoft SQL Server to Amazon RDS for Microsoft SQL Server DB instances.
+The company's analytics team must export large data elements every day until the migration is complete. The data elements are the result of SQL joinsacross
+multiple tables. The data must be in Apache Parquet format. The analytics team must store the data in Amazon S3.
+Which solution will meet these requirements in the MOST operationally efficient way?
+A. Create a view in the EC2 instance-based SQL Server databases that contains the required data element
+B. Create an AWS Glue job that selects the data directly from the view and transfers the data in Parquet format to an S3 bucke
+C. Schedule the AWS Glue job to run every day.
+D. Schedule SQL Server Agent to run a daily SQL query that selects the desired data elements from the EC2 instance-based SQL Server database
+E. Configure the query to direct the output .csv objects to an S3 bucke
+F. Create an S3 event that invokes an AWS Lambda function to transform the output format from .csv to Parquet.
+G. Use a SQL query to create a view in the EC2 instance-based SQL Server databases that contains the required data element
+H. Create and run an AWS Glue crawler to read the vie
+I. Create an AWS Glue job that retrieves the data and transfers the data in Parquet format to an S3 bucke
+J. Schedule the AWS Glue job to run every day.
+K. Create an AWS Lambda function that queries the EC2 instance-based databases by using Java Database Connectivity (JDBC). Configure the Lambda function
+to retrieve the required data, transform the data into Parquet format, and transfer the data into an S3 bucke
+L. Use Amazon EventBridge to schedule the Lambda function to run every day.
+Answer: A
+Explanation:
+Option A is the most operationally efficient way to meet the requirements because it minimizes the number of steps and services involved in the data export
+process. AWS Glue is a fully managed service that can extract, transform, and load (ETL) data from various sources to various destinations, including Amazon S3.
+AWS Glue can also convert data to different formats, such as Parquet, which is a columnar storage format that is optimized for analytics. By creating a view in the
+SQL Server databases that contains the required data elements, the AWS Glue job can select the data directly from the view without having to perform any joins or
+transformations on the source data. The AWS Glue job can then transfer the data in Parquet format to an S3 bucket and run on a daily schedule.
+Option B is not operationally efficient because it involves multiple steps and services to export the data. SQL Server Agent is a tool that can run scheduled tasks
+on SQL Server databases, such as executing SQL queries. However, SQL Server Agent cannot directly export data to S3, so the query output must be saved as
+.csv objects on the EC2 instance. Then, an S3 event must be configured to trigger an AWS Lambda function that can transform the .csv objects to Parquet format
+and upload them to S3. This option adds complexity and latency to the data export process and requires additional resources and configuration.
+Option C is not operationally efficient because it introduces an unnecessary step of running an AWS Glue crawler to read the view. An AWS Glue crawler is a
+service that can scan data sources and create metadata tables in the AWS Glue Data Catalog. The Data Catalog is a central repository that stores information
+about the data sources, such as schema, format, and location. However, in this scenario, the schema and format of the data elements are already known and
+fixed, so there is no need to run a crawler to discover them. The AWS Glue job can directly select the data from the view without using the Data Catalog. Running
+a crawler adds extra time and cost to the data export process.
+Option D is not operationally efficient because it requires custom code and configuration to query the databases and transform the data. An AWS Lambda function
+is a service that can run code in response to events or triggers, such as Amazon EventBridge. Amazon EventBridge is a service that can connect applications and
+services with event sources, such as schedules, and route them to targets, such as Lambda functions. However, in this scenario, using a Lambda function to query
+the databases and transform the data is not the best option because it requires writing and maintaining code that uses JDBC to connect to the SQL Server
+databases, retrieve the required data, convert the data to Parquet format, and transfer the data to S3. This option also has limitations on the execution time,
+memory, and concurrency of the Lambda function, which may affect the performance and reliability of the data export process.
+References:
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide
+? AWS Glue Documentation
+? Working with Views in AWS Glue
+? Converting to Columnar Formats
+
+NEW QUESTION 17
+A company needs to partition the Amazon S3 storage that the company uses for a data lake. The partitioning will use a path of the S3 object keys in the following
+format: s3://bucket/prefix/year=2023/month=01/day=01.
+A data engineer must ensure that the AWS Glue Data Catalog synchronizes with the S3 storage when the company adds new partitions to the bucket.
+Which solution will meet these requirements with the LEAST latency?
+A. Schedule an AWS Glue crawler to run every morning.
+B. Manually run the AWS Glue CreatePartition API twice each day.
+C. Use code that writes data to Amazon S3 to invoke the Boto3 AWS Glue create partition API call.
+D. Run the MSCK REPAIR TABLE command from the AWS Glue console.
+Answer: C
+Explanation:
+The best solution to ensure that the AWS Glue Data Catalog synchronizes with the S3 storage when the company adds new partitions to the bucket with the least
+latency is to use code that writes data to Amazon S3 to invoke the Boto3 AWS Glue create partition API call. This way, the Data Catalog is updated as soon as
+new data is written to S3, and the partition information is immediately available for querying by other
+services. The Boto3 AWS Glue create partition API call allows you to create a new partition in the Data Catalog by specifying the table name, the database name,
+and the partition values1. You can use this API call in your code that writes data to S3, such as a Python script or an AWS Glue ETL job, to create a partition for
+each new S3 object key that matches the partitioning scheme.
+Option A is not the best solution, as scheduling an AWS Glue crawler to run every morning would introduce a significant latency between the time new data is
+written to S3 and the time the Data Catalog is updated. AWS Glue crawlers are processes that connect to a data store, progress through a prioritized list of
+classifiers to determine the schema for your data, and then create metadata tables in the Data Catalog2. Crawlers can be scheduled to run periodically, such as
+daily or hourly, but they cannot runcontinuously or in real-time. Therefore, using a crawler to synchronize the Data Catalog with the S3 storage would not meet the
+requirement of the least latency.
+Option B is not the best solution, as manually running the AWS Glue CreatePartition API twice each day would also introduce a significant latency between the
+time new data is written to S3 and the time the Data Catalog is updated. Moreover, manually running the API would require more operational overhead and human
+intervention than using code that writes data to S3 to invoke the API automatically.
+Option D is not the best solution, as running the MSCK REPAIR TABLE command from the AWS Glue console would also introduce a significant latency between
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+the time new data is written to S3 and the time the Data Catalog is updated. The MSCK REPAIR TABLE command is a SQL command that you can run in the
+AWS Glue console to add partitions to the Data Catalog based on the S3 object keys that match the partitioning scheme3. However, this command is not meant to
+be run frequently or in real-time, as it can take a long time to scan the entire S3 bucket and add the partitions. Therefore, using this command to synchronize the
+Data Catalog with the S3 storage would not meet the requirement of the least latency. References:
+? AWS Glue CreatePartition API
+? Populating the AWS Glue Data Catalog
+? MSCK REPAIR TABLE Command
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide
+
+NEW QUESTION 21
+A company uses Amazon RDS for MySQL as the database for a critical application. The database workload is mostly writes, with a small number of reads.
+A data engineer notices that the CPU utilization of the DB instance is very high. The high CPU utilization is slowing down the application. The data engineer must
+reduce the CPU utilization of the DB Instance.
+Which actions should the data engineer take to meet this requirement? (Choose two.)
+A. Use the Performance Insights feature of Amazon RDS to identify queries that have high CPU utilizatio
+B. Optimize the problematic queries.
+C. Modify the database schema to include additional tables and indexes.
+D. Reboot the RDS DB instance once each week.
+E. Upgrade to a larger instance size.
+F. Implement caching to reduce the database query load.
+Answer: AE
+Explanation:
+Amazon RDS is a fully managed service that provides relational databases in the cloud. Amazon RDS for MySQL is one of the supported database engines that
+you can use to run your applications. Amazon RDS provides various features and tools to monitor and optimize the performance of your DB instances, such as
+Performance Insights, Enhanced Monitoring, CloudWatch metrics and alarms, etc.
+Using the Performance Insights feature of Amazon RDS to identify queries that have high CPU utilization and optimizing the problematic queries will help reduce
+the CPU utilization of the DB instance. Performance Insights is a feature that allows you to analyze the load on your DB instance and determine what is causing
+performance issues. Performance Insights collects, analyzes, and displays database performance data using an interactive dashboard. You can use Performance
+Insights to identify the top SQL statements, hosts, users, or processes that are consuming the most CPU resources. You can also drill down into the details of
+each query and see the execution plan, wait events, locks, etc. By using Performance Insights, you can pinpoint the root cause of the high CPU utilization and
+optimize the queries accordingly. For example, you can rewrite the queries to make them more efficient, add or remove indexes, use prepared statements, etc.
+Implementing caching to reduce the database query load will also help reduce the CPU utilization of the DB instance. Caching is a technique that allows you to
+store frequently accessed data in a fast and scalable storage layer, such as Amazon ElastiCache. By using caching, you can reduce the number of requests that
+hit your database, which in turn reduces the CPU load on your DB instance. Caching also improves the performance and availability of your application, as it
+reduces the latency and increases the throughput of your data access. You can use caching for various scenarios, such as storing session data, user preferences,
+application configuration, etc. You can also use caching for read-heavy workloads, such as displaying product details, recommendations, reviews, etc.
+The other options are not as effective as using Performance Insights and caching. Modifying the database schema to include additional tables and indexes may or
+may not improve the CPU utilization, depending on the nature of the workload and the queries. Adding more tables and indexes may increase the complexity and
+overhead of the database, which may negatively affect the performance. Rebooting the RDS DB instance once each week will not reduce the CPU utilization, as it
+will not address the underlying cause of the high CPU load. Rebooting may also cause downtime and disruption to your application. Upgrading to a larger instance
+size may reduce the CPUutilization, but it will also increase the cost and complexity of your solution. Upgrading may also not be necessary if you can optimize the
+queries and reduce the database load by using caching. References:
+? Amazon RDS
+? Performance Insights
+? Amazon ElastiCache
+? [AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide], Chapter 3: Data Storage and Management, Section 3.1: Amazon RDS
+
+NEW QUESTION 26
+A data engineer must orchestrate a series of Amazon Athena queries that will run every day. Each query can run for more than 15 minutes.
+Which combination of steps will meet these requirements MOST cost-effectively? (Choose two.)
+A. Use an AWS Lambda function and the Athena Boto3 client start_query_execution API call to invoke the Athena queries programmatically.
+B. Create an AWS Step Functions workflow and add two state
+C. Add the first state before the Lambda functio
+D. Configure the second state as a Wait state to periodically check whether the Athena query has finished using the Athena Boto3 get_query_execution API cal
+E. Configure the workflow to invoke the next query when the current query has finished running.
+F. Use an AWS Glue Python shell job and the Athena Boto3 client start_query_execution API call to invoke the Athena queries programmatically.
+G. Use an AWS Glue Python shell script to run a sleep timer that checks every 5 minutes to determine whether the current Athena query has finished running
+successfull
+H. Configure the Python shell script to invoke the next query when the current query has finished running.
+I. Use Amazon Managed Workflows for Apache Airflow (Amazon MWAA) to orchestrate the Athena queries in AWS Batch.
+Answer: AB
+Explanation:
+Option A and B are the correct answers because they meet the requirements most cost-effectively. Using an AWS Lambda function and the Athena Boto3 client
+start_query_execution API call to invoke the Athena queries programmatically is a simple and scalable way to orchestrate the queries. Creating an AWS Step
+Functions workflow and adding two states to check the query status and invoke the next query is a reliable and efficient way to handle the long-running queries.
+Option C is incorrect because using an AWS Glue Python shell job to invoke the Athena queries programmatically is more expensive than using a Lambda
+function, as it requires provisioning and running a Glue job for each query.
+Option D is incorrect because using an AWS Glue Python shell script to run a sleep timer that checks every 5 minutes to determine whether the current Athena
+query has finished running successfully is not a cost-effective or reliable way to orchestrate the queries, as it wastes resources and time.
+Option E is incorrect because using Amazon Managed Workflows for Apache Airflow (Amazon MWAA) to orchestrate the Athena queries in AWS Batch is an
+overkill solution that introduces unnecessary complexity and cost, as it requires setting up and managing an Airflow environment and an AWS Batch compute
+environment.
+References:
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide, Chapter 5: Data Orchestration, Section 5.2: AWS Lambda, Section 5.3: AWS Step
+Functions, Pages 125-135
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+? Building Batch Data Analytics Solutions on AWS, Module 5: Data Orchestration, Lesson 5.1: AWS Lambda, Lesson 5.2: AWS Step Functions, Pages 1-15
+? AWS Documentation Overview, AWS Lambda Developer Guide, Working with AWS Lambda Functions, Configuring Function Triggers, Using AWS Lambda with
+Amazon Athena, Pages 1-4
+? AWS Documentation Overview, AWS Step Functions Developer Guide, Getting Started, Tutorial: Create a Hello World Workflow, Pages 1-8
+
+NEW QUESTION 30
+A data engineer needs to create an AWS Lambda function that converts the format of data from .csv to Apache Parquet. The Lambda function must run only if a
+user uploads a .csv file to an Amazon S3 bucket.
+Which solution will meet these requirements with the LEAST operational overhead?
+A. Create an S3 event notification that has an event type of s3:ObjectCreated:*. Use a filter rule to generate notifications only when the suffix includes .cs
+B. Set the Amazon Resource Name (ARN) of the Lambda function as the destination for the event notification.
+C. Create an S3 event notification that has an event type of s3:ObjectTagging:* for objects that have a tag set to .cs
+D. Set the Amazon Resource Name (ARN) of the Lambda function as the destination for the event notification.
+E. Create an S3 event notification that has an event type of s3:*. Use a filter rule to generate notifications only when the suffix includes .cs
+F. Set the Amazon Resource Name (ARN) of the Lambda function as the destination for the event notification.
+G. Create an S3 event notification that has an event type of s3:ObjectCreated:*. Use a filter rule to generate notifications only when the suffix includes .cs
+H. Set an Amazon Simple Notification Service (Amazon SNS) topic as the destination for the event notificatio
+I. Subscribe the Lambda function to the SNS topic.
+Answer: A
+Explanation:
+Option A is the correct answer because it meets the requirements with the least operational overhead. Creating an S3 event notification that has an event type of
+s3:ObjectCreated:* will trigger the Lambda function whenever a new object is created in the S3 bucket. Using a filter rule to generate notifications only when the
+suffix includes .csv will ensure that the Lambda function only runs for .csv files. Setting the ARN of the Lambda function as the destination for the event notification
+will directly invoke the Lambda function without any additional steps.
+Option B is incorrect because it requires the user to tag the objects with .csv, which adds an extra step and increases the operational overhead.
+Option C is incorrect because it uses an event type of s3:*, which will trigger the Lambda function for any S3 event, not just object creation. This could result in
+unnecessary invocations and increased costs.
+Option D is incorrect because it involves creating and subscribing to an SNS topic, which adds an extra layer of complexity and operational overhead.
+References:
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide, Chapter 3: Data Ingestion and Transformation, Section 3.2: S3 Event Notifications
+and Lambda Functions, Pages 67-69
+? Building Batch Data Analytics Solutions on AWS, Module 4: Data Transformation, Lesson 4.2: AWS Lambda, Pages 4-8
+? AWS Documentation Overview, AWS Lambda Developer Guide, Working with AWS Lambda Functions, Configuring Function Triggers, Using AWS Lambda with
+Amazon S3, Pages 1-5
+
+NEW QUESTION 31
+A company is planning to migrate on-premises Apache Hadoop clusters to Amazon EMR. The company also needs to migrate a data catalog into a persistent
+storage solution.
+The company currently stores the data catalog in an on-premises Apache Hive metastore on the Hadoop clusters. The company requires a serverless solution to
+migrate the data catalog.
+Which solution will meet these requirements MOST cost-effectively?
+A. Use AWS Database Migration Service (AWS DMS) to migrate the Hive metastore into Amazon S3. Configure AWS Glue Data Catalog to scan Amazon S3 to
+produce the data catalog.
+B. Configure a Hive metastore in Amazon EM
+C. Migrate the existing on-premises Hive metastore into Amazon EM
+D. Use AWS Glue Data Catalog to store the company's data catalog as an external data catalog.
+E. Configure an external Hive metastore in Amazon EM
+F. Migrate the existing on-premises Hive metastore into Amazon EM
+G. Use Amazon Aurora MySQL to store the company's data catalog.
+H. Configure a new Hive metastore in Amazon EM
+I. Migrate the existing on-premises Hive metastore into Amazon EM
+J. Use the new metastore as the company's data catalog.
+Answer: A
+Explanation:
+AWS Database Migration Service (AWS DMS) is a service that helps you migrate databases to AWS quickly and securely. You can use AWS DMS to migrate the
+Hive metastore from the on-premises Hadoop clusters into Amazon S3, which is a highlyscalable, durable, and cost-effective object storage service. AWS Glue
+Data Catalog is a serverless, managed service that acts as a central metadata repository for your data assets. You can use AWS Glue Data Catalog to scan the
+Amazon S3 bucket that contains the migrated Hive metastore and create a data catalog that is compatible with Apache Hive and other AWS services. This solution
+meets the requirements of migrating the data catalog into a persistent storage solution and using a serverless solution. This solution is also the most cost-effective,
+as it does not incur any additional charges for running Amazon EMR or Amazon Aurora MySQL clusters. The other options are either not feasible or not optimal.
+Configuring a Hive metastore in Amazon EMR (option B) or an external Hive metastore in Amazon EMR (option C) would require running and maintaining Amazon
+EMR clusters, which would incur additional costs and complexity. Using Amazon Aurora MySQL to store the company’s data catalog (option C) would also incur
+additional costs and complexity, as well as introduce compatibility issues with Apache Hive. Configuring a new Hive metastore in Amazon EMR (option D) would
+not migrate the existing data catalog, but create a new one, which would result in data loss and inconsistency. References:
+? Using AWS Database Migration Service
+? Populating the AWS Glue Data Catalog
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide, Chapter 4: Data Analysis and Visualization, Section 4.2: AWS Glue Data Catalog
+
+NEW QUESTION 33
+A company stores data from an application in an Amazon DynamoDB table that operates in provisioned capacity mode. The workloads of the application have
+predictable throughput load on a regular schedule. Every Monday, there is an immediate increase in activity early in the morning. The application has very low
+usage during weekends.
+The company must ensure that the application performs consistently during peak usage times
+Which solution will meet these requirements in the MOST cost-effective way?
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+A. Increase the provisioned capacity to the maximum capacity that is currently present during peak load times.
+B. Divide the table into two table
+C. Provision each table with half of the provisioned capacity of the original tabl
+D. Spread queries evenly across both tables.
+E. Use AWS Application Auto Scaling to schedule higher provisioned capacity for peak usage time
+F. Schedule lower capacity during off-peak times.
+G. Change the capacity mode from provisioned to on-deman
+H. Configure the table to scale up and scale down based on the load on the table.
+Answer: C
+Explanation:
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB offers two
+capacity modes for throughput capacity: provisioned and on-demand. In provisioned capacity mode, you specify the number of read and write capacity units per
+second that you expect your application to require. DynamoDB reserves the resources to meet your throughput needs with consistent performance. In on-demand
+capacity mode, you pay per request and DynamoDB scales the resources up and down automatically based on the actual workload. On-demand capacity mode is
+suitable for unpredictable workloads that can vary significantly over time1.
+The solution that meets the requirements in the most cost-effective way is to use AWS Application Auto Scaling to schedule higher provisioned capacity for peak
+usage times and lower capacity during off-peak times. This solution has the following advantages:
+? It allows you to optimize the cost and performance of your DynamoDB table by adjusting the provisioned capacity according to your predictable workload
+patterns. You can use scheduled scaling to specify the date and time for the scaling actions, and the new minimum and maximum capacity limits. For example,
+you can schedule higher capacity for every Monday morning and lower capacity for weekends2.
+? It enables you to take advantage of the lower cost per unit of provisioned capacity mode compared to on-demand capacity mode. Provisioned capacity mode
+charges a flat hourly rate for the capacity you reserve, regardless of how much you use. On-demand capacity mode charges for each read and write request you
+consume, with nominimum capacity required. For predictable workloads, provisioned capacity mode can be more cost-effective than on-demand capacity mode1.
+? It ensures that your application performs consistently during peak usage times by having enough capacity to handle the increased load. You can also use auto
+scaling to automatically adjust the provisioned capacity based on the actual utilization of your table, and set a target utilization percentage for your table or global
+secondary index. This way, you can avoid under-provisioning or over- provisioning your table2.
+Option A is incorrect because it suggests increasing the provisioned capacity to the maximum capacity that is currently present during peak load times. This
+solution has the following disadvantages:
+? It wastes money by paying for unused capacity during off-peak times. If you provision the same high capacity for all times, regardless of the actual workload, you
+are over-provisioning your table and paying for resources that you don’t need1.
+? It does not account for possible changes in the workload patterns over time. If your peak load times increase or decrease in the future, you may need to manually
+adjust the provisioned capacity to match the new demand. This adds operational overhead and complexity to your application2.
+Option B is incorrect because it suggests dividing the table into two tables and provisioning each table with half of the provisioned capacity of the original table.
+This solution has the following disadvantages:
+? It complicates the data model and the application logic by splitting the data into two
+separate tables. You need to ensure that the queries are evenly distributed across both tables, and that the data is consistent and synchronized between them.
+This adds extra development and maintenance effort to your application3.
+? It does not solve the problem of adjusting the provisioned capacity according to the workload patterns. You still need to manually or automatically scale the
+capacity of each table based on the actual utilization and demand. This may result in under- provisioning or over-provisioning your tables2.
+Option D is incorrect because it suggests changing the capacity mode from provisioned to on-demand. This solution has the following disadvantages:
+? It may incur higher costs than provisioned capacity mode for predictable workloads. On-demand capacity mode charges for each read and write request you
+consume, with no minimum capacity required. For predictable workloads, provisioned capacity mode can be more cost-effective than on-demand capacity mode,
+as you can reserve the capacity you need at a lower rate1.
+? It may not provide consistent performance during peak usage times, as on-demand capacity mode may take some time to scale up the resources to meet the
+sudden increase in demand. On-demand capacity mode uses adaptive capacity to handle bursts of traffic, but it may not be able to handle very large spikes or
+sustained high throughput. In such cases, you may experience throttling or increased latency.
+References:
+? 1: Choosing the right DynamoDB capacity mode - Amazon DynamoDB
+? 2: Managing throughput capacity automatically with DynamoDB auto scaling - Amazon DynamoDB
+? 3: Best practices for designing and using partition keys effectively - Amazon DynamoDB
+? [4]: On-demand mode guidelines - Amazon DynamoDB
+? [5]: How to optimize Amazon DynamoDB costs - AWS Database Blog
+? [6]: DynamoDB adaptive capacity: How it works and how it helps - AWS Database Blog
+? [7]: Amazon DynamoDB pricing - Amazon Web Services (AWS)
+
+NEW QUESTION 38
+A company has used an Amazon Redshift table that is named Orders for 6 months. The company performs weekly updates and deletes on the table. The table
+has an interleaved sort key on a column that contains AWS Regions.
+The company wants to reclaim disk space so that the company will not run out of storage space. The company also wants to analyze the sort key column.
+Which Amazon Redshift command will meet these requirements?
+A. VACUUM FULL Orders
+B. VACUUM DELETE ONLY Orders
+C. VACUUM REINDEX Orders
+D. VACUUM SORT ONLY Orders
+Answer: C
+Explanation:
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service that enables fast and cost-effective analysis of large volumes of data. Amazon
+Redshift uses columnar storage, compression, and zone maps to optimize the storage and performance of data. However, over time, as data is inserted, updated,
+or deleted, the physical storage of data can become fragmented, resulting in wasted disk space and degraded query performance. To address this issue, Amazon
+Redshift provides the VACUUM command, which reclaims disk space and resorts rows in either a specified table or all tables in the current schema1.
+The VACUUM command has four options: FULL, DELETE ONLY, SORT ONLY, and REINDEX. The option that best meets the requirements of the question is
+VACUUM REINDEX, which re-sorts the rows in a table that has an interleaved sort key and rewritesthe table to a new location on disk. An interleaved sort key is a
+type of sort key that gives equal weight to each column in the sort key, and stores the rows in a way that optimizes the performance of queries that filter by multiple
+columns in the sort key. However, as data is added or changed, the interleaved sort order can become skewed, resulting in suboptimal query performance. The
+VACUUM REINDEX option restores the optimal interleaved sort order and reclaims disk space by removing deleted rows. This option also analyzes the sort key
+column and updates the table statistics, which are used by the query optimizer to generate the most efficient query execution plan23.
+The other options are not optimal for the following reasons:
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+? A. VACUUM FULL Orders. This option reclaims disk space by removing deleted rows and resorts the entire table. However, this option is not suitable for tables
+that have an interleaved sort key, as it does not restore the optimal interleaved sort order. Moreover, this option is the most resource-intensive and timeconsuming, as it rewrites the entire table to a new location on disk.
+? B. VACUUM DELETE ONLY Orders. This option reclaims disk space by removing deleted rows, but does not resort the table. This option is not suitable for
+tables that have any sort key, as it does not improve the query performance by restoring the sort order. Moreover, this option does not analyze the sort key column
+and update the table statistics.
+? D. VACUUM SORT ONLY Orders. This option resorts the entire table, but does not reclaim disk space by removing deleted rows. This option is not suitable for
+tables that have an interleaved sort key, as it does not restore the optimal interleaved sort order. Moreover, this option does not analyze the sort key column and
+update the table statistics.
+References:
+? 1: Amazon Redshift VACUUM
+? 2: Amazon Redshift Interleaved Sorting
+? 3: Amazon Redshift ANALYZE
+
+NEW QUESTION 43
+A company uses an on-premises Microsoft SQL Server database to store financial transaction data. The company migrates the transaction data from the onpremises database to AWS at the end of each month. The company has noticed that the cost to migrate data from the on-premises database to an Amazon RDS
+for SQL Server database has increased recently.
+The company requires a cost-effective solution to migrate the data to AWS. The solution must cause minimal downtown for the applications that access the
+database.
+Which AWS service should the company use to meet these requirements?
+A. AWS Lambda
+B. AWS Database Migration Service (AWS DMS)
+C. AWS Direct Connect
+D. AWS DataSync
+Answer: B
+Explanation:
+AWS Database Migration Service (AWS DMS) is a cloud service that makes it possible to migrate relational databases, data warehouses, NoSQL databases, and
+other types of data stores to AWS quickly, securely, and with minimal downtime and zero data loss1. AWS DMS supports migration between 20-plus database and
+analytics engines, such as Microsoft SQL Server to Amazon RDS for SQL Server2. AWS DMS takes overmany of the difficult or tedious tasks involved in a
+migration project, such as capacity analysis, hardware and software procurement, installation and administration, testing and debugging, and ongoing replication
+and monitoring1. AWS DMS is a cost-effective solution, as you only pay for the compute resources and additional log storage used during the migration process2.
+AWS DMS is the best solution for the company to migrate the financial transaction data from the on-premises Microsoft SQL Server database to AWS, as it meets
+the requirements of minimal downtime, zero data loss, and low cost.
+Option A is not the best solution, as AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers, but it does not
+provide any built-in features for database migration. You would have to write your own code to extract, transform, and load the data from the source to the target,
+which would increase the operational overhead and complexity.
+Option C is not the best solution, as AWS Direct Connect is a service that establishes a dedicated network connection from your premises to AWS, but it does not
+provide any built-in features for database migration. You would still need to use another service or tool to perform the actual data transfer, which would increase
+the cost and complexity.
+Option D is not the best solution, as AWS DataSync is a service that makes it easy to transfer data between on-premises storage systems and AWS storage
+services, such as Amazon S3, Amazon EFS, and Amazon FSx for Windows File Server, but it does not support Amazon RDS for SQL Server as a target. You
+would have to use another service or tool to migrate the data from Amazon S3 to Amazon RDS for SQL Server, which would increase the latency and complexity.
+References:
+? Database Migration - AWS Database Migration Service - AWS
+? What is AWS Database Migration Service?
+? AWS Database Migration Service Documentation
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide
+
+NEW QUESTION 45
+A media company wants to improve a system that recommends media content to customer based on user behavior and preferences. To improve the
+recommendation system, the company needs to incorporate insights from third-party datasets into the company's existing analytics platform.
+The company wants to minimize the effort and time required to incorporate third-party datasets.
+Which solution will meet these requirements with the LEAST operational overhead?
+A. Use API calls to access and integrate third-party datasets from AWS Data Exchange.
+B. Use API calls to access and integrate third-party datasets from AWS
+C. Use Amazon Kinesis Data Streams to access and integrate third-party datasets from AWS CodeCommit repositories.
+D. Use Amazon Kinesis Data Streams to access and integrate third-party datasets from Amazon Elastic Container Registry (Amazon ECR).
+Answer: A
+Explanation:
+AWS Data Exchange is a service that makes it easy to find, subscribe to, and use third-party data in the cloud. It provides a secure and reliable way to access and
+integrate data from various sources, such as data providers, public datasets, or AWS services. Using AWS Data Exchange, you can browse and subscribe to data
+products that suit your needs, and then use API calls or the AWS Management Console to export the data to Amazon S3, where you can use it with your existing
+analytics platform. This solution minimizes the effort and time required to incorporate third-party datasets, as you do not need to set up and manage data pipelines,
+storage, or access controls. You also benefit from the data quality and freshness provided by the data providers, who can update their data products as frequently
+as needed12.
+The other options are not optimal for the following reasons:
+? B. Use API calls to access and integrate third-party datasets from AWS. This option is vague and does not specify which AWS service or feature is used to
+access and integrate third-party datasets. AWS offers a variety of services and features that can help with data ingestion, processing, and analysis, but not all of
+them are suitable for the given scenario. For example, AWS Glue is a serverless data integration service that can help you discover, prepare, and combine data
+from various sources, but it requires you to create and run data extraction, transformation, and loading (ETL) jobs, which can add operational overhead3.
+? C. Use Amazon Kinesis Data Streams to access and integrate third-party datasets from AWS CodeCommit repositories. This option is not feasible, as AWS
+CodeCommit is a source control service that hosts secure Git-based repositories, not a data source that can be accessed by Amazon Kinesis Data Streams.
+Amazon Kinesis Data Streams is a service that enables you to capture, process, and analyze data streams in real time, suchas clickstream data, application logs,
+or IoT telemetry. It does not support accessing and integrating data from AWS CodeCommit repositories, which are meant for storing and managing code, not data
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+.
+? D. Use Amazon Kinesis Data Streams to access and integrate third-party datasets from Amazon Elastic Container Registry (Amazon ECR). This option is also
+not feasible, as Amazon ECR is a fully managed container registry service that stores, manages, and deploys container images, not a data source that can be
+accessed by Amazon Kinesis Data Streams. Amazon Kinesis Data Streams does not support accessing and integrating data from Amazon ECR, which is meant
+for storing and managing container images, not data .
+References:
+? 1: AWS Data Exchange User Guide
+? 2: AWS Data Exchange FAQs
+? 3: AWS Glue Developer Guide
+? : AWS CodeCommit User Guide
+? : Amazon Kinesis Data Streams Developer Guide
+? : Amazon Elastic Container Registry User Guide
+? : Build a Continuous Delivery Pipeline for Your Container Images with Amazon ECR as Source
+
+NEW QUESTION 49
+A data engineering team is using an Amazon Redshift data warehouse for operational reporting. The team wants to prevent performance issues that might result
+from long- running queries. A data engineer must choose a system table in Amazon Redshift to record anomalies when a query optimizer identifies conditions that
+might indicate performance issues.
+Which table views should the data engineer use to meet this requirement?
+A. STL USAGE CONTROL
+B. STL ALERT EVENT LOG
+C. STL QUERY METRICS
+D. STL PLAN INFO
+Answer: B
+Explanation:
+The STL ALERT EVENT LOG table view records anomalies when the query optimizer identifies conditions that might indicate performance issues. These
+conditions include skewed data distribution, missing statistics, nested loop joins, and broadcasted data. The STL ALERT EVENT LOG table view can help the data
+engineer to identify and troubleshoot the root causes of performance issues and optimize the query execution plan. The other table views are not relevant for this
+requirement. STL USAGE CONTROL records the usage limits and quotas for Amazon Redshift resources. STL QUERY METRICS records the execution time and
+resource consumption of queries. STL PLAN INFO records the query execution plan and the steps involved in each query. References:
+? STL ALERT EVENT LOG
+? System Tables and Views
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide
+
+NEW QUESTION 50
+A company is migrating on-premises workloads to AWS. The company wants to reduce overall operational overhead. The company also wants to explore
+serverless options.
+The company's current workloads use Apache Pig, Apache Oozie, Apache Spark, Apache Hbase, and Apache Flink. The on-premises workloads process
+petabytes of data in seconds. The company must maintain similar or better performance after the migration to AWS.
+Which extract, transform, and load (ETL) service will meet these requirements?
+A. AWS Glue
+B. Amazon EMR
+C. AWS Lambda
+D. Amazon Redshift
+Answer: A
+Explanation:
+AWS Glue is a fully managed serverless ETL service that can handle petabytes of data in seconds. AWS Glue can run Apache Spark and Apache Flink jobs
+without requiring any infrastructure provisioning or management. AWS Glue can also integrate with Apache Pig, Apache Oozie, and Apache Hbase using AWS
+Glue Data Catalog and AWS Glue workflows. AWS Glue can reduce the overall operational overhead by automating the data discovery, data preparation, and data
+loading processes. AWS Glue can also optimize the cost and performance of ETL jobs by using AWS Glue Job Bookmarking, AWS Glue Crawlers, and AWS Glue
+Schema Registry. References:
+? AWS Glue
+? AWS Glue Data Catalog
+? AWS Glue Workflows
+? [AWS Glue Job Bookmarking]
+? [AWS Glue Crawlers]
+? [AWS Glue Schema Registry]
+? [AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide]
+
+NEW QUESTION 55
+A data engineer must build an extract, transform, and load (ETL) pipeline to process and load data from 10 source systems into 10 tables that are in an Amazon
+Redshift database. All the source systems generate .csv, JSON, or Apache Parquet files every 15 minutes. The source systems all deliver files into one Amazon
+S3 bucket. The file sizes range from 10 MB to 20 GB. The ETL pipeline must function correctly despite changes to the data schema.
+Which data pipeline solutions will meet these requirements? (Choose two.)
+A. Use an Amazon EventBridge rule to run an AWS Glue job every 15 minute
+B. Configure the AWS Glue job to process and load the data into the Amazon Redshift tables.
+C. Use an Amazon EventBridge rule to invoke an AWS Glue workflow job every 15 minute
+D. Configure the AWS Glue workflow to have an on-demand trigger that runs an AWS Glue crawler and then runs an AWS Glue job when the crawler finishes
+running successfull
+E. Configure the AWS Glue job to process and load the data into the Amazon Redshift tables.
+F. Configure an AWS Lambda function to invoke an AWS Glue crawler when a file is loaded into the S3 bucke
+G. Configure an AWS Glue job to process and load the data into the Amazon Redshift table
+H. Create a second Lambda function to run the AWS Glue jo
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+I. Create an Amazon EventBridge rule to invoke the second Lambda function when the AWS Glue crawler finishes running successfully.
+J. Configure an AWS Lambda function to invoke an AWS Glue workflow when a file is loaded into the S3 bucke
+K. Configure the AWS Glue workflow to have an on-demand trigger that runs an AWS Glue crawler and then runs an AWS Glue job when the crawler finishes
+running successfull
+L. Configure the AWS Glue job to process and load the data into the Amazon Redshift tables.
+M. Configure an AWS Lambda function to invoke an AWS Glue job when a file is loaded into the S3 bucke
+N. Configure the AWS Glue job to read the files from the S3 bucket into an Apache Spark DataFram
+O. Configure the AWS Glue job to also put smaller partitions of the DataFrame into an Amazon Kinesis Data Firehose delivery strea
+P. Configure the delivery stream to load data into the Amazon Redshift tables.
+Answer: AB
+Explanation:
+Using an Amazon EventBridge rule to run an AWS Glue job or invoke an AWS Glue workflow job every 15 minutes are two possible solutions that will meet the
+requirements. AWS Glue is a serverless ETL service that can process and load data from various sources to various targets, including Amazon Redshift. AWS
+Glue can handle different data formats, such as CSV, JSON, and Parquet, and also support schema evolution, meaning it can adapt to changes in the data
+schema over time. AWS Glue can also leverage Apache Spark to perform distributed processing and transformation of large datasets. AWS Glue integrates with
+Amazon EventBridge, which is a serverless event bus service that can trigger actions based on rules and schedules. By using an Amazon EventBridge rule, you
+can invoke an AWS Glue job or workflow every 15 minutes, and configure the job or workflow to run an AWS Glue crawler and then load the data into the Amazon
+Redshift tables. This way, you can build a cost-effective and scalable ETL pipeline that can handle data from 10 source systems and function correctly despite
+changes to the data schema.
+The other options are not solutions that will meet the requirements. Option C, configuring an AWS Lambda function to invoke an AWS Glue crawler when a file is
+loaded into the S3 bucket, and creating a second Lambda function to run the AWS Glue job, is not a feasible solution, as it would require a lot of Lambda
+invocations andcoordination. AWS Lambda has some limits on the execution time, memory, and concurrency, which can affect the performance and reliability of
+the ETL pipeline. Option D, configuring an AWS Lambda function to invoke an AWS Glue workflow when a file is loaded into the S3 bucket, is not a necessary
+solution, as you can use an Amazon EventBridge rule to invoke the AWS Glue workflow directly, without the need for a Lambda function. Option E, configuring an
+AWS Lambda function to invoke an AWS Glue job when a file is loaded into the S3 bucket, and configuring the AWS Glue job to put smaller partitions of the
+DataFrame into an Amazon Kinesis Data Firehose delivery stream, is not a cost-effective solution, as it would incur additional costs for Lambda invocations and
+data delivery. Moreover, using Amazon Kinesis Data Firehose to load data into Amazon Redshift is not suitable for frequent and small batches of data, as it can
+cause performance issues and data fragmentation. References:
+? AWS Glue
+? Amazon EventBridge
+? Using AWS Glue to run ETL jobs against non-native JDBC data sources
+? [AWS Lambda quotas]
+? [Amazon Kinesis Data Firehose quotas]
+
+NEW QUESTION 58
+A company uses an Amazon Redshift cluster that runs on RA3 nodes. The company wants to scale read and write capacity to meet demand. A data engineer
+needs to identify a solution that will turn on concurrency scaling.
+Which solution will meet this requirement?
+A. Turn on concurrency scaling in workload management (WLM) for Redshift Serverless workgroups.
+B. Turn on concurrency scaling at the workload management (WLM) queue level in the Redshift cluster.
+C. Turn on concurrency scaling in the settings duringthe creation of andnew Redshift cluster.
+D. Turn on concurrency scaling for the daily usage quota for the Redshift cluster.
+Answer: B
+Explanation:
+Concurrency scaling is a feature that allows you to support thousands of concurrent users and queries, with consistently fast query performance. When you turn
+on concurrency scaling, Amazon Redshift automatically adds query processing power in seconds to process queries without any delays. You can manage which
+queries are sent to the concurrency-scaling cluster by configuring WLM queues. To turn on concurrency scaling for a queue, set the Concurrency Scaling mode
+value to auto. The other options are either incorrect or irrelevant, as they do not enable concurrency scaling for the existing Redshift cluster on RA3 nodes.
+References:
+? Working with concurrency scaling - Amazon Redshift
+? Amazon Redshift Concurrency Scaling - Amazon Web Services
+? Configuring concurrency scaling queues - Amazon Redshift
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide (Chapter 6, page 163)
+
+NEW QUESTION 59
+A manufacturing company collects sensor data from its factory floor to monitor and enhance operational efficiency. The company uses Amazon Kinesis Data
+Streams to publish the data that the sensors collect to a data stream. Then Amazon Kinesis Data Firehose writes the data to an Amazon S3 bucket.
+The company needs to display a real-time view of operational efficiency on a large screen in the manufacturing facility.
+Which solution will meet these requirements with the LOWEST latency?
+A. Use Amazon Managed Service for Apache Flink (previously known as Amazon Kinesis Data Analytics) to process the sensor dat
+B. Use a connector for Apache Flink to write data to an Amazon Timestream databas
+C. Use the Timestream database as a source to create a Grafana dashboard.
+D. Configure the S3 bucket to send a notification to an AWS Lambda function when any new object is create
+E. Use the Lambda function to publish the data to Amazon Auror
+F. Use Aurora as a source to create an Amazon QuickSight dashboard.
+G. Use Amazon Managed Service for Apache Flink (previously known as Amazon Kinesis Data Analytics) to process the sensor dat
+H. Create a new Data Firehose delivery stream to publish data directly to an Amazon Timestream databas
+I. Use the Timestream database as a source to create an Amazon QuickSight dashboard.
+J. Use AWS Glue bookmarks to read sensor data from the S3 bucket in real tim
+K. Publish the data to an Amazon Timestream databas
+L. Use the Timestream database as a source to create a Grafana dashboard.
+Answer: C
+Explanation:
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+This solution will meet the requirements with the lowest latency because it uses Amazon Managed Service for Apache Flink to process the sensor data in real
+time and write it to Amazon Timestream, a fast, scalable, and serverless time series database. Amazon Timestream is optimized for storing and analyzing time
+series data, such as sensor data, and can handle trillions of events per day with millisecond latency. By using AmazonTimestream as a source, you can create an
+Amazon QuickSight dashboard that displays a real-time view of operational efficiency on a large screen in the manufacturing facility. Amazon QuickSight is a fully
+managed business intelligence service that can connect to various data sources, including Amazon Timestream, and provide interactive visualizations and
+insights123.
+The other options are not optimal for the following reasons:
+? A. Use Amazon Managed Service for Apache Flink (previously known as Amazon Kinesis Data Analytics) to process the sensor data. Use a connector for
+Apache Flink to write data to an Amazon Timestream database. Use the Timestream database as a source to create a Grafana dashboard. This option is similar to
+option C, but it uses Grafana instead of Amazon QuickSight to create the dashboard. Grafana is an open source visualization tool that can also connect to Amazon
+Timestream, but it requires additional steps to set up and configure, such as deploying a Grafana server on Amazon EC2, installing the Amazon Timestream
+plugin, and creating an IAM role for Grafana to access Timestream. These steps can increase the latency and complexity of the solution.
+? B. Configure the S3 bucket to send a notification to an AWS Lambda function when any new object is created. Use the Lambda function to publish the data to
+Amazon Aurora. Use Aurora as a source to create an Amazon QuickSight dashboard. This option is not suitable for displaying a real-time view of operational
+efficiency, as it introduces unnecessary delays and costs in the data pipeline. First, the sensor data is written to an S3 bucket by Amazon Kinesis Data Firehose,
+which can have a buffering interval of up to 900 seconds. Then, the S3 bucket sends a notification to a Lambda function, which can incur additional invocation and
+execution time. Finally, the Lambda function publishes the data to Amazon Aurora, a relational database that is not optimized for time series data and can have
+higher storage and performance costs than Amazon Timestream .
+? D. Use AWS Glue bookmarks to read sensor data from the S3 bucket in real time.
+Publish the data to an Amazon Timestream database. Use the Timestream database as a source to create a Grafana dashboard. This option is also not suitable
+for displaying a real-time view of operational efficiency, as it uses AWS Glue bookmarks to read sensor data from the S3 bucket. AWS Glue bookmarks are a
+feature that helps AWS Glue jobs and crawlers keep track of the data that has already been processed, so that they can resume from where they left off. However,
+AWS Glue jobs and crawlers are not designed for real-time data processing, as they can have a minimum frequency of 5 minutes and a variable start-up time.
+Moreover, this option also uses Grafana instead of Amazon QuickSight to create the dashboard, which can increase the latency and complexity of the solution .
+References:
+? 1: Amazon Managed Streaming for Apache Flink
+? 2: Amazon Timestream
+? 3: Amazon QuickSight
+? : Analyze data in Amazon Timestream using Grafana
+? : Amazon Kinesis Data Firehose
+? : Amazon Aurora
+? : AWS Glue Bookmarks
+? : AWS Glue Job and Crawler Scheduling
+
+NEW QUESTION 64
+A data engineer must ingest a source of structured data that is in .csv format into an Amazon S3 data lake. The .csv files contain 15 columns. Data analysts need
+to run Amazon Athena queries on one or two columns of the dataset. The data analysts rarely query the entire file.
+Which solution will meet these requirements MOST cost-effectively?
+A. Use an AWS Glue PySpark job to ingest the source data into the data lake in .csv format.
+B. Create an AWS Glue extract, transform, and load (ETL) job to read from the .csv structured data sourc
+C. Configure the job to ingest the data into the data lake in JSON format.
+D. Use an AWS Glue PySpark job to ingest the source data into the data lake in Apache Avro format.
+E. Create an AWS Glue extract, transform, and load (ETL) job to read from the .csv structured data sourc
+F. Configure the job to write the data into the data lake in Apache Parquet format.
+Answer: D
+Explanation:
+Amazon Athena is a serverless interactive query service that allows you to analyze data in Amazon S3 using standard SQL. Athena supports various data
+formats, such as CSV,JSON, ORC, Avro, and Parquet. However, not all data formats are equally efficient for querying. Some data formats, such as CSV and
+JSON, are row-oriented, meaning that they store data as a sequence of records, each with the same fields. Row- oriented formats are suitable for loading and
+exporting data, but they are not optimal for analytical queries that often access only a subset of columns. Row-oriented formats also do not support compression or
+encoding techniques that can reduce the data size and improve the query performance.
+On the other hand, some data formats, such as ORC and Parquet, are column-oriented, meaning that they store data as a collection of columns, each with a
+specific data type. Column-oriented formats are ideal for analytical queries that often filter, aggregate, or join data by columns. Column-oriented formats also
+support compression and encoding techniques that can reduce the data size and improve the query performance. For example, Parquet supports dictionary
+encoding, which replaces repeated values with numeric codes, and run-length encoding, which replaces consecutive identical values with a single value and a
+count. Parquet also supports various compression algorithms, such as Snappy, GZIP, and ZSTD, that can further reduce the data size and improve the query
+performance.
+Therefore, creating an AWS Glue extract, transform, and load (ETL) job to read from the .csv structured data source and writing the data into the data lake in
+Apache Parquet format will meet the requirements most cost-effectively. AWS Glue is a fully managed service that provides a serverless data integration platform
+for data preparation, data cataloging, and data loading. AWS Glue ETL jobs allow you to transform and load data from various sources into various targets, using
+either a graphical interface (AWS Glue Studio) or a code-based interface (AWS Glue console or AWS Glue API). By using AWS Glue ETL jobs, you can easily
+convert the data from CSV to Parquet format, without having to write or manage any code. Parquet is a column-oriented format that allows Athena to scan only the
+relevant columns and skip the rest, reducing the amount of data read from S3. This solution will also reduce the cost of Athena queries, as Athena charges based
+on the amount of data scanned from S3.
+The other options are not as cost-effective as creating an AWS Glue ETL job to write the data into the data lake in Parquet format. Using an AWS Glue PySpark
+job to ingest the source data into the data lake in .csv format will not improve the query performance or reduce the query cost, as .csv is a row-oriented format that
+does not support columnar access or compression. Creating an AWS Glue ETL job to ingest the data into the data lake in JSON format will not improve the query
+performance or reduce the query cost, as JSON is also a row-oriented format that does not support columnar access or compression. Using an AWS Glue
+PySpark job to ingest the source data into the data lake in Apache Avro format will improve the query performance, as Avro is a column-oriented format that
+supports compression and encoding, but it will require more operational effort, as you will need to write and maintain PySpark code to convert the data from CSV
+to Avro format. References:
+? Amazon Athena
+? Choosing the Right Data Format
+? AWS Glue
+? [AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide], Chapter 5: Data Analysis and Visualization, Section 5.1: Amazon Athena
+
+NEW QUESTION 69
+A company has multiple applications that use datasets that are stored in an Amazon S3 bucket. The company has an ecommerce application that generates a
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+dataset that contains personally identifiable information (PII). The company has an internal analytics application that does not require access to the PII.
+To comply with regulations, the company must not share PII unnecessarily. A data engineer needs to implement a solution that with redact PII dynamically, based
+on the needs of each application that accesses the dataset.
+Which solution will meet the requirements with the LEAST operational overhead?
+A. Create an S3 bucket policy to limit the access each application ha
+B. Create multiple copies of the datase
+C. Give each dataset copy the appropriate level of redaction for the needs of the application that accesses the copy.
+D. Create an S3 Object Lambda endpoin
+E. Use the S3 Object Lambda endpoint to read data from the S3 bucke
+F. Implement redaction logic within an S3 Object Lambda function to dynamically redact PII based on the needs of each application that accesses the data.
+G. Use AWS Glue to transform the data for each applicatio
+H. Create multiple copies of the datase
+I. Give each dataset copy the appropriate level of redaction for the needs of the application that accesses the copy.
+J. Create an API Gateway endpoint that has custom authorizer
+K. Use the API Gateway endpoint to read data from the S3 bucke
+L. Initiate a REST API call to dynamically redact PII based on the needs of each application that accesses the data.
+Answer: B
+Explanation:
+Option B is the best solution to meet the requirements with the least operational overhead because S3 Object Lambda is a feature that allows you to add your own
+code to process data retrieved from S3 before returning it to an application. S3 Object Lambda works with S3 GET requests and can modify both the object
+metadata and the object data. By using S3 Object Lambda, you can implement redaction logic within an S3 Object Lambda function to dynamically redact PII
+based on the needs of each application that accesses the data. This way, you can avoid creating and maintaining multiple copies of the dataset with different
+levels of redaction.
+Option A is not a good solution because it involves creating and managing multiple copies of the dataset with different levels of redaction for each application. This
+option adds complexity and storage cost to the data protection process and requires additional resources and configuration. Moreover, S3 bucket policies cannot
+enforce fine-grained data access control at the row and column level, so they are not sufficient to redact PII.
+Option C is not a good solution because it involves using AWS Glue to transform the data for each application. AWS Glue is a fully managed service that can
+extract, transform, and load (ETL) data from various sources to various destinations, including S3. AWS Glue can also convert data to different formats, such as
+Parquet, which is a columnar storage format that is optimized for analytics. However, in this scenario, using AWS Glue to redact PII is not the best option because
+it requires creating and maintaining multiple copies of the dataset with different levels of redaction for each application. This option also adds extra time and cost to
+the data protection process and requires additional resources and configuration.
+Option D is not a good solution because it involves creating and configuring an API Gateway endpoint that has custom authorizers. API Gateway is a service that
+allows youto create, publish, maintain, monitor, and secure APIs at any scale. API Gateway can also integrate with other AWS services, such as Lambda, to
+provide custom logic for processing requests. However, in this scenario, using API Gateway to redact PII is not the best option because it requires writing and
+maintaining custom code and configuration for the API endpoint, the custom authorizers, and the REST API call. This option also adds complexity and latency to
+the data protection process and requires additional resources and configuration.
+References:
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide
+? Introducing Amazon S3 Object Lambda – Use Your Code to Process Data as It Is Being Retrieved from S3
+? Using Bucket Policies and User Policies - Amazon Simple Storage Service
+? AWS Glue Documentation
+? What is Amazon API Gateway? - Amazon API Gateway
+
+NEW QUESTION 72
+A retail company has a customer data hub in an Amazon S3 bucket. Employees from many countries use the data hub to support company-wide analytics. A
+governance team must ensure that the company's data analysts can access data only for customers who are within the same country as the analysts.
+Which solution will meet these requirements with the LEAST operational effort?
+A. Create a separate table for each country's customer dat
+B. Provide access to each analyst based on the country that the analyst serves.
+C. Register the S3 bucket as a data lake location in AWS Lake Formatio
+D. Use the Lake Formation row-level security features to enforce the company's access policies.
+E. Move the data to AWS Regions that are close to the countries where the customers ar
+F. Provide access to each analyst based on the country that the analyst serves.
+G. Load the data into Amazon Redshif
+H. Create a view for each countr
+I. Create separate 1AM roles for each country to provide access to data from each countr
+J. Assign the appropriate roles to the analysts.
+Answer: B
+Explanation:
+AWS Lake Formation is a service that allows you to easily set up, secure, and manage data lakes. One of the features of Lake Formation is row-level security,
+which enables you to control access to specific rows or columns of data based on the identity or role of the user. This feature is useful for scenarios where you
+need to restrict access to sensitive or regulated data, such as customer data from different countries. By registering the S3 bucket as a data lake location in Lake
+Formation, you can use the Lake Formation console or APIs to define and apply row-level security policies to the data in the bucket. You can also use Lake
+Formation blueprints to automate the ingestion and transformation of data from various sources into the data lake. This solution requires the least operational effort
+compared to the other options, as it does not involve creating or moving data, or managing multiple tables, views, or roles. References:
+? AWS Lake Formation
+? Row-Level Security
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide, Chapter 4: Data Lakes and Data Warehouses, Section 4.2: AWS Lake Formation
+
+NEW QUESTION 77
+A data engineer runs Amazon Athena queries on data that is in an Amazon S3 bucket. The Athena queries use AWS Glue Data Catalog as a metadata table.
+The data engineer notices that the Athena query plans are experiencing a performance bottleneck. The data engineer determines that the cause of the
+performance bottleneck is the large number of partitions that are in the S3 bucket. The data engineer must resolve the performance bottleneck and reduce Athena
+query planning time.
+Which solutions will meet these requirements? (Choose two.)
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+A. Create an AWS Glue partition inde
+B. Enable partition filtering.
+C. Bucketthe data based on a column thatthe data have in common in a WHERE clause of the user query
+D. Use Athena partition projection based on the S3 bucket prefix.
+E. Transform the data that is in the S3 bucket to Apache Parquet format.
+F. Use the Amazon EMR S3DistCP utility to combine smaller objects in the S3 bucket into larger objects.
+Answer: AC
+Explanation:
+The best solutions to resolve the performance bottleneck and reduce Athena query planning time are to create an AWS Glue partition index and enable partition
+filtering, and to use Athena partition projection based on the S3 bucket prefix.
+AWS Glue partition indexes are a feature that allows you to speed up query processing of highly partitioned tables cataloged in AWS Glue Data Catalog. Partition
+indexes are available for queries in Amazon EMR, Amazon Redshift Spectrum, and AWS Glue ETL jobs. Partition indexes are sublists of partition keys defined in
+the table. When you create a partition index, you specify a list of partition keys that already exist on a given table. AWS Glue then creates an index for the specified
+keys and stores it in the Data Catalog. When you run a query that filters on the partition keys, AWS Glue uses the partition index to quickly identify the relevant
+partitions without scanning the entiretable metadata. This reduces the query planning time and improves the query performance1.
+Athena partition projection is a feature that allows you to speed up query processing of highly partitioned tables and automate partition management. In partition
+projection, Athena calculates partition values and locations using the table properties that you configure directly on your table in AWS Glue. The table properties
+allow Athena to ‘project’, or determine, the necessary partition information instead of having to do a more time- consuming metadata lookup in the AWS Glue
+Data Catalog. Because in-memory operations are often faster than remote operations, partition projection can reduce the runtime of queries against highly
+partitioned tables. Partition projection also automates partition management because it removes the need to manually create partitions in Athena, AWS Glue, or
+your external Hive metastore2.
+Option B is not the best solution, as bucketing the data based on a column that the data have in common in a WHERE clause of the user query would not reduce
+the query planning time. Bucketing is a technique that divides data into buckets based on a hash function applied to a column. Bucketing can improve the
+performance of join queries by
+reducing the amount of data that needs to be shuffled between nodes. However, bucketing does not affect the partition metadata retrieval, which is the main cause
+of the performance bottleneck in this scenario3.
+Option D is not the best solution, as transforming the data that is in the S3 bucket to Apache Parquet format would not reduce the query planning time. Apache
+Parquet is a columnar storage format that can improve the performance of analytical queries by reducing the amount of data that needs to be scanned and
+providing efficient compression and encoding schemes. However, Parquet does not affect the partition metadata retrieval, which is the main cause of the
+performance bottleneck in this scenario4.
+Option E is not the best solution, as using the Amazon EMR S3DistCP utility to combine smaller objects in the S3 bucket into larger objects would not reduce the
+query planning time. S3DistCP is a tool that can copy large amounts of data between Amazon S3 buckets or from HDFS to Amazon S3. S3DistCP can also
+aggregate smaller files into larger files to improve the performance of sequential access. However, S3DistCP does not affect the partition metadata retrieval, which
+is the main cause of the performance bottleneck in this scenario5. References:
+? Improve query performance using AWS Glue partition indexes
+? Partition projection with Amazon Athena
+? Bucketing vs Partitioning
+? Columnar Storage Formats
+? S3DistCp
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide
+
+NEW QUESTION 78
+A data engineer is using Amazon Athena to analyze sales data that is in Amazon S3. The data engineer writes a query to retrieve sales amounts for 2023 for
+several products from a table named sales_data. However, the query does not return results for all of the products that are in the sales_data table. The data
+engineer needs to troubleshoot the query to resolve the issue.
+The data engineer's original query is as follows: SELECT product_name, sum(sales_amount) FROM sales_data
+WHERE year = 2023
+GROUP BY product_name
+How should the data engineer modify the Athena query to meet these requirements?
+A. Replace sum(sales amount) with count(*J for the aggregation.
+B. Change WHERE year = 2023 to WHERE extractlyear FROM sales data) = 2023.
+C. Add HAVING sumfsales amount) > 0 after the GROUP BY clause.
+D. Remove the GROUP BY clause
+Answer: B
+Explanation:
+The original query does not return results for all of the products because the year column in the sales_data table is not an integer, but a timestamp. Therefore, the
+WHERE clause does not filter the data correctly, and only returns the products that have a null value for the year column. To fix this, the data engineer should use
+the extract function to extract the year from the timestamp and compare it with 2023. This way, the querywill return the correct results for all of the products in the
+sales_data table. The other options are either incorrect or irrelevant, as they do not address the root cause of the issue. Replacing sum with count does not
+change the filtering condition, adding HAVING clause does not affect the grouping logic, and removing the GROUP BY clause does not solve the problem of
+missing products. References:
+? Troubleshooting JSON queries - Amazon Athena (Section: JSON related errors)
+? When I query a table in Amazon Athena, the TIMESTAMP result is empty (Section: Resolution)
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide (Chapter 7, page 197)
+
+NEW QUESTION 82
+A data engineer has a one-time task to read data from objects that are in Apache Parquet format in an Amazon S3 bucket. The data engineer needs to query only
+one column of the data.
+Which solution will meet these requirements with the LEAST operational overhead?
+A. Confiqure an AWS Lambda function to load data from the S3 bucket into a pandas dataframe- Write a SQL SELECT statement on the dataframe to query the
+required column.
+B. Use S3 Select to write a SQL SELECT statement to retrieve the required column from the S3 objects.
+C. Prepare an AWS Glue DataBrew project to consume the S3 objects and to query the required column.
+D. Run an AWS Glue crawler on the S3 object
+E. Use a SQL SELECT statement in Amazon Athena to query the required column.
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+Answer: B
+Explanation:
+Option B is the best solution to meet the requirements with the least operational overhead because S3 Select is a feature that allows you to retrieve only a subset
+of data from an S3 object by using simple SQL expressions. S3 Select works on objects stored in CSV, JSON, or Parquet format. By using S3 Select, you can
+avoid the need to download and process the entire S3 object, which reduces the amount of data transferred and the computation time. S3 Select is also easy to
+use and does not require any additional services or resources.
+Option A is not a good solution because it involves writing custom code and configuring an AWS Lambda function to load data from the S3 bucket into a pandas
+dataframe and query the required column. This option adds complexity and latency to the data retrieval process and requires additional resources and
+configuration.Moreover, AWS Lambda has limitations on the execution time, memory, and concurrency, which may affect the performance and reliability of the
+data retrieval process.
+Option C is not a good solution because it involves creating and running an AWS Glue DataBrew project to consume the S3 objects and query the required
+column. AWS Glue DataBrew is a visual data preparation tool that allows you to clean, normalize, and transform data without writing code. However, in this
+scenario, the data is already in Parquet format, which is a columnar storage format that is optimized for analytics. Therefore, there is no need to use AWS Glue
+DataBrew to prepare the data. Moreover, AWS Glue DataBrew adds extra time and cost to the data retrieval process and requires additional resources and
+configuration.
+Option D is not a good solution because it involves running an AWS Glue crawler on the S3 objects and using a SQL SELECT statement in Amazon Athena to
+query the required column. An AWS Glue crawler is a service that can scan data sources and create metadata tables in the AWS Glue Data Catalog. The Data
+Catalog is a central repository that stores information about the data sources, such as schema, format, and location. Amazon Athena is a serverless interactive
+query service that allows you to analyze data in S3 using standard SQL. However, in this scenario, the schema and format of the data are already known and
+fixed, so there is no need to run a crawler to discover them. Moreover, running a crawler and using Amazon Athena adds extra time and cost to the data retrieval
+process and requires additional services and configuration.
+References:
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide
+? S3 Select and Glacier Select - Amazon Simple Storage Service
+? AWS Lambda - FAQs
+? What Is AWS Glue DataBrew? - AWS Glue DataBrew
+? Populating the AWS Glue Data Catalog - AWS Glue
+? What is Amazon Athena? - Amazon Athena
+
+NEW QUESTION 84
+A data engineer needs to maintain a central metadata repository that users access through Amazon EMR and Amazon Athena queries. The repository needs to
+provide the schema and properties of many tables. Some of the metadata is stored in Apache Hive. The data engineer needs to import the metadata from Hive into
+the central metadata repository.
+Which solution will meet these requirements with the LEAST development effort?
+A. Use Amazon EMR and Apache Ranger.
+B. Use a Hive metastore on an EMR cluster.
+C. Use the AWS Glue Data Catalog.
+D. Use a metastore on an Amazon RDS for MySQL DB instance.
+Answer: C
+Explanation:
+The AWS Glue Data Catalog is an Apache Hive metastore-compatible catalog that provides a central metadata repository for various data sources and formats.
+You can use the AWS Glue Data Catalog as an external Hive metastore for Amazon EMR and Amazon Athena queries, and import metadata from existing Hive
+metastores into the Data Catalog. This solution requires the least development effort, as you can use AWS Glue crawlers to automatically discover and catalog the
+metadata from Hive, and use the AWS Glue console, AWS CLI, or Amazon EMR API to configure the Data Catalog as the Hive metastore. The other options are
+either more complex or require additional steps, such as setting up Apache Ranger for security, managing a Hive metastore on an EMR cluster or an RDS
+instance, or migrating the metadata manually. References:
+? Using the AWS Glue Data Catalog as the metastore for Hive (Section: Specifying
+AWS Glue Data Catalog as the metastore)
+? Metadata Management: Hive Metastore vs AWS Glue (Section: AWS Glue Data Catalog)
+? AWS Glue Data Catalog support for Spark SQL jobs (Section: Importing metadata from an existing Hive metastore)
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide (Chapter 5, page 131)
+
+NEW QUESTION 87
+A data engineer needs to use AWS Step Functions to design an orchestration workflow. The workflow must parallel process a large collection of data files and
+apply a specific transformation to each file.
+Which Step Functions state should the data engineer use to meet these requirements?
+A. Parallel state
+B. Choice state
+C. Map state
+D. Wait state
+Answer: C
+Explanation:
+Option C is the correct answer because the Map state is designed to process a collection of data in parallel by applying the same transformation to each element.
+The Map state can invoke a nested workflow for each element, which can be another state machine ora Lambda function. The Map state will wait until all the
+parallel executions are completed before moving to the next state.
+Option A is incorrect because the Parallel state is used to execute multiple branches of logic concurrently, not to process a collection of data. The Parallel state
+can have different branches with different logic and states, whereas the Map state has only one branch that is applied to each element of the collection.
+Option B is incorrect because the Choice state is used to make decisions based on a comparison of a value to a set of rules. The Choice state does not process
+any data or invoke any nested workflows.
+Option D is incorrect because the Wait state is used to delay the state machine from continuing for a specified time. The Wait state does not process any data or
+invoke any nested workflows.
+References:
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide, Chapter 5: Data Orchestration, Section 5.3: AWS Step Functions, Pages 131-132
+? Building Batch Data Analytics Solutions on AWS, Module 5: Data Orchestration, Lesson 5.2: AWS Step Functions, Pages 9-10
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+? AWS Documentation Overview, AWS Step Functions Developer Guide, Step Functions Concepts, State Types, Map State, Pages 1-3
+
+NEW QUESTION 91
+A company receives call logs as Amazon S3 objects that contain sensitive customer information. The company must protect the S3 objects by using encryption.
+The company must also use encryption keys that only specific employees can access.
+Which solution will meet these requirements with the LEAST effort?
+A. Use an AWS CloudHSM cluster to store the encryption key
+B. Configure the process that writes to Amazon S3 to make calls to CloudHSM to encrypt and decrypt the object
+C. Deploy an IAM policy that restricts access to the CloudHSM cluster.
+D. Use server-side encryption with customer-provided keys (SSE-C) to encrypt the objects that contain customer informatio
+E. Restrict access to the keys that encrypt the objects.
+F. Use server-side encryption with AWS KMS keys (SSE-KMS) to encrypt the objects that contain customer informatio
+G. Configure an IAM policy that restricts access to the KMS keys that encrypt the objects.
+H. Use server-side encryption with Amazon S3 managed keys (SSE-S3) to encrypt the objects that contain customer informatio
+I. Configure an IAM policy that restricts access to the Amazon S3 managed keys that encrypt the objects.
+Answer: C
+Explanation:
+Option C is the best solution to meet the requirements with the least effort because server-side encryption with AWS KMS keys (SSE-KMS) is a feature that
+allows you to encrypt data at rest in Amazon S3 using keys managed by AWS Key Management Service (AWS KMS). AWS KMS is a fully managed service that
+enables you to create and manage encryption keys for your AWS services and applications. AWS KMS also allows you to define granular access policies for your
+keys, such as who can use them to encrypt and decrypt data, and under what conditions. By using SSE-KMS, you canprotect your S3 objects by using encryption
+keys that only specific employees can access, without having to manage the encryption and decryption process yourself.
+Option A is not a good solution because it involves using AWS CloudHSM, which is a service that provides hardware security modules (HSMs) in the AWS Cloud.
+AWS CloudHSM allows you to generate and use your own encryption keys on dedicated hardware that is compliant with various standards and regulations.
+However, AWS CloudHSM is not a fully managed service and requires more effort to set up and maintain than AWS KMS. Moreover, AWS CloudHSM does not
+integrate with Amazon S3, so you have to configure the process that writes to S3 to make calls to CloudHSM to encrypt and decrypt the objects, which adds
+complexity and latency to the data protection process. Option B is not a good solution because it involves using server-side encryption with customer-provided
+keys (SSE-C), which is a feature that allows you to encrypt data at rest in Amazon S3 using keys that you provide and manage yourself. SSE-C requires you to
+send your encryption key along with each request to upload or retrieve an object. However, SSE-C does not provide any mechanism to restrict access to the keys
+that encrypt the objects, so you have to implement your own key management and access control system, which adds more effort and risk to the data protection
+process.
+Option D is not a good solution because it involves using server-side encryption with Amazon S3 managed keys (SSE-S3), which is a feature that allows you to
+encrypt data at rest in Amazon S3 using keys that are managed by Amazon S3. SSE-S3 automatically encrypts and decrypts your objects as they are uploaded
+and downloaded from S3. However, SSE-S3 does not allow you to control who can access the encryption keys or under what conditions. SSE-S3 uses a single
+encryption key for each S3 bucket, which is shared by all users who have access to the bucket. This means that you cannot restrict access to the keys that encrypt
+the objects by specific employees, which does not meet the requirements.
+References:
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide
+? Protecting Data Using Server-Side Encryption with AWS KMS–Managed Encryption Keys (SSE-KMS) - Amazon Simple Storage Service
+? What is AWS Key Management Service? - AWS Key Management Service
+? What is AWS CloudHSM? - AWS CloudHSM
+? Protecting Data Using Server-Side Encryption with Customer-Provided Encryption Keys (SSE-C) - Amazon Simple Storage Service
+? Protecting Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3) - Amazon Simple Storage Service
+
+NEW QUESTION 93
+A data engineer needs Amazon Athena queries to finish faster. The data engineer notices that all the files the Athena queries use are currently stored in
+uncompressed .csv format. The data engineer also notices that users perform most queries by selecting a specific column.
+Which solution will MOST speed up the Athena query performance?
+A. Change the data format from .csvto JSON forma
+B. Apply Snappy compression.
+C. Compress the .csv files by using Snappy compression.
+D. Change the data format from .csvto Apache Parque
+E. Apply Snappy compression.
+F. Compress the .csv files by using gzjg compression.
+Answer: C
+Explanation:
+Amazon Athena is a serverless interactive query service that allows you to analyze data in Amazon S3 using standard SQL. Athena supports various data
+formats, such as CSV, JSON, ORC, Avro, and Parquet. However, not all data formats are equally efficient for querying. Some data formats, such as CSV and
+JSON, are row-oriented, meaning that they store data as a sequence of records, each with the same fields. Row- oriented formats are suitable for loading and
+exporting data, but they are not optimal for analytical queries that often access only a subset of columns. Row-oriented formats also do not support compression or
+encoding techniques that can reduce the data size and improve the query performance.
+On the other hand, some data formats, such as ORC and Parquet, are column-oriented, meaning that they store data as a collection of columns, each with a
+specific data type. Column-oriented formats are ideal for analytical queries that often filter, aggregate, or join data by columns. Column-oriented formats also
+support compression and encoding techniques that can reduce the data size and improve the query performance. For example, Parquet supports dictionary
+encoding, which replaces repeated values with numeric codes, and run-length encoding, which replaces consecutive identical values with a single value and a
+count. Parquet also supports various compression algorithms, such as Snappy, GZIP, and ZSTD, that can further reduce the data size and improve the query
+performance.
+Therefore, changing the data format from CSV to Parquet and applying Snappy compression will most speed up the Athena query performance. Parquet is a
+column- oriented format that allows Athena to scan only the relevant columns and skip the rest, reducing the amount of data read from S3. Snappy is a
+compression algorithm that reduces the data size without compromising the query speed, as it is splittable and does not require decompression before reading.
+This solution will also reduce the cost of Athena queries, as Athena charges based on the amount of data scanned from S3.
+The other options are not as effective as changing the data format to Parquet and applying Snappy compression. Changing the data format from CSV to JSON
+and applying Snappy compression will not improve the query performance significantly, as JSON is also a row- oriented format that does not support columnar
+access or encoding techniques. Compressing the CSV files by using Snappy compression will reduce the data size, but it will not improve the query performance
+significantly, as CSV is still a row-oriented format that does not support columnar access or encoding techniques. Compressing the CSV files by using gzjg
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+compression will reduce the data size, but it willdegrade the query performance, as gzjg is not a splittable compression algorithm and requires decompression
+before reading. References:
+? Amazon Athena
+? Choosing the Right Data Format
+? AWS Certified Data Engineer - Associate DEA-C01 Complete Study Guide, Chapter 5: Data Analysis and Visualization, Section 5.1: Amazon Athena
+
+NEW QUESTION 94
+......
+
+Passing Certification Exams Made Easy
+
+visit - https://www.surepassexam.com
+
+ Recommend!! Get the Full AWS-Certified-Data-Engineer-Associate dumps in VCE and PDF From SurePassExam
+https://www.surepassexam.com/AWS-Certified-Data-Engineer-Associate-exam-dumps.html (80 New Questions)
+
+Thank You for Trying Our Product
+We offer two products:
+1st - We have Practice Tests Software with Actual Exam Questions
+2nd - Questons and Answers in PDF Format
+
+AWS-Certified-Data-Engineer-Associate Practice Exam Features:
+* AWS-Certified-Data-Engineer-Associate Questions and Answers Updated Frequently
+* AWS-Certified-Data-Engineer-Associate Practice Questions Verified by Expert Senior Certified Staff
+* AWS-Certified-Data-Engineer-Associate Most Realistic Questions that Guarantee you a Pass on Your FirstTry
+* AWS-Certified-Data-Engineer-Associate Practice Test Questions in Multiple Choice Formats and Updatesfor 1 Year
+
+100% Actual & Verified — Instant Download, Please Click
+Order The AWS-Certified-Data-Engineer-Associate Practice Test Here
+
+Passing Certification Exams Made Easy
+Powered by TCPDF (www.tcpdf.org)
+
+visit - https://www.surepassexam.com
+
+ 
